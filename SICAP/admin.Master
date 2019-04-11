@@ -61,6 +61,22 @@
                 <asp:HyperLink NavigateUrl="~/usuarios.aspx" ID="hlEmpleados" runat="server">Usuarios<i class="material-icons">people</i></asp:HyperLink>
                 <asp:HyperLink NavigateUrl="~/registro.aspx" ID="hlRegistrar" runat="server">Regitrar nuevo usuario<i class="material-icons">person_add</i></asp:HyperLink>
             </li>
+
+            <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header">Dropdown<i class="material-icons">arrow_drop_down</i></a>
+            <div class="collapsible-body">
+              <ul>
+                <li><a href="#!">First</a></li>
+                <li><a href="#!">Second</a></li>
+                <li><a href="#!">Third</a></li>
+                <li><a href="#!">Fourth</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </li>
         </ul>
 
         <!-- aqui va el contenido de la pagina -->
