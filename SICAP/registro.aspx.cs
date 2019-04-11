@@ -57,11 +57,9 @@ namespace SICAP
             }
             else
             {
-
                 usu.guardar();
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
                         "alert('usuario guardado correctamente')", true);
-
             }
         }
     }

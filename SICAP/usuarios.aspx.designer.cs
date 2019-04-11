@@ -13,12 +13,12 @@ namespace SICAP {
     public partial class usuarios {
         
         /// <summary>
-        /// Control GridView1.
+        /// Control gvUsurios.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gvUsurios;
     }
 }
