@@ -12,6 +12,7 @@ namespace SICAP
     public partial class registro : System.Web.UI.Page
     {
         Usuario usu;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             usu = new Usuario();
