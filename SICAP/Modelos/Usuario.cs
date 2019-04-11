@@ -29,7 +29,7 @@ namespace SICAP.Modelos
             try
             {
                 string query = "INSERT INTO usuarios(nombre,paterno,materno,telefono,email,especialidad,contrasena,area,rol,ruta)"
-                + "values(@nombre,@paterno,@materno,@telefono,@email,@especialidad,ENCRYPTBYPASSPHRASE('PASS',@contrasena),@area,@rol,@ruta)";
+                + "values(@nombre,@paterno,@materno,@telefono,@email,@especialidad,@contrasena,@area,@rol,@ruta)";
                 SqlCommand cmd = new SqlCommand(query);
                 cmd.Parameters.AddWithValue("@nombre", nombre);
                 cmd.Parameters.AddWithValue("@materno", materno);

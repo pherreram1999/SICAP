@@ -47,7 +47,7 @@
                         <asp:TextBox runat="server" ID="txtContrasena" required="required" TextMode="Password"/>
                     </div>
                     <div class="col s12">
-                        <asp:Button Text="Iniciar" ID="btnIniciar" CssClass="btn blue" runat="server" />
+                        <asp:Button Text="Iniciar" ID="btnIniciar" CssClass="btn blue" runat="server" OnClick="btnIniciar_Click1" />
                     </div>
 
                 </div>

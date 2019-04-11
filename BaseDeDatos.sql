@@ -25,7 +25,7 @@ CREATE TABLE usuarios
 	paterno			VARCHAR (180),
 	materno			VARCHAR (180),
 	rol				INT DEFAULT 1  NOT NULL,
-	contrasena		VARBINARY (MAX) NOT NULL,
+	contrasena		VARCHAR (MAX) NOT NULL,
 	area			INT FOREIGN KEY REFERENCES areas(id_area) NOT NULL,
 	telefono		VARCHAR (12) NOT NULL,
 	email			VARCHAR (120) UNIQUE NOT NULL,

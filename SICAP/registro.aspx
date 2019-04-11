@@ -100,7 +100,7 @@
 
         <div class="row">
             <div class="section">                
-                <asp:Button ID="btnRegisrar"  CssClass="btn right" runat="server" Text="Registrar" />
+                <asp:Button ID="btnRegisrar"  CssClass="btn right" runat="server" Text="Registrar" OnClick="btnRegisrar_Click" />
             </div>
         </div>
 
