@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="admin.master.cs" Inherits="SICAP.admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="Recursos/materialize.css" rel="stylesheet" />
+    <link href="Recursos/material-icons.css" rel="stylesheet" />
+    <link href="Recursos/animate.css" rel="stylesheet" />
+
+    <style>
+        header, .main, footer {
+      padding-left: 300px;
+     
+    }
+
+    .contenido {
+        margin: 15px;
+    }
+
+    .carta {
+        margin: 24px;
+    }
+
+    @media only screen and (max-width : 992px) {
+      header, .main, footer {
+        padding-left: 0;
+      }
+    }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+            <!-- se define el menu principal -->
+        <nav class="blue">
+            <div class="nav-wrapper">
+                <div class="container">
+                    <a href="#" class="brand-logo center">SICAP</a>
+                    <ul class="right">
+                        <li><a href="#" class="show-on-medium sidenav-trigger" data-target="dash"><i class="material-icons">menu</i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+         <!-- se define el sidenav -->
+        <ul class="sidenav sidenav-fixed" id="dash">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        <img src="Recursos/backgroundAdmin.jpg" />
+                    </div>
+                    <asp:Image CssClass="circle" ID="userFoto" runat="server" />
+                    <asp:Label ID="lblNombreUsuario" CssClass="white-text" runat="server" Text="Nombre del Usuario"></asp:Label>                           
+                </div>
+                <asp:HyperLink ID="hlProyectos" runat="server">Proyectos<i class="material-icons">work</i></asp:HyperLink>
+                <asp:HyperLink NavigateUrl="~/usuarios.aspx" ID="hlEmpleados" runat="server">Usuarios<i class="material-icons">people</i></asp:HyperLink>
+                <asp:HyperLink NavigateUrl="~/registro.aspx" ID="hlRegistrar" runat="server">Regitrar nuevo usuario<i class="material-icons">person_add</i></asp:HyperLink>
+            </li>
+        </ul>
+
+        <!-- aqui va el contenido de la pagina -->
+        <div class="main">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+    <script src="Recursos/materialize.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            M.AutoInit();
+        });
+    </script>
+</body>
+</html>
