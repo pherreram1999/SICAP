@@ -76,22 +76,22 @@ namespace SICAP {
         protected global::System.Web.UI.WebControls.TextBox txtObservacionesActividad;
         
         /// <summary>
-        /// Control gvUsuarioPorSeleccionar.
+        /// Control lbxUsuarios.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvUsuarioPorSeleccionar;
+        protected global::System.Web.UI.WebControls.ListBox lbxUsuarios;
         
         /// <summary>
-        /// Control gvUsuarioSeleccionados.
+        /// Control lbxUsuariosSeleccionados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvUsuarioSeleccionados;
+        protected global::System.Web.UI.WebControls.ListBox lbxUsuariosSeleccionados;
         
         /// <summary>
         /// Control gvActividades.
@@ -101,5 +101,14 @@ namespace SICAP {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvActividades;
+        
+        /// <summary>
+        /// Control gvUsuarioSeleccionados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvUsuarioSeleccionados;
     }
 }

@@ -14,25 +14,39 @@ namespace SICAP
         SICAP.Modelos.Usuario usu;
         protected void Page_Load(object sender, EventArgs e)
         {
-            usu = new SICAP.Modelos.Usuario();
-            if (gvUsuarioPorSeleccionar.Rows.Count == 0)
+            if (lbxUsuarios.Items.Count == 0)
             {
-                gvUsuarioPorSeleccionar.DataSource = usu.traerUsuarios();
-                gvUsuarioPorSeleccionar.DataBind();
+                usu = new SICAP.Modelos.Usuario();
+                DataTable usuarios = usu.traerUsuarios();
+                foreach (DataRow usuario in usuarios.Rows)
+                {
+                    int id = (int)(usuario["id_usuario"]);
+                    string nombre = usuario["nombre"].ToString();
+                    string paterno = usuario["paterno"].ToString();
+                    string materno = usuario["materno"].ToString();
+                    string especialidad = usuario["especialidad"].ToString();
+                    string area = usuario["area"].ToString();
+
+                    string item = id + " - " + " " + nombre + " " + paterno + " " + materno + " - " + especialidad;
+
+                    lbxUsuarios.Items.Add(item);
+                }
             }
-            gvUsuarioSeleccionados.DataBind();
         }
 
-        protected void txtFechaFinalProyecto_TextChanged(object sender, EventArgs e)
+        protected void lkAsignar_Click(object sender, EventArgs e)
         {
-            txtfechaEntregaActividad.Attributes.Add("max",txtFechaFinalProyecto.Text);
+            string message = "";
+            foreach (ListItem item in lbxUsuarios.Items)
+            {
+                message += item.Text + " " + item.Value + "\\n";
+            }
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "alert('" + message + "');", true);
         }
 
-        protected void gvUsuarioPorSeleccionar_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GridViewRow fila = gvUsuarioPorSeleccionar.SelectedRow;
-            DataTable table = new DataTable();
-            table.Rows.Add();
-        }
+       
+
+      
+       
     }
 }

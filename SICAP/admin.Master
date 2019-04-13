@@ -42,6 +42,21 @@
         height: 50px;
     }
 
+    .fixSelect {
+        height:180px;
+    }
+
+    .fixSelect::-webkit-scrollbar{
+        position:fixed;
+        width:7px;
+        background: rgba(155, 145, 145, 0.43);
+    }
+
+    .fixSelect::-webkit-scrollbar-thumb{
+        border-radius:3px;
+        background:rgba(43, 144, 211, 0.76);
+        height: 50px;
+    }
 
     </style>
 

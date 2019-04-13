@@ -67,49 +67,41 @@
                               <asp:LinkButton runat="server" >Agregar Actividad<i class="material-icons left">add</i></asp:LinkButton>
                           </div>
                       </div>
-                    </li>                    
+                    </li>
+                                    
                 </ul>
             </div>
 
         </div>
+
         
         <div class="row">
-            <div class="col s12 m6 card-panel">
-                <asp:GridView ID="gvUsuarioPorSeleccionar" CssClass="responsive-table" OnSelectedIndexChanged="gvUsuarioPorSeleccionar_SelectedIndexChanged" AutoGenerateColumns="false" runat="server">
-                    <Columns>
-                        <asp:BoundField DataField="id_usuario" HeaderText="ID" />
-                        <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                        <asp:BoundField DataField="paterno" HeaderText="Apellido Paterno" />
-                        <asp:BoundField DataField="materno" HeaderText="Apellido Materno" />
-                        <asp:BoundField DataField="area" HeaderText="Area" />
-                        <asp:ButtonField ButtonType="Link" CommandName="Select" Text="agregar" />
-                    </Columns>
-                </asp:GridView>
-            </div>
+            
         
-            <div class="col s12 m6 card-panel">
-                <asp:GridView runat="server" CssClass="responsive-video" ID="gvUsuarioSeleccionados">
-                    <Columns>
-                        <asp:BoundField DataField="id_usuario" HeaderText="ID" />
-                        <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                        <asp:BoundField DataField="paterno" HeaderText="Apellido Paterno" />
-                        <asp:BoundField DataField="materno" HeaderText="Apellido Materno" />
-                        <asp:BoundField DataField="area" HeaderText="Area" />
-                        <asp:ButtonField ButtonType="Link" CommandName="Select" Text="Quitar" />
-                    </Columns>
-                </asp:GridView>
+            <div class="col s12 m6">
+                asdasd
             </div>
             
          </div>
                             
+        <div class="row">
+            <div class="col s12 m5">
+                <asp:ListBox CssClass="browser-default fixSelect" ID="lbxUsuarios" SelectionMode="Multiple" runat="server">                    
+                    
+                </asp:ListBox>
+            </div>
 
-                                    
-                                
+            <div class="col s12 m2">
+                botones aqui
+            </div>
 
-                                
-                                
-                                    
-                                
+            <div class="col s12 m5">
+                <asp:ListBox CssClass="browser-default fixSelect" ID="lbxUsuariosSeleccionados" SelectionMode="Multiple" runat="server">                    
+                    
+                </asp:ListBox>
+            </div>
+
+        </div>
 
         <div class="row">            
             <div class="col s12 m6">
@@ -121,7 +113,16 @@
             </div>
 
             <div class="col s12 m6">
-                
+                <asp:GridView runat="server" CssClass="responsive-video" ID="gvUsuarioSeleccionados">
+                    <Columns>
+                        <asp:BoundField DataField="id_usuario" HeaderText="ID" />
+                        <asp:BoundField DataField="nombre" HeaderText="Nombre" />
+                        <asp:BoundField DataField="paterno" HeaderText="Apellido Paterno" />
+                        <asp:BoundField DataField="materno" HeaderText="Apellido Materno" />
+                        <asp:BoundField DataField="area" HeaderText="Area" />
+                        <asp:ButtonField ButtonType="Link" CommandName="Select" Text="Quitar" />
+                    </Columns>
+                </asp:GridView>
             </div>
         </div>                                   
 

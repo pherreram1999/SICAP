@@ -124,7 +124,7 @@ namespace SICAP.Modelos
         {
             try
             {
-                string query = "SELECT U.id_usuario, U.nombre,U.paterno,U.materno,A.area FROM usuarios U INNER JOIN areas A ON U.area = A.id_area";
+                string query = "SELECT U.id_usuario, U.nombre,U.paterno,U.materno,A.area, U.especialidad  FROM usuarios U INNER JOIN areas A ON U.area = A.id_area;";
                 SqlCommand cmd = new SqlCommand(query);
                 return consulta(cmd);
             }
