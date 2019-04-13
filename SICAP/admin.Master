@@ -29,6 +29,20 @@
         padding-left: 0;
       }
     }
+
+    body::-webkit-scrollbar{
+        position:fixed;
+        width:7px;
+        background: rgba(155, 145, 145, 0.43);
+    }
+
+    body::-webkit-scrollbar-thumb{
+        border-radius:3px;
+        background:rgba(43, 144, 211, 0.76);
+        height: 50px;
+    }
+
+
     </style>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -88,11 +102,16 @@
     </form>
 
     <script src="Recursos/materialize.js"></script>
-
+    <script src="Recursos/jquery.js"></script>
     <script>
+
+
         document.addEventListener('DOMContentLoaded', function () {
             M.AutoInit();
         });
+
+        
+
     </script>
 </body>
 </html>

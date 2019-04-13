@@ -53,18 +53,19 @@ CREATE TABLE proyectos
 (
 	id_proyecto		INT IDENTITY (1,1) PRIMARY KEY,
 	proyecto		VARCHAR (MAX) NOT NULL,
+	observaciones	TEXT NOT NULL,
 	fecha_registro	DATETIME DEFAULT GETDATE(),
 	fecha_inicio	DATETIME NOT NULL,
 	fecha_final		DATETIME NOT NULL,
-	estatus			INT FOREIGN KEY REFERENCES estatus(id_estatus) NOT NULL
+	estatus			INT DEFAULT(1) FOREIGN KEY REFERENCES estatus(id_estatus) NOT NULL
 );
 go
 
-CREATE TABLE avances
+CREATE TABLE actividades
 (
-	id_avance			INT IDENTITY (1,1) PRIMARY KEY,
-	titulo				VARCHAR (MAX) NOT NULL,
-	observaciones		VARCHAR (MAX) NOT NULL,
+	id_actividad		INT IDENTITY (1,1) PRIMARY KEY,
+	actividad			VARCHAR (MAX) NOT NULL,
+	observaciones		TEXT NOT NULL,
 	fecha_entrega		DATETIME NOT NULL,
 	estatus				INT FOREIGN KEY REFERENCES estatus(id_estatus) NOT NULL,
 	id_usuario			INT FOREIGN KEY REFERENCES usuarios (id_usuario) NOT NULL,
@@ -72,12 +73,13 @@ CREATE TABLE avances
 );
 go
 
-CREATE TABLE documentos
+CREATE TABLE avances
 (
-	id_documento	INT IDENTITY (1,1) PRIMARY KEY,
-	observaciones	VARCHAR (MAX),
+	id_avance		INT IDENTITY (1,1) PRIMARY KEY,
+	avance			VARCHAR(1000) NOT NULL,
+	observaciones	TEXT NOT NULL,
 	ruta			VARCHAR(MAX) NOT NULL,
-	id_avance		INT FOREIGN KEY REFERENCES avances(id_avance) NOT NULL,
+	id_actividad	INT FOREIGN KEY REFERENCES actividades(id_actividad) NOT NULL,
 	id_usuario		INT FOREIGN KEY REFERENCES usuarios (id_usuario) NOT NULL,
 	id_proyecto		INT FOREIGN KEY REFERENCES proyectos (id_proyecto) NOT NULL,
 );
