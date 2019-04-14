@@ -14,7 +14,7 @@ namespace SICAP
         SICAP.Modelos.Usuario usu;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (lbxUsuarios.Items.Count == 0)
+            if (!IsPostBack)
             {
                 usu = new SICAP.Modelos.Usuario();
                 DataTable usuarios = usu.traerUsuarios();
@@ -34,14 +34,24 @@ namespace SICAP
             }
         }
 
-        protected void lkAsignar_Click(object sender, EventArgs e)
+        
+
+        protected void btnPasar_Click(object sender, EventArgs e)
         {
-            string message = "";
-            foreach (ListItem item in lbxUsuarios.Items)
+            while (lbxUsuarios.GetSelectedIndices().Length > 0)
             {
-                message += item.Text + " " + item.Value + "\\n";
+                lbxUsuariosSeleccionados.Items.Add(lbxUsuarios.SelectedItem);
+                lbxUsuarios.Items.Remove(lbxUsuarios.SelectedItem);
             }
-            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "alert('" + message + "');", true);
+        }
+
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            while (lbxUsuariosSeleccionados.GetSelectedIndices().Length > 0)
+            {
+                lbxUsuarios.Items.Add(lbxUsuariosSeleccionados.SelectedItem);
+                lbxUsuariosSeleccionados.Items.Remove(lbxUsuariosSeleccionados.SelectedItem);
+            }
         }
 
        

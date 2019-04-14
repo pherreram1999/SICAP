@@ -88,9 +88,9 @@ go
 
 INSERT INTO usuarios (nombre, paterno, materno, email, contrasena, especialidad, area, rol, telefono, ruta) 
 VALUES
-('','','','admin',ENCRYPTBYPASSPHRASE('PASS',CONVERT(VARCHAR, 'admin')),'', 1,0, '', 'sources/Materialize/Imagenes/perflDefault.png')
+('Pedro Alonso','Herrera','Mauricio','admin@admin.com','d033e22ae348aeb5660fc2140aec35850c4da997','admin', 1,0, '', 'Imagenes/default.png')
 
 
 
-SELECT U.id_usuario, U.nombre,U.paterno,U.materno,A.area FROM usuarios U INNER JOIN areas A ON U.area = A.id_area;
+SELECT U.id_usuario, U.nombre,U.paterno,U.materno,A.area, U.especialidad  FROM usuarios U INNER JOIN areas A ON U.area = A.id_area;
 --go

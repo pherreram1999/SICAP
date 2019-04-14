@@ -37,9 +37,44 @@
                 <asp:TextBox ID="txtObservaciones" CssClass="materialize-textarea" TextMode ="MultiLine" runat="server" />
             </div>
         </div>
+        
+
+        
+  
+        <%-- Es la parte de seleccion de usuario --%>
+        
+        <h6 class="section">Usuarios</h6>
+        <div class="divider"></div>
+                            
+        <div class="row">
+            <div class="col s12 m5">
+                <asp:ListBox CssClass="browser-default fixSelect" ID="lbxUsuarios" SelectionMode="Multiple" runat="server">                    
+                </asp:ListBox>
+            </div>
+
+            <div class="col s12 m2 center-align">
+                <div class="section">
+                    <asp:LinkButton CssClass="btn" ID="btnPasar"  runat="server" OnClick="btnPasar_Click" ><i class="material-icons">arrow_forward</i></asp:LinkButton>
+                </div>
+                <div class="section">
+                    <asp:LinkButton CssClass="btn" ID="btnRegresar"  runat="server" OnClick="btnRegresar_Click"><i class="material-icons">arrow_back</i></asp:LinkButton>
+                </div>
+            </div>
+
+            <div class="col s12 m5">
+                <asp:ListBox CssClass="browser-default fixSelect" ID="lbxUsuariosSeleccionados" SelectionMode="Multiple" runat="server">                    
+
+                </asp:ListBox>
+            </div>
+
+        </div>
+
+        <%-- aqui viene las actividades --%>
+
+        <h6 class="section">Actividades</h6>
+        <div class="divider"></div>
         <div class="row">
             <div class="col s12">
-
                 <ul class="collapsible">
                     <li>
                       <div class="collapsible-header"><i class="material-icons">add</i>Agregar Actividad</div>
@@ -67,64 +102,16 @@
                               <asp:LinkButton runat="server" >Agregar Actividad<i class="material-icons left">add</i></asp:LinkButton>
                           </div>
                       </div>
-                    </li>
-                                    
+                    </li>                  
                 </ul>
             </div>
+        </div>                                  
 
-        </div>
-
-        
         <div class="row">
-            
-        
-            <div class="col s12 m6">
-                asdasd
+            <div class="col s12">
+                <asp:GridView ID="gvActividades" CssClass="responsive-img" runat="server"></asp:GridView>
             </div>
-            
-         </div>
-                            
-        <div class="row">
-            <div class="col s12 m5">
-                <asp:ListBox CssClass="browser-default fixSelect" ID="lbxUsuarios" SelectionMode="Multiple" runat="server">                    
-                    
-                </asp:ListBox>
-            </div>
-
-            <div class="col s12 m2">
-                botones aqui
-            </div>
-
-            <div class="col s12 m5">
-                <asp:ListBox CssClass="browser-default fixSelect" ID="lbxUsuariosSeleccionados" SelectionMode="Multiple" runat="server">                    
-                    
-                </asp:ListBox>
-            </div>
-
         </div>
-
-        <div class="row">            
-            <div class="col s12 m6">
-                <h5 class="section">Actividades</h5>
-                <div class="divider"></div>                
-                <div class="col s12">
-                    <asp:GridView ID="gvActividades" CssClass="responsive-table" runat="server"></asp:GridView>
-                </div>
-            </div>
-
-            <div class="col s12 m6">
-                <asp:GridView runat="server" CssClass="responsive-video" ID="gvUsuarioSeleccionados">
-                    <Columns>
-                        <asp:BoundField DataField="id_usuario" HeaderText="ID" />
-                        <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                        <asp:BoundField DataField="paterno" HeaderText="Apellido Paterno" />
-                        <asp:BoundField DataField="materno" HeaderText="Apellido Materno" />
-                        <asp:BoundField DataField="area" HeaderText="Area" />
-                        <asp:ButtonField ButtonType="Link" CommandName="Select" Text="Quitar" />
-                    </Columns>
-                </asp:GridView>
-            </div>
-        </div>                                   
 
     </div>
 

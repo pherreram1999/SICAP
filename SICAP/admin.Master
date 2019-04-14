@@ -58,6 +58,10 @@
         height: 50px;
     }
 
+
+    .btn.fix{
+        margin: 0 auto;
+    }
     </style>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
