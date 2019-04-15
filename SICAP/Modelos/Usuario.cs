@@ -54,16 +54,20 @@ namespace SICAP.Modelos
         {
             try
             {
-                string query = "SELECT rol, nombre,paterno,materno FROM usuarios WHERE email = @email AND CAST(DECRYPTBYPASSPHRASE('PASS',contrasena) AS varchar) = @contrasena";
+                string query = "SELECT rol, nombre,paterno,materno,ruta FROM usuarios WHERE email = @email AND contrasena = @contrasena";
                 SqlCommand cmd = new SqlCommand(query);
                 cmd.Parameters.AddWithValue("@email", email);
                 cmd.Parameters.AddWithValue("@contrasena",Encriptar.GetSHA1(contrasena));
-                DataTable empleado = consulta(cmd);
-                if (empleado.Rows.Count > 0)
+                DataTable usuario = consulta(cmd);
+                if (usuario.Rows.Count > 0)
                 {
-                    rol = int.Parse(empleado.Rows[0]["rol"].ToString());
+                    rol = int.Parse(usuario.Rows[0]["rol"].ToString());
+                    nombre = (string)(usuario.Rows[0]["nombre"]);
+                    paterno = (string)(usuario.Rows[0]["paterno"]);
+                    materno = (string)(usuario.Rows[0]["materno"]);
+                    ruta = (string)(usuario.Rows[0]["ruta"]);
                 }
-                return (empleado.Rows.Count > 0) ? true : false;
+                return (usuario.Rows.Count > 0) ? true : false;
             }
             catch (Exception ex)
             {
@@ -126,6 +130,22 @@ namespace SICAP.Modelos
             {
                 string query = "SELECT U.id_usuario, U.nombre,U.paterno,U.materno,A.area, U.especialidad  FROM usuarios U INNER JOIN areas A ON U.area = A.id_area;";
                 SqlCommand cmd = new SqlCommand(query);
+                return consulta(cmd);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public DataTable traerUsuario()
+        {
+            try
+            {
+                string query = "SELECT U.id_usuario, U.nombre,U.paterno,U.materno,U.email,U.telefono,U.ruta,A.area, U.especialidad, R.rol FROM usuarios U INNER JOIN "
+                + "areas A ON U.area = A.id_area INNER JOIN roles R ON U.rol = R.id_rol WHERE U.id_usuario = @id_usuario;";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@id_usuario", id_usuario);
                 return consulta(cmd);
             }
             catch (Exception ex)

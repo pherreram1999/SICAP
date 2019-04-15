@@ -14,6 +14,12 @@ namespace SICAP
         SICAP.Modelos.Usuario usu;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["id_usuario"] == null)
+            {
+                Response.Redirect("default.aspx");
+            }
+
+
             if (!IsPostBack)
             {
                 usu = new SICAP.Modelos.Usuario();

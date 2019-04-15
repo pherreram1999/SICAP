@@ -11,7 +11,7 @@
         </div>
 
         <div class="row">
-            <asp:Image ID="imgPerfil" ImageUrl="sources/Materialize/Imagenes/perflDefault.png" CssClass="imagen responsive-img circle col s4 m1" runat="server"/>
+            <asp:Image ID="imgPerfil" ImageUrl="Imagenes/default.png" CssClass="imagen responsive-img circle col s4 m1" runat="server"/>
 
             <div class="file-field input-field col s12 m4">
                 <div class="btn blue">

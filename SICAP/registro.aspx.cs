@@ -15,6 +15,11 @@ namespace SICAP
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["id_usuario"] == null)
+            {
+                Response.Redirect("default.aspx");
+            }
+
             usu = new SICAP.Modelos.Usuario();
 
             if (ddlArea.Items.Count == 1)
@@ -38,7 +43,7 @@ namespace SICAP
             usu.telefono = txtTelefono.Text.Trim();
             usu.ruta = imgPerfil.ImageUrl;
             usu.area = usu.asignarArea(ddlArea.Text);
-            usu.rol = (ddlRol.Text == "Administrador") ? 0 : 1;
+            usu.rol = (ddlRol.Text == "Administrador") ? 1 : 2;
 
             if (usu.correoExistente())
             {

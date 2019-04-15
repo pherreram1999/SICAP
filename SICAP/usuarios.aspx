@@ -11,7 +11,7 @@
             <asp:BoundField DataField="paterno" HeaderText="Apellido Paterno" />
             <asp:BoundField DataField="materno" HeaderText="Apellido Materno" />
             <asp:BoundField DataField="area" HeaderText="Área" />
-            <asp:HyperLinkField />
+            <asp:HyperLinkField DataNavigateUrlFields="id_usuario" DataNavigateUrlFormatString="usuario.aspx?id_usuario={0}" Text="Ver perfil" />
         </Columns>
     </asp:GridView>
     </div>

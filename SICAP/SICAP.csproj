@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="default.aspx" />
+    <Content Include="Imagenes\default.png" />
     <Content Include="proyecto.aspx" />
     <Content Include="Recursos\animate.css" />
     <Content Include="Recursos\backgroundAdmin.jpg" />
@@ -79,6 +80,7 @@
     <Content Include="Recursos\materialize.css" />
     <Content Include="Recursos\materialize.js" />
     <Content Include="Recursos\Proyecto.js" />
+    <Content Include="Recursos\usuario.js" />
     <Content Include="registro.aspx" />
     <Content Include="usuario.aspx" />
     <Content Include="usuarios.aspx" />
@@ -134,11 +136,10 @@
     <Compile Include="usuarios.aspx.designer.cs">
       <DependentUpon>usuarios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utelirias\Correo.cs" />
     <Compile Include="Utelirias\Encriptar.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Imagenes\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

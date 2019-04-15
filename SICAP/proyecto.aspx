@@ -43,12 +43,13 @@
   
         <%-- Es la parte de seleccion de usuario --%>
         
-        <h6 class="section">Usuarios</h6>
+        <h5 class="section">Usuarios</h5>
         <div class="divider"></div>
+        <div class="section"></div>
                             
         <div class="row">
             <div class="col s12 m5">
-                <asp:ListBox CssClass="browser-default fixSelect" ID="lbxUsuarios" SelectionMode="Multiple" runat="server">                    
+                <asp:ListBox CssClass="browser-default fixSelect z-depth-1 section" ID="lbxUsuarios" SelectionMode="Multiple" runat="server">                    
                 </asp:ListBox>
             </div>
 
@@ -62,16 +63,16 @@
             </div>
 
             <div class="col s12 m5">
-                <asp:ListBox CssClass="browser-default fixSelect" ID="lbxUsuariosSeleccionados" SelectionMode="Multiple" runat="server">                    
+                <asp:ListBox CssClass="browser-default fixSelect z-depth-1 section" ID="lbxUsuariosSeleccionados" SelectionMode="Multiple" runat="server">                    
 
                 </asp:ListBox>
             </div>
 
         </div>
 
-        <%-- aqui viene las actividades --%>
+        <%-- aqui viene las actividades  // sera util,o bien, se cancela todo  --%>
 
-        <h6 class="section">Actividades</h6>
+        <h5 class="section">Actividades</h5>
         <div class="divider"></div>
         <div class="row">
             <div class="col s12">

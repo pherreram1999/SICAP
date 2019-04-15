@@ -19,23 +19,24 @@ namespace SICAP
         {
             usu.email = txtCorreo.Text.Trim();
             usu.contrasena = txtContrasena.Text;
-            
+
             if (usu.validarAcceso())
             {
-                if (usu.rol == 0)
-                {
+                Session["id_usuario"] = usu.id_usuario;
+                Session["nombre"] = usu.nombre;
+                Session["paterno"] = usu.paterno;
+                Session["materno"] = usu.materno;
+                Session["ruta"] = usu.ruta;                
+                
+                if (usu.rol == 1)
+                {   
                     Response.Redirect("usuarios.aspx");
-                }
-                else
-                {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
-                        "alert('Se manda a usuario')", true);
                 }
             }
             else
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
-                        "alert('Usuario y/o contraseña incorrectos')", true);
+                        "alert('Usuario y/o Contraseña incorrectos')", true);
             }
         }
 
