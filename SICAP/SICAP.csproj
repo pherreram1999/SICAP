@@ -19,6 +19,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -79,8 +81,8 @@
     <Content Include="Recursos\material-icons.css" />
     <Content Include="Recursos\materialize.css" />
     <Content Include="Recursos\materialize.js" />
-    <Content Include="Recursos\Proyecto.js" />
-    <Content Include="Recursos\usuario.js" />
+    <Content Include="Utelirias\Proyecto.js" />
+    <Content Include="Utelirias\Usuario.js" />
     <Content Include="registro.aspx" />
     <Content Include="usuario.aspx" />
     <Content Include="usuarios.aspx" />

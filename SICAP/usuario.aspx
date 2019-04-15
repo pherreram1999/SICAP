@@ -106,6 +106,6 @@
 
     </div>
 
-    <script src="Recursos/usuario.js"></script>
+    <script src="Utelirias/Usuario.js"></script>
 
 </asp:Content>

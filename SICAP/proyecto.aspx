@@ -119,5 +119,5 @@
 
 
 
-    <script src="Recursos/Proyecto.js"></script>
+    <script src="Utelirias/Proyecto.js"></script>
 </asp:Content>
