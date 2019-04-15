@@ -153,5 +153,32 @@ namespace SICAP.Modelos
                 throw new Exception(ex.Message);
             }
         }
+
+        public int modificarUsuario()
+        {
+            try
+            {
+                string query = "UPDATE usuarios SET nombre = @nombre, paterno = @paterno, materno = @materno, rol = @rol, contrasena = @contrasena, area = @area, telefono = @telefono, " +
+                    "email = @email, especialidad = @especialidad, ruta = @ruta WHERE id_usuario = @id_usuario";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@nombre",nombre);
+                cmd.Parameters.AddWithValue("@paterno", paterno);
+                cmd.Parameters.AddWithValue("@materno", materno);
+                cmd.Parameters.AddWithValue("@rol", rol);
+                cmd.Parameters.AddWithValue("@contrasena", Encriptar.GetSHA1(contrasena));
+                cmd.Parameters.AddWithValue("@area", area);
+                cmd.Parameters.AddWithValue("@telefono", telefono);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@especialidad", especialidad);
+                cmd.Parameters.AddWithValue("@ruta", ruta);
+                cmd.Parameters.AddWithValue("@id_usuario",id_usuario);
+                return ejectuarSQL(cmd);
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

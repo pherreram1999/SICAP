@@ -64,9 +64,8 @@
         </div>
         
         <div class="row">
-            <div class="input-field col s12 m4">
-                <i class="material-icons prefix">arrow_drop_down</i>
-                <asp:DropDownList  disabled ID="ddlRol" runat="server">
+            <div class="input-field  col s12 m4">                
+                <asp:DropDownList  ID="ddlRol" runat="server">
                     <asp:ListItem Text="Elija rol de usuario" disabled Selected />
                     <asp:ListItem Text="Administrador" />
                     <asp:ListItem Text="Usuario" />
@@ -92,7 +91,7 @@
             </div>
             <div class="input-field col s12 m4">
                 <i class="material-icons prefix">supervised_user_circle</i>
-                <asp:DropDownList  disabled ID="ddlArea"  runat="server">
+                <asp:DropDownList   ID="ddlArea"  runat="server">
                     <asp:ListItem Text="Elija area" disabled Selected />
                 </asp:DropDownList>
             </div>
@@ -101,7 +100,7 @@
 
         <div class="row">
             <div class="section">                
-                <asp:Button ID="btnRegisrar"  CssClass="btn right disabled" runat="server" Text="Registrar" />
+                <asp:Button ID="btnRegisrar"  CssClass="btn right disabled" runat="server" Text="Guardar" OnClick="btnRegisrar_Click" />
             </div>
         </div>
 

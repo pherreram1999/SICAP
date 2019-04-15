@@ -4,13 +4,17 @@
     txtMaterno = document.getElementById("ContentPlaceHolder1_txtMaterno"),
     txtEmail = document.getElementById("ContentPlaceHolder1_txtEmail"),
     txtTelefono = document.getElementById("ContentPlaceHolder1_txtTelefono"),
-    dllRol = document.getElementsByClassName("select-dropdown"),
+    dllRol = document.getElementsByClassName("select-wrapper"),
     txtContrasena = document.getElementById("ContentPlaceHolder1_txtContrasena"),
     txtConfirmarContrasena = document.getElementById("ContentPlaceHolder1_txtConfirmarContrasena"),
-    txtEspecialidad = document.getElementById("ContentPlaceHolder1_txtEspecialidad"),
-    dllArea = document.getElementsByClassName("select-dropdown"),
+    txtEspecialidad = document.getElementById("ContentPlaceHolder1_txtEspecialidad"),    
     btnGuardar = document.getElementById("ContentPlaceHolder1_btnRegisrar");
     btnModificar = document.getElementById("btnModificar");
+
+
+
+
+
 
     var activar = function () {
 
@@ -33,8 +37,8 @@
         txtContrasena.removeAttribute("disabled");
         txtConfirmarContrasena.removeAttribute("disabled");
         txtEspecialidad.removeAttribute("disabled");
-        dllArea[0].removeAttribute("disabled");
-        dllRol[2,2].removeAttribute("disabled");
+        dllRol[0].removeAttribute("disabled");
+        dllRol[2].removeAttribute("disabled");
 }
 
 btnModificar.addEventListener("click",activar);
