@@ -5,7 +5,10 @@
     <div class="contenido card-panel animated fadeIn">
         <div class="row">
             <div class="col s12">
+                <asp:HyperLink Text="Volver Usuarios" NavigateUrl="~/usuarios.aspx" CssClass="left" runat="server" />
                 <a href="#" id="btnModificar" class="btn right">Modificar datos</a>
+
+                
                 <h4 class="section">Datos del usuario</h4>
                 <div class="divider"></div>
             </div>
@@ -65,8 +68,8 @@
         
         <div class="row">
             <div class="input-field  col s12 m4">                
-                <asp:DropDownList  ID="ddlRol" runat="server">
-                    <asp:ListItem Text="Elija rol de usuario" disabled Selected />
+                <asp:DropDownList ID="ddlRol" runat="server">
+                    <asp:ListItem Text="Elija rol de usuario"  />
                     <asp:ListItem Text="Administrador" />
                     <asp:ListItem Text="Usuario" />
                 </asp:DropDownList>
@@ -76,7 +79,7 @@
                 <asp:TextBox disabled ID="txtContrasena" CssClass="validate" TextMode="Password" required="required" runat="server"></asp:TextBox>
                 <asp:Label ID="lblContrasena" AssociatedControlID="txtContrasena" runat="server" Text="Contrasena"></asp:Label>
             </div>
-            <div class="input-field col s12 m4">
+            <div class="input-field  col s12 m4">
                 <i class="material-icons prefix">vpn_key</i>
                 <asp:TextBox disabled ID="txtConfirmarContrasena" TextMode="Password" CssClass="validate" required="required" runat="server"></asp:TextBox>
                 <asp:Label Text="Confirmar contraseña" AssociatedControlID="txtConfirmarContrasena" runat="server" />
@@ -107,5 +110,8 @@
     </div>
 
     <script src="Utelirias/Usuario.js"></script>
+   <script type="text/javascript">
+       
+   </script>
 
 </asp:Content>

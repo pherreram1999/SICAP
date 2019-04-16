@@ -112,12 +112,21 @@ namespace SICAP {
         protected global::System.Web.UI.WebControls.TextBox txtObservacionesActividad;
         
         /// <summary>
-        /// Control gvActividades.
+        /// Control btnAgregarActividad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvActividades;
+        protected global::System.Web.UI.WebControls.LinkButton btnAgregarActividad;
+        
+        /// <summary>
+        /// Control lbxActividades.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbxActividades;
     }
 }

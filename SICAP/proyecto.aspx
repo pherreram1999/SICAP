@@ -100,7 +100,7 @@
                           </div>
 
                           <div class="row">
-                              <asp:LinkButton runat="server" >Agregar Actividad<i class="material-icons left">add</i></asp:LinkButton>
+                              <asp:LinkButton runat="server" ID="btnAgregarActividad" OnClick="btnAgregarActividad_Click" >Agregar Actividad<i class="material-icons left">add</i></asp:LinkButton>
                           </div>
                       </div>
                     </li>                  
@@ -110,7 +110,7 @@
 
         <div class="row">
             <div class="col s12">
-                <asp:GridView ID="gvActividades" CssClass="responsive-img" runat="server"></asp:GridView>
+                <asp:ListBox ID="lbxActividades" CssClass="browser-default fixSelect z-depth-2" runat="server"></asp:ListBox>
             </div>
         </div>
 

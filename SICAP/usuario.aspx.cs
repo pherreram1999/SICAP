@@ -33,6 +33,8 @@ namespace SICAP
                 txtTelefono.Text = (string) (usuario.Rows[0]["telefono"]);
                 ddlArea.SelectedItem.Text = (string)(usuario.Rows[0]["area"]);
                 ddlRol.SelectedItem.Text = (string)(usuario.Rows[0]["rol"]);
+               
+                
             }
 
             if (ddlArea.Items.Count == 1)

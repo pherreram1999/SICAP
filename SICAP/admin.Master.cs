@@ -15,5 +15,11 @@ namespace SICAP
             lblNombreUsuario.Text = nombreUsuario;
             userFoto.ImageUrl = (string)(Session["ruta"]);
         }
+
+        protected void btnSalir_Click(object sender, EventArgs e)
+        {
+            Session["id_usuario"] = null;
+            Response.Redirect("default.aspx");
+        }
     }
 }

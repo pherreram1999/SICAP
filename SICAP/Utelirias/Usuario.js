@@ -4,12 +4,13 @@
     txtMaterno = document.getElementById("ContentPlaceHolder1_txtMaterno"),
     txtEmail = document.getElementById("ContentPlaceHolder1_txtEmail"),
     txtTelefono = document.getElementById("ContentPlaceHolder1_txtTelefono"),
-    dllRol = document.getElementsByClassName("select-wrapper"),
+    //dllRol = document.getElementById("ContentPlaceHolder1_ddlRol").disabled = true,
     txtContrasena = document.getElementById("ContentPlaceHolder1_txtContrasena"),
     txtConfirmarContrasena = document.getElementById("ContentPlaceHolder1_txtConfirmarContrasena"),
     txtEspecialidad = document.getElementById("ContentPlaceHolder1_txtEspecialidad"),    
     btnGuardar = document.getElementById("ContentPlaceHolder1_btnRegisrar");
-    btnModificar = document.getElementById("btnModificar");
+btnModificar = document.getElementById("btnModificar");
+// dllArea = document.getElementById("ContentPlaceHolder1_ddlArea").disabled = true;
 
 
 
@@ -37,10 +38,20 @@
         txtContrasena.removeAttribute("disabled");
         txtConfirmarContrasena.removeAttribute("disabled");
         txtEspecialidad.removeAttribute("disabled");
-        dllRol[0].removeAttribute("disabled");
-        dllRol[2].removeAttribute("disabled");
+        dllRol = document.getElementById("ContentPlaceHolder1_ddlRol").disabled = false;
+        dllArea = document.getElementById("ContentPlaceHolder1_ddlArea").disabled = false;
+
+        contrasenas[0].classList.remove("esconder");
+        contrasenas[1].classList.remove("esconder");
 }
 
-btnModificar.addEventListener("click",activar);
+    btnModificar.addEventListener("click", activar);
 
+    //var vaciar = function () {
 
+    //    txtConfirmarContrasena.text = "";
+    //    txtContrasena.text = "";
+    //}
+
+    //txtConfirmarContrasena.addEventListener("click", vaciar);
+    //txtContrasena.accessKey("click", vaciar);

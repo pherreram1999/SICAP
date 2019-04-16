@@ -17,7 +17,7 @@ CREATE TABLE roles
 	rol			VARCHAR(100) NOT NULL
 );
 
-INSERT INTO roles(rol) VALUES('administrador'),('usuario');
+INSERT INTO roles(rol) VALUES('Administrador'),('Usuario');
 
 GO
 
@@ -105,5 +105,6 @@ VALUES
 SELECT U.id_usuario, U.nombre,U.paterno,U.materno,A.area, U.especialidad  FROM usuarios U INNER JOIN areas A ON U.area = A.id_area;
 
 SELECT U.id_usuario, U.nombre,U.paterno,U.materno,U.email,U.telefono,U.ruta,A.area, U.especialidad, R.rol FROM usuarios U INNER JOIN areas A ON U.area = A.id_area INNER JOIN roles R ON U.rol = R.id_rol;
+SELECT * FROM usuarios U INNER JOIN areas A ON U.area = A.id_area INNER JOIN roles R ON U.rol = R.id_rol;
 
 --go

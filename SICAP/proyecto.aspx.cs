@@ -60,6 +60,14 @@ namespace SICAP
             }
         }
 
+        protected void btnAgregarActividad_Click(object sender, EventArgs e)
+        {
+            string actividad = txtNombreActividad.Text + "-"+txtObservacionesActividad.Text+"-"+ txtfechaEntregaActividad.Text;
+            lbxActividades.Items.Add(actividad);
+        }
+
+        
+
        
 
       
