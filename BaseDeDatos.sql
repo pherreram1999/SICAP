@@ -32,7 +32,7 @@ GO
 CREATE TABLE usuarios
 (
 	id_usuario		INT IDENTITY (1,1) PRIMARY KEY, 
-	nombre			VARCHAR (120),
+	nombre			VARCHAR (MAX),
 	paterno			VARCHAR (180),
 	materno			VARCHAR (180),
 	rol				INT DEFAULT 1  NOT NULL,
@@ -60,17 +60,26 @@ VALUES
 	('Cancelado');
 go
 
+
 CREATE TABLE proyectos
 (
 	id_proyecto		INT IDENTITY (1,1) PRIMARY KEY,
 	proyecto		VARCHAR (MAX) NOT NULL,
 	observaciones	TEXT NOT NULL,
 	fecha_registro	DATETIME DEFAULT GETDATE(),
-	fecha_inicio	DATETIME NOT NULL,
-	fecha_final		DATETIME NOT NULL,
+	fecha_inicio	DATE NOT NULL,
+	fecha_final		DATE NOT NULL,
 	estatus			INT DEFAULT(1) FOREIGN KEY REFERENCES estatus(id_estatus) NOT NULL
 );
 go
+
+CREATE TABLE relaciones
+(
+	id_relacion INT IDENTITY (1,1) PRIMARY KEY,
+	id_usuarios INT FOREIGN KEY REFERENCES usuarios (id_usuario),
+	id_proyecto INT FOREIGN KEY REFERENCES proyectos (id_proyecto)
+);
+Go
 
 CREATE TABLE actividades
 (
@@ -98,8 +107,9 @@ go
 
 INSERT INTO usuarios (nombre, paterno, materno, email, contrasena, especialidad, area, rol, telefono, ruta) 
 VALUES
-('Pedro Alonso','Herrera','Mauricio','admin@admin.com','d033e22ae348aeb5660fc2140aec35850c4da997','admin', 1,1, '', 'Imagenes/default.png')
-
+('Pedro Alonso','Herrera','Mauricio','admin@admin.com','d033e22ae348aeb5660fc2140aec35850c4da997','admin', 1,1, '', 'Imagenes/default.png'),
+('Marcos ','Ventura','Nuñez','admin@sicap.com','d033e22ae348aeb5660fc2140aec35850c4da997','admin', 1,1, '', 'Imagenes/default.png');
+go
 
 
 SELECT U.id_usuario, U.nombre,U.paterno,U.materno,A.area, U.especialidad  FROM usuarios U INNER JOIN areas A ON U.area = A.id_area;
@@ -108,3 +118,10 @@ SELECT U.id_usuario, U.nombre,U.paterno,U.materno,U.email,U.telefono,U.ruta,A.ar
 SELECT * FROM usuarios U INNER JOIN areas A ON U.area = A.id_area INNER JOIN roles R ON U.rol = R.id_rol;
 
 --go
+
+-- retorna los usuarios pertenicientes al proyecto
+SELECT * FROM relaciones r INNER JOIN usuarios u ON r.id_usuarios = u.id_usuario; -- where id_proyecto = @id_proyecto ;
+
+SELECT * FROM relaciones;
+
+SELECT * FROM proyectos;

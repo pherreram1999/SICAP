@@ -20,9 +20,7 @@
         margin: 15px;
     }
 
-    .esconder{
-        visibility:hidden;
-    }
+
 
     .carta {
         margin: 24px;
@@ -50,6 +48,10 @@
         height:180px;
     }
 
+    .fixSelect option {        
+        padding: 2px 0px;
+    }
+
     .fixSelect::-webkit-scrollbar{
         position:fixed;
         width:7px;
@@ -63,9 +65,7 @@
     }
 
 
-    .btn.fix{
-        margin: 0 auto;
-    }
+  
     </style>
 
     <asp:ContentPlaceHolder ID="head" runat="server">

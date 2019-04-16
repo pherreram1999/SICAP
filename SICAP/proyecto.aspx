@@ -3,6 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="contenido card-panel animated fadeIn">
+       
         <h3 class="section">Crear un nuevo proyecto</h3>
         <div class="divider"></div>
         <div class="section"></div>
@@ -18,11 +19,11 @@
         <div class="row">
             <div class="input-field col s12 m2">
                 <asp:Label Text="Fecha de inicio" runat="server" />
-                <asp:TextBox ID="txtFechaInicialProyecto" runat="server" TextMode="Date" />
+                <asp:TextBox ID="txtFechaInicialProyecto" required="required" CssClass="validate" runat="server" TextMode="Date" />
             </div>
             <div class="input-field col s12 m3">
                 <asp:Label Text="Fecha de Termino" runat="server" />
-                <asp:TextBox ID="txtFechaFinalProyecto" runat="server" TextMode="Date" />
+                <asp:TextBox ID="txtFechaFinalProyecto" required="required" CssClass="validate" runat="server" TextMode="Date" />
             </div>
 
             <div class="col s12 m7">
@@ -34,7 +35,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <asp:Label Text="Obeservaciones" AssociatedControlID="txtObservaciones" runat="server" />
-                <asp:TextBox ID="txtObservaciones" CssClass="materialize-textarea" TextMode ="MultiLine" runat="server" />
+                <asp:TextBox ID="txtObservaciones" required="required" CssClass="materialize-textarea validate" TextMode ="MultiLine" runat="server" />
             </div>
         </div>
         
@@ -114,7 +115,18 @@
             </div>
         </div>
 
+
+        <div class="row">
+            <div class="section"></div>
+            
+            <asp:Button ID="btnCrearProyecto" CssClass="btn right" runat="server" Text="Crear Proyecto" OnClick="btnCrearProyecto_Click" />
+        </div>
+
+
     </div>
+
+
+    
 
 
 

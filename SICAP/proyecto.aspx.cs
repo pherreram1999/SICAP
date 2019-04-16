@@ -12,6 +12,7 @@ namespace SICAP
     public partial class proyecto : System.Web.UI.Page
     {
         SICAP.Modelos.Usuario usu;
+        SICAP.Modelos.Proyecto proyect;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["id_usuario"] == null)
@@ -19,10 +20,11 @@ namespace SICAP
                 Response.Redirect("default.aspx");
             }
 
+            usu = new SICAP.Modelos.Usuario();
+            proyect = new SICAP.Modelos.Proyecto();
 
             if (!IsPostBack)
             {
-                usu = new SICAP.Modelos.Usuario();
                 DataTable usuarios = usu.traerUsuarios();
                 foreach (DataRow usuario in usuarios.Rows)
                 {
@@ -62,15 +64,30 @@ namespace SICAP
 
         protected void btnAgregarActividad_Click(object sender, EventArgs e)
         {
-            string actividad = txtNombreActividad.Text + "-"+txtObservacionesActividad.Text+"-"+ txtfechaEntregaActividad.Text;
+            string actividad = txtNombreActividad.Text.Trim() + "/"+txtObservacionesActividad.Text.Trim()+"/"+ txtfechaEntregaActividad.Text;
             lbxActividades.Items.Add(actividad);
         }
 
-        
+        protected void btnCrearProyecto_Click(object sender, EventArgs e)
+        {
+            foreach(ListItem item in lbxActividades.Items) // con esto asignamos las actividades
+            {
+                string[] actividad = item.Text.Split('/');
+                proyect.actividades.Add(actividad);
+            }
 
-       
+            foreach(ListItem item in lbxUsuariosSeleccionados.Items) // con esto asignamos los usuarios al proyecto
+            {
+                int usuario = int.Parse(char.ToString(item.Text[0]));                
+                proyect.usuarios.Add(usuario);
+            }
 
-      
-       
+            proyect.proyecto = txtNombre.Text.Trim();
+            proyect.fecha_inicio = txtFechaInicialProyecto.Text;
+            proyect.fecha_final = txtFechaFinalProyecto.Text;
+            proyect.observaciones = txtObservaciones.Text;
+            proyect.guardar();
+            proyect.asignarUsuarios();
+        }
     }
 }
