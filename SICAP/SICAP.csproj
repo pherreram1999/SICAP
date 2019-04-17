@@ -61,7 +61,10 @@
   <ItemGroup>
     <Content Include="default.aspx" />
     <Content Include="Imagenes\default.png" />
+    <Content Include="perfilProyecto.aspx" />
     <Content Include="proyecto.aspx" />
+    <Content Include="proyectos.aspx" />
+    <Content Include="recover.aspx" />
     <Content Include="Recursos\animate.css" />
     <Content Include="Recursos\backgroundAdmin.jpg" />
     <Content Include="Recursos\jquery.js" />
@@ -69,6 +72,7 @@
     <Content Include="Recursos\MaterialIcons-Regular.woff" />
     <Content Include="Recursos\MaterialIcons-Regular.woff2" />
     <Content Include="admin.Master" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -109,6 +113,13 @@
     </Compile>
     <Compile Include="Modelos\Proyecto.cs" />
     <Compile Include="Modelos\Usuario.cs" />
+    <Compile Include="perfilProyecto.aspx.cs">
+      <DependentUpon>perfilProyecto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfilProyecto.aspx.designer.cs">
+      <DependentUpon>perfilProyecto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="proyecto.aspx.cs">
       <DependentUpon>proyecto.aspx</DependentUpon>
@@ -116,6 +127,20 @@
     </Compile>
     <Compile Include="proyecto.aspx.designer.cs">
       <DependentUpon>proyecto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="proyectos.aspx.cs">
+      <DependentUpon>proyectos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="proyectos.aspx.designer.cs">
+      <DependentUpon>proyectos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="recover.aspx.cs">
+      <DependentUpon>recover.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="recover.aspx.designer.cs">
+      <DependentUpon>recover.aspx</DependentUpon>
     </Compile>
     <Compile Include="registro.aspx.cs">
       <DependentUpon>registro.aspx</DependentUpon>
@@ -140,6 +165,7 @@
     </Compile>
     <Compile Include="Utelirias\Correo.cs" />
     <Compile Include="Utelirias\Encriptar.cs" />
+    <Compile Include="Utelirias\GenerarPass.cs" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

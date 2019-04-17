@@ -48,7 +48,9 @@
                     </div>
                     <div class="col s12">
                         <asp:Button Text="Iniciar" ID="btnIniciar" CssClass="btn blue" runat="server" OnClick="btnIniciar_Click1" />
+                        <a class="right" href="./recover.aspx">recuperar contraseña</a>
                     </div>
+
 
                 </div>
 

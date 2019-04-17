@@ -86,8 +86,8 @@ CREATE TABLE actividades
 	id_actividad		INT IDENTITY (1,1) PRIMARY KEY,
 	actividad			VARCHAR (MAX) NOT NULL,
 	observaciones		TEXT NOT NULL,
-	fecha_entrega		DATETIME NOT NULL,
-	estatus				INT FOREIGN KEY REFERENCES estatus(id_estatus) NOT NULL,	
+	fecha_entrega		DATE NOT NULL,
+	estatus				INT DEFAULT (1) FOREIGN KEY REFERENCES estatus(id_estatus) NOT NULL,	
 	id_proyecto			INT FOREIGN KEY REFERENCES proyectos (id_proyecto) NOT NULL,	
 );
 go
@@ -108,8 +108,10 @@ go
 INSERT INTO usuarios (nombre, paterno, materno, email, contrasena, especialidad, area, rol, telefono, ruta) 
 VALUES
 ('Pedro Alonso','Herrera','Mauricio','admin@admin.com','d033e22ae348aeb5660fc2140aec35850c4da997','admin', 1,1, '', 'Imagenes/default.png'),
-('Marcos ','Ventura','Nuñez','admin@sicap.com','d033e22ae348aeb5660fc2140aec35850c4da997','admin', 1,1, '', 'Imagenes/default.png');
+('Marcos ','Ventura','Nuñez','admin@sicap.com','d033e22ae348aeb5660fc2140aec35850c4da997','admin', 1,1, '', 'Imagenes/default.png'),
+('Pedro Alonso ','Herrera','Mauricio','alonso.pahm@gmail.com','d033e22ae348aeb5660fc2140aec35850c4da997','admin', 1,1, '', 'Imagenes/default.png');
 go
+
 
 
 SELECT U.id_usuario, U.nombre,U.paterno,U.materno,A.area, U.especialidad  FROM usuarios U INNER JOIN areas A ON U.area = A.id_area;
@@ -124,4 +126,12 @@ SELECT * FROM relaciones r INNER JOIN usuarios u ON r.id_usuarios = u.id_usuario
 
 SELECT * FROM relaciones;
 
-SELECT * FROM proyectos;
+SELECT p.id_proyecto, p.proyecto, p.fecha_registro,CAST(p.fecha_inicio AS varchar) as fecha_inicio ,CAST(p.fecha_final AS varchar) as fecha_final ,p.observaciones, e.estatus FROM proyectos p INNER JOIN estatus e ON p.estatus = e.id_estatus;
+
+
+SELECT CAST(fecha_inicio AS VARCHAR) as fecha_inicio FROM proyectos;
+
+
+SELECT u.id_usuario, u.nombre, u.paterno, u.materno, u.especialidad FROM relaciones r INNER JOIN usuarios u ON r.id_usuarios = u.id_usuario WHERE r.id_proyecto = 1;
+
+SELECT actividad,observaciones, CAST(fecha_entrega AS varchar) AS fecha_entrega FROM actividades WHERE id_proyecto = 3;

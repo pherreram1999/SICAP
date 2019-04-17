@@ -28,6 +28,7 @@ namespace SICAP
                 DataTable usuarios = usu.traerUsuarios();
                 foreach (DataRow usuario in usuarios.Rows)
                 {
+                    /// aqui es donde lo concateno tengo que hacer forech entonces??
                     int id = (int)(usuario["id_usuario"]);
                     string nombre = usuario["nombre"].ToString();
                     string paterno = usuario["paterno"].ToString();
@@ -41,8 +42,6 @@ namespace SICAP
                 }
             }
         }
-
-        
 
         protected void btnPasar_Click(object sender, EventArgs e)
         {
@@ -86,8 +85,29 @@ namespace SICAP
             proyect.fecha_inicio = txtFechaInicialProyecto.Text;
             proyect.fecha_final = txtFechaFinalProyecto.Text;
             proyect.observaciones = txtObservaciones.Text;
-            proyect.guardar();
-            proyect.asignarUsuarios();
+
+            if(lbxUsuariosSeleccionados.Items.Count > 0)
+            {
+                if(lbxActividades.Items.Count > 0)
+                {
+                    proyect.guardar();
+                    proyect.id_proyecto = proyect.getID();
+                    proyect.asignarUsuarios();
+                    proyect.asignarActividades();
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                                "alert('Proyecto Creado correctamente'); location.href='./proyectos.aspx'", true);
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        "alert('No se ha agregado ninguna actividad');", true);
+                }
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        "alert('No se ha selecionado ningun usuario');", true);
+            }
         }
     }
 }

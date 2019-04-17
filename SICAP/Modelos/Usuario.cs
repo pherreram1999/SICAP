@@ -180,5 +180,41 @@ namespace SICAP.Modelos
                 throw new Exception(ex.Message);
             }
         }
+
+        public string getNombreUsuario()
+        {
+            try
+            {
+                string query = "SELECT * FROM usuarios WHERE email = @email";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@email",email);
+                DataTable usuario = consulta(cmd);
+                string nombre = (string)(usuario.Rows[0]["nombre"]);
+                nombre += " " + (string)(usuario.Rows[0]["paterno"]);
+                nombre += " " + (string)(usuario.Rows[0]["materno"]);
+                return nombre;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public int actualizarPass(string pass)
+        {
+            try
+            {
+                string query = "UPDATE usuarios SET contrasena = @contrasena WHERE email = @email";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@contrasena",pass);
+                cmd.Parameters.AddWithValue("@email",email);
+                return ejectuarSQL(cmd);
+                
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

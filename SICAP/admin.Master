@@ -97,6 +97,7 @@
                     <asp:Image CssClass="circle" ID="userFoto" runat="server" />
                     <asp:Label ID="lblNombreUsuario" CssClass="white-text" runat="server" Text="Nombre del Usuario"></asp:Label>                           
                 </div>
+                <asp:HyperLink NavigateUrl="~/proyectos.aspx" ID="hlVerProyecto" runat="server">Ver proyectos<i class="material-icons">pageview</i></asp:HyperLink>
                 <asp:HyperLink NavigateUrl="~/proyecto.aspx" ID="hlProyectos" runat="server">Crear Proyecto<i class="material-icons">work</i></asp:HyperLink>
                 <asp:HyperLink NavigateUrl="~/usuarios.aspx" ID="hlEmpleados" runat="server">Usuarios<i class="material-icons">people</i></asp:HyperLink>
                 <asp:HyperLink NavigateUrl="~/registro.aspx" ID="hlRegistrar" runat="server">Regitrar nuevo usuario<i class="material-icons">person_add</i></asp:HyperLink>
