@@ -96,7 +96,7 @@
                           <div class="row">
                               <div class="input-field col s12">
                                   <asp:Label Text="Observaciones" AssociatedControlID="txtObservacionesActividad" runat="server" />
-                                  <asp:TextBox ID="txtObservacionesActividad" runat="server" />
+                                  <asp:TextBox ID="txtObservacionesActividad" CssClass="materialize-textarea" runat="server" />
                               </div>
                           </div>
 
@@ -124,12 +124,6 @@
 
 
     </div>
-
-
-    
-
-
-
 
     <script src="Utelirias/Proyecto.js"></script>
 </asp:Content>

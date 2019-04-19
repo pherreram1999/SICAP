@@ -17,28 +17,23 @@ namespace SICAP
                 Response.Redirect("default.aspx");
             }
 
-            proyect = new SICAP.Modelos.Proyecto();
 
             if (!IsPostBack)
             {
+                proyect = new SICAP.Modelos.Proyecto();
                 proyect.id_proyecto = int.Parse(Request.Params["id_proyecto"]);
                 proyect.cargarDatos();
                 lblNombreProyecto.Text = proyect.proyecto;
                 lblObservaciones.Text = proyect.observaciones;
                 txtFechaInicio.Text = proyect.fecha_inicio;
                 txtFechaFinal.Text = proyect.fecha_final;
+                dllEstatus.SelectedItem.Text = proyect.estatus;
+                gvActividades.DataSource = proyect.traerActividades();
+                gvActividades.DataBind();
             }
 
-            if(dllEstatus.Items.Count == 0)
-            {
-                string[] estatus = proyect.traerEstatus();
-                foreach(string es in estatus)
-                {
-                    dllEstatus.Items.Add(es);
-                }
-            }
 
-            if(lbxUsuarios.Items.Count == 0)
+            if (lbxUsuarios.Items.Count == 0)
             {
                 foreach(string user in proyect.traerUsuariosLista())
                 {
@@ -46,13 +41,8 @@ namespace SICAP
                 }
             }
 
-            if(lbxActividades.Items.Count == 0)
-            {
-                foreach(string actividad in proyect.traerActividades())
-                {
-                    lbxActividades.Items.Add(actividad);
-                }
-            }
+            
+            
         }
 
         protected void btnEstatus_Click(object sender, EventArgs e)
@@ -69,6 +59,16 @@ namespace SICAP
                 btnEstatus.Text = "Modificar estatus";
                 btnEstatus.CssClass = "btn";
             }
+        }
+
+        protected void dllEstatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            proyect = new SICAP.Modelos.Proyecto();
+            proyect.id_proyecto = int.Parse(Request.Params["id_proyecto"]);
+            proyect.cambiarEstatus(int.Parse(dllEstatus.SelectedItem.Value));
+            dllEstatus.Enabled = false;
+            btnEstatus.CssClass = "btn";
+            btnEstatus.Text = "Modificar estatus";
         }
     }
 }

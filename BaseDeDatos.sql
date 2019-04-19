@@ -135,3 +135,5 @@ SELECT CAST(fecha_inicio AS VARCHAR) as fecha_inicio FROM proyectos;
 SELECT u.id_usuario, u.nombre, u.paterno, u.materno, u.especialidad FROM relaciones r INNER JOIN usuarios u ON r.id_usuarios = u.id_usuario WHERE r.id_proyecto = 1;
 
 SELECT actividad,observaciones, CAST(fecha_entrega AS varchar) AS fecha_entrega FROM actividades WHERE id_proyecto = 3;
+
+SELECT a.actividad,a.observaciones,a.fecha_entrega,e.estatus,a.id_proyecto FROM actividades a INNER JOIN estatus e ON a.estatus = e.id_estatus;

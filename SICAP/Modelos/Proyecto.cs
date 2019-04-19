@@ -107,7 +107,8 @@ namespace SICAP.Modelos
         {
             try
             {
-                string query = "SELECT p.id_proyecto, p.proyecto, p.fecha_registro,p.fecha_inicio,p.fecha_final, e.estatus FROM proyectos" +
+                string query = "SELECT p.id_proyecto, p.proyecto, p.fecha_registro, CAST(p.fecha_inicio AS VARCHAR) AS fecha_inicio" +
+                    ",CAST(p.fecha_final AS VARCHAR) AS fecha_final, e.estatus FROM proyectos" +
                     " p INNER JOIN estatus e ON p.estatus = e.id_estatus;";
                 return consulta(new SqlCommand(query));                
             }
@@ -117,32 +118,14 @@ namespace SICAP.Modelos
             }
         }
 
-        public string[] traerEstatus()
-        {
-            try
-            {
-                string query = "SELECT estatus FROM estatus";
-                DataTable tabla = consulta(new SqlCommand(query));
-                string[] estatus = new string[tabla.Rows.Count];
-                for(int i = 0; i < tabla.Rows.Count; i++)
-                {
-                    estatus[i] = (string)(tabla.Rows[i]["estatus"]);                    
-                }
-                return estatus;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+       
 
         public void cargarDatos() // aun tenemos que ver como cargar a los usuarios
         {
             try
             {
-                string query = "SELECT p.id_proyecto, p.proyecto, p.fecha_registro,CAST(p.fecha_inicio AS varchar)" +
-                    " as fecha_inicio ,CAST(p.fecha_final AS varchar) as fecha_final ,p.observaciones, e.estatus FROM proyectos p " +
-                    "INNER JOIN estatus e ON p.estatus = e.id_estatus WHERE id_proyecto = @id_proyecto;";
+                string query = "SELECT p.id_proyecto, p.proyecto, p.fecha_registro,CAST(p.fecha_inicio AS varchar) as fecha_inicio ,CAST(p.fecha_final AS varchar) as fecha_final ,p.observaciones," +
+                    " e.estatus FROM proyectos p INNER JOIN estatus e ON p.estatus = e.id_estatus WHERE id_proyecto = @id_proyecto;";
                 SqlCommand cmd = new SqlCommand(query);
                 cmd.Parameters.AddWithValue("@id_proyecto",id_proyecto);
                 DataTable pro = consulta(cmd);
@@ -187,29 +170,38 @@ namespace SICAP.Modelos
             }
         }
 
-           public string[] traerActividades()  // esto lo tenemos que presentar en un gridbview.
+        public DataTable traerActividades()  // esto lo tenemos que presentar en un gridbview.
         {            
             try
             {
-                string query = "SELECT actividad,observaciones, CAST(fecha_entrega AS varchar) AS fecha_entrega FROM actividades WHERE id_proyecto = @id_proyecto";
+                string query = "SELECT a.actividad,a.observaciones,a.fecha_entrega,e.estatus,a.id_proyecto" +
+                    " FROM actividades a INNER JOIN estatus e ON a.estatus = e.id_estatus WHERE id_proyecto = @id_proyecto";
                 SqlCommand cmd = new SqlCommand(query);
                 cmd.Parameters.AddWithValue("@id_proyecto", id_proyecto);
-                DataTable act = consulta(cmd);
-                string[] actividades = new string[act.Rows.Count];
-                for(int i = 0; i < act.Rows.Count; i++)
-                {
-                    string actividad = (string)(act.Rows[i]["actividad"]);
-                    actividad += " - " + (string)(act.Rows[i]["observaciones"]);
-                    actividad += " - " + (string)(act.Rows[i]["fecha_entrega"]);
-                    actividades[i] = actividad;
-                }
-                return actividades;
+                return consulta(cmd);
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
+
+        public int cambiarEstatus(int e)
+        {
+            try
+            {
+                string query = "UPDATE proyectos SET estatus = @estatus WHERE id_proyecto = @id_proyecto";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@estatus", e);
+                cmd.Parameters.AddWithValue("@id_proyecto", id_proyecto);
+                return ejectuarSQL(cmd);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        
 
     }
 }

@@ -67,6 +67,7 @@
     <Content Include="recover.aspx" />
     <Content Include="Recursos\animate.css" />
     <Content Include="Recursos\backgroundAdmin.jpg" />
+    <Content Include="Recursos\estilos.css" />
     <Content Include="Recursos\jquery.js" />
     <Content Include="Recursos\MaterialIcons-Regular.ttf" />
     <Content Include="Recursos\MaterialIcons-Regular.woff" />
@@ -85,6 +86,7 @@
     <Content Include="Recursos\material-icons.css" />
     <Content Include="Recursos\materialize.css" />
     <Content Include="Recursos\materialize.js" />
+    <Content Include="Utelirias\PerfilProyecto.js" />
     <Content Include="Utelirias\Proyecto.js" />
     <Content Include="Utelirias\Usuario.js" />
     <Content Include="registro.aspx" />
