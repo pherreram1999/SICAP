@@ -9,7 +9,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <NameOfLastUsedPublishProfile>CustomProfile</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>SICAP</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

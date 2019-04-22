@@ -3,6 +3,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="contenido card-panel animated fadeIn">
+
+        <h5 class="section">Usuarios</h5>
+        <div class="divider"></div>
+
         <asp:GridView ID="gvUsurios" CssClass="responsive-table" runat="server"
          DataKeyNames="id_usuario"  AutoGenerateColumns="false" >
         <Columns>

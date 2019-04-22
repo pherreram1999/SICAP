@@ -7,14 +7,15 @@ using System.Web.UI.WebControls;
 
 namespace SICAP
 {
-    public partial class usuarios : System.Web.UI.Page
+    public partial class misProyectos : System.Web.UI.Page
     {
         SICAP.Modelos.Usuario usu;
         protected void Page_Load(object sender, EventArgs e)
         {
             usu = new SICAP.Modelos.Usuario();
-            gvUsurios.DataSource = usu.traerUsuarios();
-            gvUsurios.DataBind();
+            usu.id_usuario = (int)(Session["id_usuario"]);
+            gvMisProyectos.DataSource = usu.traerMisProyectos();
+            gvMisProyectos.DataBind();
         }
     }
 }

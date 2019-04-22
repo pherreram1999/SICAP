@@ -17,7 +17,7 @@
 <body>
     <form id="form1" runat="server">
             <!-- se define el menu principal -->
-        <nav class="blue">
+        <nav class="cyan darken-4">
             <div class="nav-wrapper">
                 <div class="container">
                     <a href="#" class="brand-logo center">SICAP</a>
@@ -35,18 +35,22 @@
             <li>
                 <div class="user-view">
                     <div class="background">
-                        <img src="Recursos/backgroundAdmin.jpg" />
+                        <img src="Recursos/backgroundUsu.jpg" />
                     </div>
                     <asp:Image CssClass="circle" ID="userFoto" runat="server" />
                     <asp:Label ID="lblNombreUsuario" CssClass="white-text" runat="server" Text="Nombre del Usuario"></asp:Label>                           
-                </div>
-                <asp:HyperLink NavigateUrl="~/proyectos.aspx" ID="hlVerProyecto" runat="server">Ver proyectos<i class="material-icons">pageview</i></asp:HyperLink>
-                <asp:HyperLink NavigateUrl="~/proyecto.aspx" ID="hlProyectos" runat="server">Crear Proyecto<i class="material-icons">work</i></asp:HyperLink>
-                <asp:HyperLink NavigateUrl="~/usuarios.aspx" ID="hlEmpleados" runat="server">Usuarios<i class="material-icons">people</i></asp:HyperLink>
-                <asp:HyperLink NavigateUrl="~/registro.aspx" ID="hlRegistrar" runat="server">Regitrar nuevo usuario<i class="material-icons">person_add</i></asp:HyperLink>
+                </div>              
             </li>
 
-            
+            <li><asp:HyperLink NavigateUrl="~/misProyectos.aspx" ID="HyperLink1" runat="server">Mis Proyectos<i class="material-icons">work</i></asp:HyperLink></li>
+
+           
+            <li><asp:HyperLink NavigateUrl="#" ID="hlAdministrar" CssClass="subheader" Text="Administrar" runat="server" /></li>
+            <li><asp:HyperLink NavigateUrl="~/proyectos.aspx" ID="hlVerProyectos" runat="server">Ver proyectos<i class="material-icons">pageview</i></asp:HyperLink></li>
+            <li><asp:HyperLink NavigateUrl="~/proyecto.aspx" ID="hlProyectos" runat="server">Crear Proyecto<i class="material-icons">work</i></asp:HyperLink></li>
+            <li><asp:HyperLink NavigateUrl="~/usuarios.aspx" ID="hlEmpleados" runat="server">Usuarios<i class="material-icons">people</i></asp:HyperLink></li>
+            <li><asp:HyperLink NavigateUrl="~/registro.aspx" ID="hlRegistrar" runat="server">Regitrar nuevo usuario<i class="material-icons">person_add</i></asp:HyperLink></li>
+            <li><asp:HyperLink NavigateUrl="~/areas.aspx" ID="hlAreas" runat="server">Areas<i class="material-icons">group_work</i></asp:HyperLink></li>
         </ul>
 
         <!-- aqui va el contenido de la pagina -->
@@ -60,14 +64,9 @@
     <script src="Recursos/materialize.js"></script>
     <script src="Recursos/jquery.js"></script>
     <script>
-
-
         document.addEventListener('DOMContentLoaded', function () {
             M.AutoInit();
         });
-
-        
-
     </script>
 </body>
 </html>

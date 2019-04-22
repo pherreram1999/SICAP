@@ -15,11 +15,6 @@ namespace SICAP
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["id_usuario"] == null)
-            {
-                Response.Redirect("default.aspx");
-            }
-
             usu = new SICAP.Modelos.Usuario();
 
             if (ddlArea.Items.Count == 1)
@@ -65,6 +60,21 @@ namespace SICAP
                 usu.guardar();
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
                         "alert('usuario guardado correctamente'); location.href='./usuarios.aspx'", true);
+            }
+        }
+
+        protected void lbPerfil_Click(object sender, EventArgs e)
+        {
+            if (fuPerfil.HasFile)
+            {
+                usu.ruta = "./Imagenes/" + fuPerfil.FileName;
+                fuPerfil.SaveAs(Server.MapPath(".") + usu.ruta);
+                imgPerfil.ImageUrl = usu.ruta;
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        "alert('No ha selecionado ningun archvio');", true);
             }
         }
     }

@@ -11,11 +11,11 @@ namespace SICAP.DAO
     {
         private string cdnConexion;
        
-        private SqlConnection cnn;        
+        private SqlConnection cnn;
 
         public Conexion()
         {
-            cdnConexion = @"Data Source = DESKTOP-SMR9V4P\SQLEXPRESS;Initial Catalog= SICAP ;Trusted_Connection=True;";
+            cdnConexion = @"Data Source = XE1PHL-PC;Initial Catalog= SICAP ;Trusted_Connection=True;";
             cnn = new SqlConnection(cdnConexion);
         }
 

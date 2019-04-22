@@ -5,3 +5,10 @@ C:\Users\Pedro Alonso\Documents\SICAP\SICAP\obj\Release\SICAP.csprojAssemblyRefe
 C:\Users\Pedro Alonso\Documents\SICAP\SICAP\obj\Release\SICAP.csproj.CoreCompileInputs.cache
 C:\Users\Pedro Alonso\Documents\SICAP\SICAP\obj\Release\SICAP.dll
 C:\Users\Pedro Alonso\Documents\SICAP\SICAP\obj\Release\SICAP.pdb
+C:\Users\Pedro Herrera Luna\Desktop\SICAP\SICAP\bin\SICAP.dll.config
+C:\Users\Pedro Herrera Luna\Desktop\SICAP\SICAP\bin\SICAP.dll
+C:\Users\Pedro Herrera Luna\Desktop\SICAP\SICAP\bin\SICAP.pdb
+C:\Users\Pedro Herrera Luna\Desktop\SICAP\SICAP\obj\Release\SICAP.csprojAssemblyReference.cache
+C:\Users\Pedro Herrera Luna\Desktop\SICAP\SICAP\obj\Release\SICAP.csproj.CoreCompileInputs.cache
+C:\Users\Pedro Herrera Luna\Desktop\SICAP\SICAP\obj\Release\SICAP.dll
+C:\Users\Pedro Herrera Luna\Desktop\SICAP\SICAP\obj\Release\SICAP.pdb

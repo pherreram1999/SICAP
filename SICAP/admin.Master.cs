@@ -11,6 +11,26 @@ namespace SICAP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["id_usuario"] == null)
+            {
+                Response.Redirect("default.aspx");                
+            }
+            else if((int)(Session["rol"]) == 2)
+            {
+                hlAdministrar.Visible = false;
+                hlProyectos.Visible = false;
+                hlEmpleados.Visible = false;
+                hlRegistrar.Visible = false;
+                hlVerProyectos.Visible = false;
+                hlAreas.Visible = false;
+                string js = "var p = location.href;var r = p.split('/');" +
+                    "if(r[3] == 'misProyectos.aspx') {  } else { location.href = './misProyectos.aspx'} ";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                       js, true);
+
+            }
+
+
             string nombreUsuario = (string)(Session["nombre"]) + " " + (string)(Session["paterno"]) + " " + (string)(Session["materno"]);
             lblNombreUsuario.Text = nombreUsuario;
             userFoto.ImageUrl = (string)(Session["ruta"]);

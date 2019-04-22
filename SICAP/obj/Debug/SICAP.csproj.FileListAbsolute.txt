@@ -17,3 +17,10 @@ C:\Users\Pedro Herrera Luna\Desktop\SICAP\SICAP\obj\Debug\SICAP.csproj.CoreCompi
 C:\Users\Pedro Herrera Luna\Desktop\SICAP\SICAP\obj\Debug\SICAP.dll
 C:\Users\Pedro Herrera Luna\Desktop\SICAP\SICAP\obj\Debug\SICAP.pdb
 C:\Users\Pedro Herrera Luna\Desktop\SICAP\SICAP\obj\Debug\SICAP.csprojAssemblyReference.cache
+C:\Users\XE1PHL\Desktop\SICAP\SICAP\bin\SICAP.dll.config
+C:\Users\XE1PHL\Desktop\SICAP\SICAP\bin\SICAP.dll
+C:\Users\XE1PHL\Desktop\SICAP\SICAP\bin\SICAP.pdb
+C:\Users\XE1PHL\Desktop\SICAP\SICAP\obj\Debug\SICAP.csproj.CoreCompileInputs.cache
+C:\Users\XE1PHL\Desktop\SICAP\SICAP\obj\Debug\SICAP.dll
+C:\Users\XE1PHL\Desktop\SICAP\SICAP\obj\Debug\SICAP.pdb
+C:\Users\XE1PHL\Desktop\SICAP\SICAP\obj\Debug\SICAP.csprojAssemblyReference.cache

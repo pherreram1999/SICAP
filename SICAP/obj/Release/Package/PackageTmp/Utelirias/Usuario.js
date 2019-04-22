@@ -28,6 +28,7 @@ btnModificar = document.getElementById("btnModificar");
         }
 
 
+
         fuArchivo.classList.remove("disabled");
         btnGuardar.classList.remove("disabled");
         txtNombre.removeAttribute("disabled");

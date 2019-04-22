@@ -32,15 +32,15 @@ GO
 CREATE TABLE usuarios
 (
 	id_usuario		INT IDENTITY (1,1) PRIMARY KEY, 
-	nombre			VARCHAR (MAX),
-	paterno			VARCHAR (180),
-	materno			VARCHAR (180),
+	nombre			VARCHAR (900),
+	paterno			VARCHAR (900),
+	materno			VARCHAR (900),
 	rol				INT DEFAULT 1  NOT NULL,
 	contrasena		VARCHAR (MAX) NOT NULL,
 	area			INT FOREIGN KEY REFERENCES areas(id_area) NOT NULL,
-	telefono		VARCHAR (12) NOT NULL,
-	email			VARCHAR (120) UNIQUE NOT NULL,
-	especialidad	VARCHAR (MAX),
+	telefono		VARCHAR (150) NOT NULL,
+	email			VARCHAR (300) UNIQUE NOT NULL,
+	especialidad	VARCHAR (900),
 	ruta			VARCHAR (MAX) NOT NULL
 );
 go
@@ -122,18 +122,18 @@ SELECT * FROM usuarios U INNER JOIN areas A ON U.area = A.id_area INNER JOIN rol
 --go
 
 -- retorna los usuarios pertenicientes al proyecto
-SELECT * FROM relaciones r INNER JOIN usuarios u ON r.id_usuarios = u.id_usuario; -- where id_proyecto = @id_proyecto ;
+--SELECT * FROM relaciones r INNER JOIN usuarios u ON r.id_usuarios = u.id_usuario; -- where id_proyecto = @id_proyecto ;
 
-SELECT * FROM relaciones;
+--SELECT * FROM relaciones;
 
-SELECT p.id_proyecto, p.proyecto, p.fecha_registro,CAST(p.fecha_inicio AS varchar) as fecha_inicio ,CAST(p.fecha_final AS varchar) as fecha_final ,p.observaciones, e.estatus FROM proyectos p INNER JOIN estatus e ON p.estatus = e.id_estatus;
-
-
-SELECT CAST(fecha_inicio AS VARCHAR) as fecha_inicio FROM proyectos;
+--SELECT p.id_proyecto, p.proyecto, p.fecha_registro,CAST(p.fecha_inicio AS varchar) as fecha_inicio ,CAST(p.fecha_final AS varchar) as fecha_final ,p.observaciones, e.estatus FROM proyectos p INNER JOIN estatus e ON p.estatus = e.id_estatus;
 
 
-SELECT u.id_usuario, u.nombre, u.paterno, u.materno, u.especialidad FROM relaciones r INNER JOIN usuarios u ON r.id_usuarios = u.id_usuario WHERE r.id_proyecto = 1;
+--SELECT CAST(fecha_inicio AS VARCHAR) as fecha_inicio FROM proyectos;
 
-SELECT actividad,observaciones, CAST(fecha_entrega AS varchar) AS fecha_entrega FROM actividades WHERE id_proyecto = 3;
 
-SELECT a.actividad,a.observaciones,a.fecha_entrega,e.estatus,a.id_proyecto FROM actividades a INNER JOIN estatus e ON a.estatus = e.id_estatus;
+--SELECT u.id_usuario, u.nombre, u.paterno, u.materno, u.especialidad FROM relaciones r INNER JOIN usuarios u ON r.id_usuarios = u.id_usuario WHERE r.id_proyecto = 1;
+
+--SELECT actividad,observaciones, CAST(fecha_entrega AS varchar) AS fecha_entrega FROM actividades WHERE id_proyecto = 3;
+
+--SELECT a.actividad,a.observaciones,a.fecha_entrega,e.estatus,a.id_proyecto FROM actividades a INNER JOIN estatus e ON a.estatus = e.id_estatus;

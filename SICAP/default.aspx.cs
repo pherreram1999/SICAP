@@ -26,11 +26,16 @@ namespace SICAP
                 Session["nombre"] = usu.nombre;
                 Session["paterno"] = usu.paterno;
                 Session["materno"] = usu.materno;
-                Session["ruta"] = usu.ruta;                
+                Session["ruta"] = usu.ruta;
+                Session["rol"] = usu.rol;
                 
                 if (usu.rol == 1)
                 {   
-                    Response.Redirect("usuarios.aspx");
+                    Response.Redirect("proyectos.aspx");
+                }
+                else
+                {
+                    Response.Redirect("misProyectos.aspx");
                 }
             }
             else
@@ -39,8 +44,6 @@ namespace SICAP
                         "alert('Usuario y/o Contraseña incorrectos')", true);
             }
         }
-
-       
        
     }
 }

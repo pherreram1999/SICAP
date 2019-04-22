@@ -12,11 +12,6 @@ namespace SICAP
         SICAP.Modelos.Proyecto proyect;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["id_usuario"] == null)
-            {
-                Response.Redirect("default.aspx");
-            }
-
 
             if (!IsPostBack)
             {

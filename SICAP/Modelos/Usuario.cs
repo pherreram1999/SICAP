@@ -54,13 +54,14 @@ namespace SICAP.Modelos
         {
             try
             {
-                string query = "SELECT rol, nombre,paterno,materno,ruta FROM usuarios WHERE email = @email AND contrasena = @contrasena";
+                string query = "SELECT id_usuario,rol, nombre,paterno,materno,ruta FROM usuarios WHERE email = @email AND contrasena = @contrasena";
                 SqlCommand cmd = new SqlCommand(query);
                 cmd.Parameters.AddWithValue("@email", email);
                 cmd.Parameters.AddWithValue("@contrasena",Encriptar.GetSHA1(contrasena));
                 DataTable usuario = consulta(cmd);
                 if (usuario.Rows.Count > 0)
                 {
+                    id_usuario = (int)(usuario.Rows[0]["id_usuario"]);
                     rol = int.Parse(usuario.Rows[0]["rol"].ToString());
                     nombre = (string)(usuario.Rows[0]["nombre"]);
                     paterno = (string)(usuario.Rows[0]["paterno"]);
@@ -216,5 +217,72 @@ namespace SICAP.Modelos
                 throw new Exception(ex.Message);
             }
         }
+
+        public int AgregarArea(string a)
+        {
+            try
+            {
+                string query = "INSERT INTO areas(area) VALUES (@area); ";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@area", a);
+                return ejectuarSQL(cmd);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+        }
+        public bool areaEnUso(string a)
+        {
+            try
+            {
+                string query = "SELECT A.area  FROM usuarios U INNER JOIN areas A ON U.area = A.id_area WHERE A.area = @area;";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@area", a);
+                return (consulta(cmd).Rows.Count > 0) ? true : false;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public int eliminarArea(string a)
+        {
+            try
+            {
+
+                string query = "DELETE FROM areas WHERE area=@area;";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@area", a);
+                return ejectuarSQL(cmd);
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public DataTable traerMisProyectos()
+        {
+            try
+            {
+                string query = "SELECT p.id_proyecto, p.proyecto, p.fecha_registro,CAST(p.fecha_inicio AS varchar) as fecha_inicio ,CAST(p.fecha_final AS varchar) as fecha_final FROM relaciones r INNER JOIN usuarios u ON r.id_usuarios = u.id_usuario " +
+                    "INNER JOIN proyectos p ON r.id_proyecto = p.id_proyecto WHERE r.id_usuarios = @id_usuario;";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@id_usuario", id_usuario);
+                return consulta(cmd);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
     }
 }

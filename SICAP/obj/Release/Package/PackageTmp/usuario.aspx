@@ -7,7 +7,6 @@
             <div class="col s12">
                 <asp:HyperLink Text="Volver Usuarios" NavigateUrl="~/usuarios.aspx" CssClass="left" runat="server" />
                 <a href="#" id="btnModificar" class="btn right">Modificar datos</a>
-
                 
                 <h4 class="section">Datos del usuario</h4>
                 <div class="divider"></div>

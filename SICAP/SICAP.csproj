@@ -59,8 +59,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="areas.aspx" />
     <Content Include="default.aspx" />
     <Content Include="Imagenes\default.png" />
+    <Content Include="misProyectos.aspx" />
     <Content Include="perfilProyecto.aspx" />
     <Content Include="proyecto.aspx" />
     <Content Include="proyectos.aspx" />
@@ -73,7 +75,7 @@
     <Content Include="Recursos\MaterialIcons-Regular.woff" />
     <Content Include="Recursos\MaterialIcons-Regular.woff2" />
     <Content Include="admin.Master" />
-    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\SICAP.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -102,6 +104,13 @@
     <Compile Include="admin.Master.designer.cs">
       <DependentUpon>admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="areas.aspx.cs">
+      <DependentUpon>areas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="areas.aspx.designer.cs">
+      <DependentUpon>areas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DAO\Conexion.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -112,6 +121,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="misProyectos.aspx.cs">
+      <DependentUpon>misProyectos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="misProyectos.aspx.designer.cs">
+      <DependentUpon>misProyectos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Proyecto.cs" />
     <Compile Include="Modelos\Usuario.cs" />
