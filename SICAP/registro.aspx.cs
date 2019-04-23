@@ -15,6 +15,8 @@ namespace SICAP
         
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             usu = new SICAP.Modelos.Usuario();
 
             if (ddlArea.Items.Count == 1)

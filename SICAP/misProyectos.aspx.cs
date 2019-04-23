@@ -12,6 +12,10 @@ namespace SICAP
         SICAP.Modelos.Usuario usu;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["id_usuario"] == null)
+            {
+                Response.Redirect("default.aspx");
+            }
             usu = new SICAP.Modelos.Usuario();
             usu.id_usuario = (int)(Session["id_usuario"]);
             gvMisProyectos.DataSource = usu.traerMisProyectos();

@@ -13,6 +13,10 @@ namespace SICAP
         SICAP.Modelos.Usuario usu;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Request.Params["id_usuario"] == null)
+            {
+                Response.Redirect("usuarios.aspx");
+            }
             
             usu = new Modelos.Usuario();
 

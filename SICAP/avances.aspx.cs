@@ -7,14 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace SICAP
 {
-    public partial class proyectos : System.Web.UI.Page
+    public partial class avances : System.Web.UI.Page
     {
-        SICAP.Modelos.Proyecto proyect;
         protected void Page_Load(object sender, EventArgs e)
         {
-            proyect = new SICAP.Modelos.Proyecto();
-            gvProyectos.DataSource = proyect.traerProyectos();
-            gvProyectos.DataBind();
+
         }
     }
 }

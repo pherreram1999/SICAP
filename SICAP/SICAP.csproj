@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="areas.aspx" />
+    <Content Include="avances.aspx" />
     <Content Include="default.aspx" />
     <Content Include="Imagenes\default.png" />
     <Content Include="misProyectos.aspx" />
@@ -110,6 +111,13 @@
     </Compile>
     <Compile Include="areas.aspx.designer.cs">
       <DependentUpon>areas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="avances.aspx.cs">
+      <DependentUpon>avances.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="avances.aspx.designer.cs">
+      <DependentUpon>avances.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAO\Conexion.cs" />
     <Compile Include="default.aspx.cs">
@@ -185,7 +193,9 @@
     <Compile Include="Utelirias\Encriptar.cs" />
     <Compile Include="Utelirias\GenerarPass.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Documentos\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
