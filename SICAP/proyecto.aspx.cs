@@ -15,10 +15,7 @@ namespace SICAP
         SICAP.Modelos.Proyecto proyect;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Request.Params["id_proyecto"] == null)
-            {
-                Response.Redirect("proyectos.aspx");
-            }
+
 
             usu = new SICAP.Modelos.Usuario();
             proyect = new SICAP.Modelos.Proyecto();

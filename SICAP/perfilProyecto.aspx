@@ -8,7 +8,7 @@
         
         <div class="row">
             <div class="input-field col s12 m4 ">
-                <asp:Label Text="Estatus del Proyecto" runat="server" />
+                <asp:Label Text="Estatus del Proyecto" ID="lblEstatus" runat="server" />
                 <asp:DropDownList AutoPostBack="true" OnSelectedIndexChanged="dllEstatus_SelectedIndexChanged" ID="dllEstatus" runat="server" Enabled="False">
                     <asp:ListItem Text="text" Selected="True" disabled/>
                     <asp:ListItem Text="Activo" Value="1" />

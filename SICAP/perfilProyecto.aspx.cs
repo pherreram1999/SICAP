@@ -15,6 +15,13 @@ namespace SICAP
             if (Request.Params["id_proyecto"] == null)
             {
                 Response.Redirect("proyectos.aspx");
+
+            }
+            if ((int)(Session["rol"]) == 2)
+            {
+                dllEstatus.Visible = false;
+                btnEstatus.Visible = false;
+                lblEstatus.Visible = false;
             }
 
             if (!IsPostBack)

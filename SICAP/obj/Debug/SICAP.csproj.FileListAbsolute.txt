@@ -24,3 +24,9 @@ C:\Users\XE1PHL\Desktop\SICAP\SICAP\obj\Debug\SICAP.csproj.CoreCompileInputs.cac
 C:\Users\XE1PHL\Desktop\SICAP\SICAP\obj\Debug\SICAP.dll
 C:\Users\XE1PHL\Desktop\SICAP\SICAP\obj\Debug\SICAP.pdb
 C:\Users\XE1PHL\Desktop\SICAP\SICAP\obj\Debug\SICAP.csprojAssemblyReference.cache
+C:\Users\luisc\Desktop\SICAP\SICAP\bin\SICAP.dll.config
+C:\Users\luisc\Desktop\SICAP\SICAP\bin\SICAP.dll
+C:\Users\luisc\Desktop\SICAP\SICAP\bin\SICAP.pdb
+C:\Users\luisc\Desktop\SICAP\SICAP\obj\Debug\SICAP.csprojResolveAssemblyReference.cache
+C:\Users\luisc\Desktop\SICAP\SICAP\obj\Debug\SICAP.dll
+C:\Users\luisc\Desktop\SICAP\SICAP\obj\Debug\SICAP.pdb

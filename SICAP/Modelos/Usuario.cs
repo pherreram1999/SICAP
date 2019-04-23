@@ -159,14 +159,13 @@ namespace SICAP.Modelos
         {
             try
             {
-                string query = "UPDATE usuarios SET nombre = @nombre, paterno = @paterno, materno = @materno, rol = @rol, contrasena = @contrasena, area = @area, telefono = @telefono, " +
+                string query = "UPDATE usuarios SET nombre = @nombre, paterno = @paterno, materno = @materno, rol = @rol,  area = @area, telefono = @telefono, " +
                     "email = @email, especialidad = @especialidad, ruta = @ruta WHERE id_usuario = @id_usuario";
                 SqlCommand cmd = new SqlCommand(query);
                 cmd.Parameters.AddWithValue("@nombre",nombre);
                 cmd.Parameters.AddWithValue("@paterno", paterno);
                 cmd.Parameters.AddWithValue("@materno", materno);
-                cmd.Parameters.AddWithValue("@rol", rol);
-                cmd.Parameters.AddWithValue("@contrasena", Encriptar.GetSHA1(contrasena));
+                cmd.Parameters.AddWithValue("@rol", rol);            
                 cmd.Parameters.AddWithValue("@area", area);
                 cmd.Parameters.AddWithValue("@telefono", telefono);
                 cmd.Parameters.AddWithValue("@email", email);
@@ -181,6 +180,8 @@ namespace SICAP.Modelos
                 throw new Exception(ex.Message);
             }
         }
+
+       
 
         public string getNombreUsuario()
         {
@@ -217,6 +218,43 @@ namespace SICAP.Modelos
                 throw new Exception(ex.Message);
             }
         }
+
+        public int CambiarPass(string pass)
+        {
+            try
+            {
+                string query = "UPDATE usuarios SET contrasena = @contrasena WHERE id_usuario=@id_usuario";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@contrasena",Encriptar.GetSHA1(pass));
+                cmd.Parameters.AddWithValue("@id_usuario", id_usuario);
+                return ejectuarSQL(cmd);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+        public bool validarPass()
+        {
+            try
+            {
+                string query = "SELECT contrasena FROM usuarios WHERE contrasena = @contrasena AND id_usuario= @id_usuario";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@contrasena", Encriptar.GetSHA1(contrasena));
+                cmd.Parameters.AddWithValue("@id_usuario", id_usuario);
+                return (consulta(cmd).Rows.Count > 0) ? true : false;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
 
         public int AgregarArea(string a)
         {

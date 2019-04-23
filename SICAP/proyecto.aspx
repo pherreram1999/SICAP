@@ -71,6 +71,13 @@
             </div>
 
         </div>
+        <div class="row">
+            <div class="col s12">
+                <p>
+                    *Puede seleccionar varios usuarios manteniendo presionado Ctrl y dando clic en los usuarios
+                </p>
+            </div>
+        </div>
 
         <%-- aqui viene las actividades  // sera util,o bien, se cancela todo  --%>
 

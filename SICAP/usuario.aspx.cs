@@ -56,7 +56,7 @@ namespace SICAP
             usu.materno = txtMaterno.Text.Trim();
             usu.email = txtEmail.Text.Trim();
             usu.especialidad = txtEspecialidad.Text.Trim();
-            usu.contrasena = txtContrasena.Text.Trim();
+            
             usu.telefono = txtTelefono.Text.Trim();
             usu.ruta = imgPerfil.ImageUrl;
             usu.area = usu.asignarArea(ddlArea.Text);
@@ -66,11 +66,6 @@ namespace SICAP
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
                         "alert('correo electronico ya registrado')", true);
-            }
-            else if (txtContrasena.Text.Trim() != txtConfirmarContrasena.Text.Trim())
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
-                        "alert('las contraseñas no coinciden')", true);
             }
             else if (ddlRol.Text == "Elija rol de usuario" || ddlArea.Text == "Elija area")
             {
@@ -99,5 +94,57 @@ namespace SICAP
                         "alert('No ha selecionado ningun archvio');", true);
             }
         }
+
+        protected void btnHabilitar_Click(object sender, EventArgs e)
+        {
+            if(btnHabilitar.Text == "Modificar")
+            {
+                txtEmail.Enabled = true;
+                txtEspecialidad.Enabled = true;
+                txtMaterno.Enabled = true;
+                txtNombre.Enabled = true;
+                txtPaterno.Enabled = true;
+                txtTelefono.Enabled = true;
+                ddlArea.Enabled = true;
+                ddlRol.Enabled = true;
+                btnRegisrar.Enabled = true;
+                fuPerfil.Enabled = true;
+                btnHabilitar.Text = "Cancelar Modificacion";
+                btnHabilitar.CssClass = " btn red white-text right";
+            }
+            else 
+            {
+                Response.Redirect("usuarios.aspx");
+            }
+        }
+
+        protected void btnCambiarContrasena_Click(object sender, EventArgs e)
+        {
+            usu.contrasena = txtOldContrasena.Text;
+            usu.id_usuario = int.Parse(Request.Params["id_usuario"]);
+            if (usu.validarPass())
+            {
+                if(txtNewContrasena.Text == txtConfirmarContrasena.Text)
+                {
+                    
+                    usu.CambiarPass(txtNewContrasena.Text);
+                    Session["id_usuario"] = null;
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        "alert('Datos modificados correctamente'); location.href= './default.aspx'", true);
+                    
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        "alert('Las contraseñas no coinciden');", true);
+                }
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        "alert('Contraseña actual incorrecta');", true);
+            }
+        }
+
     }
 }
