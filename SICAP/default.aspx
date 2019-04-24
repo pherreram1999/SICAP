@@ -24,6 +24,11 @@
 
     .fm {
         padding:24px;
+
+    }
+    .fx {
+        padding:0px 24px;
+
     }
 
 
@@ -48,10 +53,13 @@
                     </div>
                     <div class="col s12">
                         <asp:Button Text="Iniciar" ID="btnIniciar" CssClass="btn blue" runat="server" OnClick="btnIniciar_Click1" />
-                        <a class="right" href="./recover.aspx">recuperar contraseña</a>
                     </div>
-
-
+                    
+                </div>
+                <div class="row fx">
+                    <div class="col s12">
+                        <a href="./recover.aspx">recuperar contraseña</a>
+                    </div>
                 </div>
 
             </div>

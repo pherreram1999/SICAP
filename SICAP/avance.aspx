@@ -14,14 +14,37 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m3">
-                <asp:Label Text="Fecha de Registro" Enabled="false" runat="server" />
-                <asp:TextBox runat="server" TextMode="Date" ID="txtFecha"/>  
+                <asp:Label Text="Fecha de Registro"  runat="server" />
+                <asp:TextBox runat="server" Enabled="false" TextMode="Date" ID="txtFecha"/>  
+            </div>
+            <div class="input-field col s12 m4">
+                <asp:Label Text="Activdad" runat="server" />
+                <asp:TextBox Enabled="false" ID="txtActividad" runat="server" />
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <asp:Label Text="Observaciones" AssociatedControlID="txtObservaciones" runat="server" />
                 <asp:TextBox runat="server" ID="txtObservaciones" />  
+            </div>
+        </div>
+        <h5 class="section">Cargar Archivos</h5>
+        <div class="row">
+            <div class="file-field input-field col s12 valign-wrapper">
+                <div class="btn">
+                    <span>Seleccionar archivo</span>
+                    <asp:FileUpload AllowMultiple="true" ID="fuArchivos" runat="server" />
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="adjuntar">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <h6 class="section">Archivos adjuntos</h6>
+                <asp:ListBox ID="lbxArchivos" CssClass="browser-default" runat="server"></asp:ListBox>
             </div>
         </div>
 

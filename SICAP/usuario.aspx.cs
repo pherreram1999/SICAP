@@ -130,7 +130,7 @@ namespace SICAP
                     usu.CambiarPass(txtNewContrasena.Text);
                     Session["id_usuario"] = null;
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
-                        "alert('Datos modificados correctamente'); location.href= './default.aspx'", true);
+                        "alert('Contraseña cambiada correctamente, favor de iniciar sesión con tu nueva contrasena'); location.href= './default.aspx'", true);
                     
                 }
                 else

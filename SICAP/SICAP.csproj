@@ -91,7 +91,6 @@
     <Content Include="Recursos\materialize.css" />
     <Content Include="Recursos\materialize.js" />
     <Content Include="Utelirias\PerfilProyecto.js" />
-    <Content Include="Utelirias\Proyecto.js" />
     <Content Include="Utelirias\Usuario.js" />
     <Content Include="registro.aspx" />
     <Content Include="usuario.aspx" />

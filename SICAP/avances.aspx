@@ -7,18 +7,12 @@
         <h6>Avances del proyecto</h6>
         <h4><asp:Label ID="lblNombreProyecto" Text="Nombre del proyecto aqui" runat="server"></asp:Label></h4>
         <div class="divider"></div>
-
-        
-        <asp:HyperLink NavigateUrl="avance.aspx" runat="server" ><i class="material-icons left">add</i>Nuevo avance</asp:HyperLink>
     </div>
-    <script type="text/javascript">
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
 
-        today = yyyy + '-' + mm + '-' + dd;
-        var fecha = document.getElementById("ContentPlaceHolder1_txtFecha");
-        fecha.value = today;
-    </script>
+    <div class="fixed-action-btn">
+      <asp:HyperLink CssClass="btn-floating btn-large tooltipped" NavigateUrl="#" ID="hlAgregarAvance" runat="server" data-position="left" data-tooltip="Agregar Avance">
+        <i class="large material-icons">add</i>
+      </asp:HyperLink>
+    </div>
+   
 </asp:Content>

@@ -89,7 +89,7 @@
             <div class="input-field col s12 m4">
                 <i class="material-icons prefix">supervised_user_circle</i>
                 <asp:DropDownList   ID="ddlArea" Enabled="false" runat="server">
-                    <asp:ListItem Text="Elija area" disabled Selected />
+                    <asp:ListItem Text="Elija area" disabled="disabled" Selected />
                 </asp:DropDownList>
             </div>
 
@@ -109,6 +109,9 @@
         <%-- toda la estructura va aqui --%>
         <h5 class="section">Cambiar Contraseña</h5>
         <div class="divider"></div>
+        <p class="section">
+            Favor de ingresar tu actual contraseña y confirmar la nueva contraseña
+        </p>
         <div class="row">
             <div class="input-field col s12 m4">
                 <asp:Label Text="Contraseña Actual" AssociatedControlID="txtOldContrasena" runat="server" />

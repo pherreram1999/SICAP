@@ -23,6 +23,7 @@ namespace SICAP
             if (!IsPostBack)
             {
                 lblNombreProyecto.Text = act.getNombreProyecto();
+                hlAgregarAvance.NavigateUrl = "avance.aspx?id_proyecto=" + Request.Params["id_proyecto"];
             }
 
         }

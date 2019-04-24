@@ -15,13 +15,18 @@ namespace SICAP
         SICAP.Modelos.Proyecto proyect;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
             usu = new SICAP.Modelos.Usuario();
             proyect = new SICAP.Modelos.Proyecto();
 
+            
+
             if (!IsPostBack)
             {
+                txtFechaInicialProyecto.Text = DateTime.Today.ToString("yyyy-MM-dd");
+                txtFechaInicialProyecto.Attributes.Add("min", DateTime.Today.ToString("yyyy-MM-dd"));
+                txtFechaFinalProyecto.Attributes.Add("min", DateTime.Today.ToString("yyyy-MM-dd"));
+                txtfechaEntregaActividad.Attributes.Add("min", DateTime.Today.ToString("yyyy-MM-dd"));
+
                 DataTable usuarios = usu.traerUsuarios();
                 foreach (DataRow usuario in usuarios.Rows)
                 {
@@ -83,16 +88,33 @@ namespace SICAP
             proyect.fecha_final = txtFechaFinalProyecto.Text;
             proyect.observaciones = txtObservaciones.Text;
 
+            
+
             if(lbxUsuariosSeleccionados.Items.Count > 0)
             {
                 if(lbxActividades.Items.Count > 0)
                 {
-                    proyect.guardar();
-                    proyect.id_proyecto = proyect.getID();
-                    proyect.asignarUsuarios();
-                    proyect.asignarActividades();
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
-                                "alert('Proyecto Creado correctamente'); location.href='./proyectos.aspx'", true);
+                    DateTime incial = DateTime.Parse(proyect.fecha_inicio);
+                    DateTime final = DateTime.Parse(proyect.fecha_final);
+                    if(DateTime.Compare(incial,final) == 0)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                                    "alert('Error: la fecha de incio y termino son identicas,favor de verificar las fechas');", true);
+                    }
+                    else if(DateTime.Compare(incial,final) > 0)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                                    "alert('Error: la fecha de inicio sobrepasa a fecha de termino') location.href= './proyecto.aspx';", true);
+                    }
+                    else
+                    {
+                        proyect.guardar();
+                        proyect.id_proyecto = proyect.getID();
+                        proyect.asignarUsuarios();
+                        proyect.asignarActividades();
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                                    "alert('Proyecto Creado correctamente'); location.href='./proyectos.aspx'", true);
+                    }                    
                 }
                 else
                 {
@@ -105,6 +127,17 @@ namespace SICAP
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
                         "alert('No se ha selecionado ningun usuario');", true);
             }
+        }
+
+        protected void txtFechaFinalProyecto_TextChanged(object sender, EventArgs e)
+        {
+            txtfechaEntregaActividad.Attributes.Add("max",txtFechaFinalProyecto.Text);
+        }
+
+        protected void txtFechaInicialProyecto_TextChanged(object sender, EventArgs e)
+        {
+            txtFechaFinalProyecto.Attributes.Add("min",txtFechaInicialProyecto.Text);
+            txtfechaEntregaActividad.Attributes.Add("min",txtFechaInicialProyecto.Text);
         }
     }
 }

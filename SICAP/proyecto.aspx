@@ -20,11 +20,11 @@
         <div class="row">
             <div class="input-field col s12 m2">
                 <asp:Label Text="Fecha de inicio" runat="server" />
-                <asp:TextBox ID="txtFechaInicialProyecto" required="required" CssClass="validate" runat="server" TextMode="Date" />
+                <asp:TextBox ID="txtFechaInicialProyecto" AutoPostBack="true" OnTextChanged="txtFechaInicialProyecto_TextChanged" required="required" CssClass="validate" runat="server" TextMode="Date" />
             </div>
             <div class="input-field col s12 m3">
                 <asp:Label Text="Fecha de Termino" runat="server" />
-                <asp:TextBox ID="txtFechaFinalProyecto" required="required" CssClass="validate" runat="server" TextMode="Date" />
+                <asp:TextBox ID="txtFechaFinalProyecto" AutoPostBack="true" OnTextChanged="txtFechaFinalProyecto_TextChanged" required="required" CssClass="validate" runat="server" TextMode="Date" />
             </div>
 
             <div class="col s12 m7">
@@ -103,8 +103,8 @@
 
                           <div class="row">
                               <div class="input-field col s12">
-                                  <asp:Label Text="Observaciones" AssociatedControlID="txtObservacionesActividad" runat="server" />
-                                  <asp:TextBox ID="txtObservacionesActividad" CssClass="materialize-textarea" runat="server" />
+                                  <asp:Label CssClass="section" Text="Observaciones" runat="server" />
+                                  <asp:TextBox ID="txtObservacionesActividad" placeholder="Observaciones" CssClass="materialize-textarea" runat="server" />
                               </div>
                           </div>
 
@@ -133,5 +133,5 @@
 
     </div>
 
-    <script src="Utelirias/Proyecto.js"></script>
+<%--    <script src="Utelirias/Proyecto.js"></script>--%>
 </asp:Content>

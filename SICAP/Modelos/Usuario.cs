@@ -311,7 +311,7 @@ namespace SICAP.Modelos
             try
             {
                 string query = "SELECT p.id_proyecto, p.proyecto, p.fecha_registro,CAST(p.fecha_inicio AS varchar) as fecha_inicio ,CAST(p.fecha_final AS varchar) as fecha_final FROM relaciones r INNER JOIN usuarios u ON r.id_usuarios = u.id_usuario " +
-                    "INNER JOIN proyectos p ON r.id_proyecto = p.id_proyecto WHERE r.id_usuarios = @id_usuario;";
+                    "INNER JOIN proyectos p ON r.id_proyecto = p.id_proyecto WHERE r.id_usuarios = @id_usuario AND estatus = 1;";
                 SqlCommand cmd = new SqlCommand(query);
                 cmd.Parameters.AddWithValue("@id_usuario", id_usuario);
                 return consulta(cmd);
