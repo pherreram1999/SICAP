@@ -112,15 +112,15 @@
         <div class="row">
             <div class="input-field col s12 m4">
                 <asp:Label Text="Contraseña Actual" AssociatedControlID="txtOldContrasena" runat="server" />
-                <asp:TextBox runat="server" ID="txtOldContrasena" />
+                <asp:TextBox runat="server" TextMode="Password" ID="txtOldContrasena" />
             </div>
             <div class="input-field col s12 m4">
                 <asp:Label Text="Nueva Contraseña" AssociatedControlID="txtNewContrasena" runat="server" />
-                <asp:TextBox runat="server" ID="txtNewContrasena" />
+                <asp:TextBox runat="server" TextMode="Password" ID="txtNewContrasena" />
             </div>
             <div class="input-field col s12 m4">
-                <asp:Label Text="Confirmar Contraseña" AssociatedControlID="txtConfirmarContrasena" runat="server" />
-                <asp:TextBox runat="server" ID="txtConfirmarContrasena" />
+                <asp:Label Text="Confirmar Contraseña" AssociatedControlID="txtConfirmarContrasena"  runat="server" />
+                <asp:TextBox runat="server" ID="txtConfirmarContrasena" TextMode="Password" />
             </div>
         </div>
     </div>

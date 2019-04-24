@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="areas.aspx" />
+    <Content Include="avance.aspx" />
     <Content Include="avances.aspx" />
     <Content Include="default.aspx" />
     <Content Include="Imagenes\default.png" />
@@ -111,6 +112,13 @@
     </Compile>
     <Compile Include="areas.aspx.designer.cs">
       <DependentUpon>areas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="avance.aspx.cs">
+      <DependentUpon>avance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="avance.aspx.designer.cs">
+      <DependentUpon>avance.aspx</DependentUpon>
     </Compile>
     <Compile Include="avances.aspx.cs">
       <DependentUpon>avances.aspx</DependentUpon>

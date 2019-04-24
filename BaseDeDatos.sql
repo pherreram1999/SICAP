@@ -101,6 +101,7 @@ CREATE TABLE avances
 	id_actividad	INT FOREIGN KEY REFERENCES actividades(id_actividad) NOT NULL,
 	id_usuario		INT FOREIGN KEY REFERENCES usuarios (id_usuario) NOT NULL,
 	id_proyecto		INT FOREIGN KEY REFERENCES proyectos (id_proyecto) NOT NULL,
+	fecha_registro	DATETIME DEFAULT GETDATE()
 );
 go
 

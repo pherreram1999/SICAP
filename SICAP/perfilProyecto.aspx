@@ -6,7 +6,7 @@
         <h5 class="section">Datos del proyecto</h5>
         <div class="divider"></div>
         <div class="section"></div>
-        <asp:LinkButton ID="btnAvances" OnClick="btnAvances_Click" Text="Avances" runat="server" />
+        <asp:LinkButton ID="btnAvances" OnClick="btnAvances_Click" CssClass="btn right" Text="Avances" runat="server" />
         <div class="row">
             <div class="input-field col s12 m4 ">
                 <asp:Label Text="Estatus del Proyecto" ID="lblEstatus" runat="server" />

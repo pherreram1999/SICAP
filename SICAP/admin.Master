@@ -43,7 +43,8 @@
             </li>
 
             <li><asp:HyperLink NavigateUrl="~/misProyectos.aspx" ID="HyperLink1" runat="server">Mis Proyectos<i class="material-icons">work</i></asp:HyperLink></li>
-
+            <li><asp:HyperLink NavigateUrl="#" ID="hlMiPerfil" runat="server" ><i class="material-icons">person</i>Mi Perfil </asp:HyperLink></li>
+            
            
             <li><asp:HyperLink NavigateUrl="#" ID="hlAdministrar" CssClass="subheader" Text="Administrar" runat="server" /></li>
             <li><asp:HyperLink NavigateUrl="~/proyectos.aspx" ID="hlVerProyectos" runat="server">Ver proyectos<i class="material-icons">pageview</i></asp:HyperLink></li>
