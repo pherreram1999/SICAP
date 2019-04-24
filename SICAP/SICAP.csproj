@@ -137,6 +137,7 @@
     <Compile Include="misProyectos.aspx.designer.cs">
       <DependentUpon>misProyectos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\Activdad.cs" />
     <Compile Include="Modelos\Proyecto.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="perfilProyecto.aspx.cs">

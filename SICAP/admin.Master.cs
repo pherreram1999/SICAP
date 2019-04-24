@@ -28,7 +28,6 @@ namespace SICAP
                     "{location.href = './misProyectos.aspx'} } ";
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
                        js, true);
-
             }
 
 

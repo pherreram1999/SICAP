@@ -76,5 +76,11 @@ namespace SICAP
             btnEstatus.CssClass = "btn";
             btnEstatus.Text = "Modificar estatus";
         }
+
+        protected void btnAvances_Click(object sender, EventArgs e)
+        {
+            string pagina = string.Format("avances.aspx?id_proyecto= {0}",Request.Params["id_proyecto"]);
+            Response.Redirect(pagina);
+        }
     }
 }

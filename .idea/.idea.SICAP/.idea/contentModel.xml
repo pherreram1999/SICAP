@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\XE1PHL\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\XE1PHL\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_SICAP.394908093.00" t="ExcludeRecursive" />
+    <e p="C:\Users\XE1PHL\Desktop\SICAP" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="SICAP" t="IncludeRecursive">
+        <e p="admin.Master" t="Include" />
+        <e p="admin.Master.cs" t="Include" />
+        <e p="admin.Master.designer.cs" t="Include" />
+        <e p="areas.aspx" t="Include" />
+        <e p="areas.aspx.cs" t="Include" />
+        <e p="areas.aspx.designer.cs" t="Include" />
+        <e p="avances.aspx" t="Include" />
+        <e p="avances.aspx.cs" t="Include" />
+        <e p="avances.aspx.designer.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DAO" t="Include">
+          <e p="Conexion.cs" t="Include" />
+        </e>
+        <e p="default.aspx" t="Include" />
+        <e p="default.aspx.cs" t="Include" />
+        <e p="default.aspx.designer.cs" t="Include" />
+        <e p="Documentos" t="Include" />
+        <e p="Global.asax" t="Include" />
+        <e p="Global.asax.cs" t="Include" />
+        <e p="Imagenes" t="Include">
+          <e p="default.png" t="Include" />
+        </e>
+        <e p="misProyectos.aspx" t="Include" />
+        <e p="misProyectos.aspx.cs" t="Include" />
+        <e p="misProyectos.aspx.designer.cs" t="Include" />
+        <e p="Modelos" t="Include">
+          <e p="Proyecto.cs" t="Include" />
+          <e p="Usuario.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="perfilProyecto.aspx" t="Include" />
+        <e p="perfilProyecto.aspx.cs" t="Include" />
+        <e p="perfilProyecto.aspx.designer.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="PublishProfiles" t="Include">
+            <e p="SICAP.pubxml" t="Include" />
+          </e>
+        </e>
+        <e p="proyecto.aspx" t="Include" />
+        <e p="proyecto.aspx.cs" t="Include" />
+        <e p="proyecto.aspx.designer.cs" t="Include" />
+        <e p="proyectos.aspx" t="Include" />
+        <e p="proyectos.aspx.cs" t="Include" />
+        <e p="proyectos.aspx.designer.cs" t="Include" />
+        <e p="recover.aspx" t="Include" />
+        <e p="recover.aspx.cs" t="Include" />
+        <e p="recover.aspx.designer.cs" t="Include" />
+        <e p="Recursos" t="Include">
+          <e p="animate.css" t="Include" />
+          <e p="backgroundAdmin.jpg" t="Include" />
+          <e p="estilos.css" t="Include" />
+          <e p="jquery.js" t="Include" />
+          <e p="material-icons.css" t="Include" />
+          <e p="MaterialIcons-Regular.ttf" t="Include" />
+          <e p="MaterialIcons-Regular.woff" t="Include" />
+          <e p="MaterialIcons-Regular.woff2" t="Include" />
+          <e p="materialize.css" t="Include" />
+          <e p="materialize.js" t="Include" />
+        </e>
+        <e p="registro.aspx" t="Include" />
+        <e p="registro.aspx.cs" t="Include" />
+        <e p="registro.aspx.designer.cs" t="Include" />
+        <e p="SICAP.csproj" t="IncludeRecursive" />
+        <e p="usuario.aspx" t="Include" />
+        <e p="usuario.aspx.cs" t="Include" />
+        <e p="usuario.aspx.designer.cs" t="Include" />
+        <e p="usuarios.aspx" t="Include" />
+        <e p="usuarios.aspx.cs" t="Include" />
+        <e p="usuarios.aspx.designer.cs" t="Include" />
+        <e p="Utelirias" t="Include">
+          <e p="Correo.cs" t="Include" />
+          <e p="Encriptar.cs" t="Include" />
+          <e p="GenerarPass.cs" t="Include" />
+          <e p="PerfilProyecto.js" t="Include" />
+          <e p="Proyecto.js" t="Include" />
+          <e p="Usuario.js" t="Include" />
+        </e>
+        <e p="Web.config" t="Include" />
+        <e p="Web.Debug.config" t="Include" />
+        <e p="Web.Release.config" t="Include" />
+      </e>
+      <e p="SICAP.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
