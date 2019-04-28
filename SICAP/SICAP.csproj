@@ -65,6 +65,7 @@
     <Content Include="default.aspx" />
     <Content Include="Imagenes\default.png" />
     <Content Include="misProyectos.aspx" />
+    <Content Include="perfilAvance.aspx" />
     <Content Include="perfilProyecto.aspx" />
     <Content Include="proyecto.aspx" />
     <Content Include="proyectos.aspx" />
@@ -144,9 +145,17 @@
     <Compile Include="misProyectos.aspx.designer.cs">
       <DependentUpon>misProyectos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Modelos\Activdad.cs" />
+    <Compile Include="Modelos\Actividad.cs" />
+    <Compile Include="Modelos\Avance.cs" />
     <Compile Include="Modelos\Proyecto.cs" />
     <Compile Include="Modelos\Usuario.cs" />
+    <Compile Include="perfilAvance.aspx.cs">
+      <DependentUpon>perfilAvance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfilAvance.aspx.designer.cs">
+      <DependentUpon>perfilAvance.aspx</DependentUpon>
+    </Compile>
     <Compile Include="perfilProyecto.aspx.cs">
       <DependentUpon>perfilProyecto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

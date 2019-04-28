@@ -170,21 +170,7 @@ namespace SICAP.Modelos
             }
         }
 
-        public DataTable traerActividades()  // esto lo tenemos que presentar en un gridbview.
-        {            
-            try
-            {
-                string query = "SELECT a.actividad,a.observaciones,a.fecha_entrega,e.estatus,a.id_proyecto" +
-                    " FROM actividades a INNER JOIN estatus e ON a.estatus = e.id_estatus WHERE id_proyecto = @id_proyecto";
-                SqlCommand cmd = new SqlCommand(query);
-                cmd.Parameters.AddWithValue("@id_proyecto", id_proyecto);
-                return consulta(cmd);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        
 
         public int cambiarEstatus(int e)
         {
@@ -202,8 +188,40 @@ namespace SICAP.Modelos
             }
         }
 
-       
-        
+
+        public bool expirado()
+        {
+            try
+            {                
+                DateTime fecha = DateTime.Parse(fecha_final);                
+                DateTime hoy = DateTime.Today;
+                return (DateTime.Compare(hoy, fecha) > 0) ? true : false;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public int concluir()
+        {
+            try
+            {
+                string query = "UPDATE proyectos SET estatus = @estatus WHERE id_proyecto = @id_proyecto;";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@estatus", 2);
+                cmd.Parameters.AddWithValue("id_proyecto", id_proyecto);
+                return ejectuarSQL(cmd);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+     
+
 
     }
 }

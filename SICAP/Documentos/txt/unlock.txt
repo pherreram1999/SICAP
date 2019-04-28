@@ -1,0 +1,1 @@
+mfastboot oem unlock 3PTWX5P2522ESFZMLAXL

@@ -17,6 +17,8 @@ namespace SICAP
             {
                 Response.Redirect("usuarios.aspx");
             }
+
+
             
             usu = new Modelos.Usuario();
 
@@ -34,7 +36,16 @@ namespace SICAP
                 txtTelefono.Text = (string) (usuario.Rows[0]["telefono"]);
                 ddlArea.SelectedItem.Text = (string)(usuario.Rows[0]["area"]);
                 ddlRol.SelectedItem.Text = (string)(usuario.Rows[0]["rol"]);
-               
+
+                gvProyectosUsu.DataSource = usu.traerMisProyectos();
+                gvProyectosUsu.DataBind();
+
+                if((int)(Session["rol"]) == 1)
+                {
+                    hlEliminar.Visible = true;
+
+                }
+
                 
             }
 
@@ -146,5 +157,9 @@ namespace SICAP
             }
         }
 
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -10,7 +10,7 @@
     <link href="Recursos/material-icons.css" rel="stylesheet" />
     <link href="Recursos/animate.css" rel="stylesheet" />
     <link href="Recursos/estilos.css" rel="stylesheet" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -24,7 +24,7 @@
                     <ul class="right">
                         <li><a href="#" class="show-on-medium sidenav-trigger" data-target="dash"><i class="material-icons">menu</i></a></li>
                         <li>
-                            <asp:LinkButton runat="server" ID="btnSalir" OnClick="btnSalir_Click"  ><i class="material-icons">exit_to_app</i></asp:LinkButton>
+                            <asp:LinkButton CssClass="tooltipped" runat="server" ID="btnSalir" OnClick="btnSalir_Click" data-position="bottom" data-tooltip="Cerrar Sesión"  ><i class="material-icons">exit_to_app</i></asp:LinkButton>
                         </li>
                     </ul>
                 </div>

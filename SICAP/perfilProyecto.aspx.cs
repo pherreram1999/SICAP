@@ -12,6 +12,7 @@ namespace SICAP
         SICAP.Modelos.Proyecto proyect;
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (Request.Params["id_proyecto"] == null)
             {
                 Response.Redirect("proyectos.aspx");
@@ -23,6 +24,7 @@ namespace SICAP
                 btnEstatus.Visible = false;
                 lblEstatus.Visible = false;
             }
+            
 
             if (!IsPostBack)
             {
@@ -34,8 +36,33 @@ namespace SICAP
                 txtFechaInicio.Text = proyect.fecha_inicio;
                 txtFechaFinal.Text = proyect.fecha_final;
                 dllEstatus.SelectedItem.Text = proyect.estatus;
-                gvActividades.DataSource = proyect.traerActividades();
+                SICAP.Modelos.Actividad act = new SICAP.Modelos.Actividad();
+                gvActividades.DataSource = act.traerActividades(proyect.id_proyecto);
                 gvActividades.DataBind();
+
+                for (int i = 0; i < gvActividades.Rows.Count; i++)
+                {
+                    act.id_actividad = int.Parse(gvActividades.Rows[i].Cells[0].Text);
+                    if (act.expirado())
+                    {
+                        act.concluir();
+                    }
+                }
+
+                gvActividades.DataSource = act.traerActividades(proyect.id_proyecto);
+                gvActividades.DataBind();
+
+                if (proyect.expirado())
+                {
+                    proyect.concluir();
+                    dllEstatus.SelectedItem.Text = proyect.estatus;
+                    btnEstatus.Enabled = false;
+                    btnEstatus.CssClass = "btn disabled";
+                    btnEstatus.Text = "Proyecto expirado";
+                    lblMensaje.Visible = true;
+                }
+
+
             }
 
 
@@ -46,8 +73,6 @@ namespace SICAP
                     lbxUsuarios.Items.Add(user);
                 }
             }
-
-            
             
         }
 

@@ -11,6 +11,7 @@
          DataKeyNames="id_usuario"  AutoGenerateColumns="false" >
         <Columns>
             <asp:BoundField DataField="id_usuario" HeaderText="ID" />
+            <asp:ImageField DataImageUrlField="ruta" HeaderText="Img" ControlStyle-Width="80px" ControlStyle-CssClass="responsive-img circle" ></asp:ImageField>
             <asp:BoundField DataField="nombre" HeaderText="Nombre" />
             <asp:BoundField DataField="paterno" HeaderText="Apellido Paterno" />
             <asp:BoundField DataField="materno" HeaderText="Apellido Materno" />

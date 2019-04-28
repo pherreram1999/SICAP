@@ -104,7 +104,8 @@
                           <div class="row">
                               <div class="input-field col s12">
                                   <asp:Label CssClass="section" Text="Observaciones" runat="server" />
-                                  <asp:TextBox ID="txtObservacionesActividad" placeholder="Observaciones" CssClass="materialize-textarea" runat="server" />
+                                  <br />
+                                  <asp:TextBox ID="txtObservacionesActividad"  CssClass="materialize-textarea" runat="server" />
                               </div>
                           </div>
 

@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Inicio</title>
     <link href="Recursos/materialize.css" rel="stylesheet" />
     <link href="Recursos/material-icons.css" rel="stylesheet" />
@@ -24,6 +25,11 @@
 
     .fm {
         padding:24px;
+
+    }
+    .fx {
+        padding:0px 24px;
+
     }
 
 
@@ -48,10 +54,13 @@
                     </div>
                     <div class="col s12">
                         <asp:Button Text="Iniciar" ID="btnIniciar" CssClass="btn blue" runat="server" OnClick="btnIniciar_Click1" />
-                        <a class="right" href="./recover.aspx">recuperar contraseña</a>
                     </div>
-
-
+                    
+                </div>
+                <div class="row fx">
+                    <div class="col s12">
+                        <a href="./recover.aspx">recuperar contraseña</a>
+                    </div>
                 </div>
 
             </div>

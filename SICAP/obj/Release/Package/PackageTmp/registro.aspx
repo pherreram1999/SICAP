@@ -23,7 +23,7 @@
                 </div>
             </div>
             
-            <asp:LinkButton ID="lbPerfil" CssClass="col s12 m2" runat="server">Cargar Foto</asp:LinkButton>
+            <asp:LinkButton ID="lbPerfil" CssClass="col s12 m2" OnClick="lbPerfil_Click" runat="server">Cargar Foto</asp:LinkButton>
 
 
         </div>

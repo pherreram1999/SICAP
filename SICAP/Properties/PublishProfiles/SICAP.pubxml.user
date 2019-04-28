@@ -6,95 +6,110 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\Pedro Herrera Luna\Documents\SICAP</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Pedro Alonso\Desktop\SICAP</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="admin.Master">
-      <publishTime>04/19/2019 13:00:05</publishTime>
+      <publishTime>04/27/2019 20:05:39</publishTime>
+    </File>
+    <File Include="areas.aspx">
+      <publishTime>04/24/2019 16:13:16</publishTime>
+    </File>
+    <File Include="avance.aspx">
+      <publishTime>04/25/2019 16:35:42</publishTime>
+    </File>
+    <File Include="avances.aspx">
+      <publishTime>04/30/2019 16:55:54</publishTime>
     </File>
     <File Include="bin/SICAP.dll">
-      <publishTime>04/20/2019 21:50:29</publishTime>
+      <publishTime>04/27/2019 20:06:06</publishTime>
     </File>
     <File Include="bin/SICAP.pdb">
-      <publishTime>04/20/2019 21:50:29</publishTime>
+      <publishTime>04/27/2019 20:06:06</publishTime>
     </File>
     <File Include="default.aspx">
-      <publishTime>04/18/2019 17:09:20</publishTime>
+      <publishTime>04/27/2019 20:05:57</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/24/2019 16:13:16</publishTime>
     </File>
     <File Include="Imagenes/default.png">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/24/2019 16:13:16</publishTime>
+    </File>
+    <File Include="misProyectos.aspx">
+      <publishTime>04/24/2019 16:13:16</publishTime>
+    </File>
+    <File Include="perfilAvance.aspx">
+      <publishTime>04/25/2019 17:45:25</publishTime>
     </File>
     <File Include="perfilProyecto.aspx">
-      <publishTime>04/18/2019 21:27:12</publishTime>
+      <publishTime>04/29/2019 13:12:04</publishTime>
     </File>
     <File Include="proyecto.aspx">
-      <publishTime>04/19/2019 12:31:58</publishTime>
+      <publishTime>04/25/2019 13:09:17</publishTime>
     </File>
     <File Include="proyectos.aspx">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/30/2019 17:58:25</publishTime>
     </File>
     <File Include="proyectosUsu.aspx">
       <publishTime>04/19/2019 12:31:57</publishTime>
     </File>
     <File Include="recover.aspx">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/24/2019 16:13:16</publishTime>
     </File>
     <File Include="Recursos/animate.css">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/24/2019 16:13:16</publishTime>
     </File>
     <File Include="Recursos/backgroundAdmin.jpg">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/24/2019 16:13:16</publishTime>
     </File>
     <File Include="Recursos/estilos.css">
-      <publishTime>04/18/2019 17:13:34</publishTime>
+      <publishTime>04/24/2019 16:13:16</publishTime>
     </File>
     <File Include="Recursos/jquery.js">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/24/2019 16:13:16</publishTime>
     </File>
     <File Include="Recursos/material-icons.css">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/24/2019 16:13:16</publishTime>
     </File>
     <File Include="Recursos/MaterialIcons-Regular.ttf">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/24/2019 16:13:16</publishTime>
     </File>
     <File Include="Recursos/MaterialIcons-Regular.woff">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/24/2019 16:13:16</publishTime>
     </File>
     <File Include="Recursos/MaterialIcons-Regular.woff2">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/24/2019 16:13:16</publishTime>
     </File>
     <File Include="Recursos/materialize.css">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/24/2019 16:13:16</publishTime>
     </File>
     <File Include="Recursos/materialize.js">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/24/2019 16:13:16</publishTime>
     </File>
     <File Include="registro.aspx">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/24/2019 16:13:16</publishTime>
     </File>
     <File Include="usuario.aspx">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/30/2019 18:12:35</publishTime>
     </File>
     <File Include="usuario.Master">
       <publishTime>04/19/2019 13:11:47</publishTime>
     </File>
     <File Include="usuarios.aspx">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/26/2019 11:24:07</publishTime>
     </File>
     <File Include="Utelirias/PerfilProyecto.js">
-      <publishTime>04/18/2019 17:01:13</publishTime>
+      <publishTime>04/24/2019 16:13:16</publishTime>
     </File>
     <File Include="Utelirias/Proyecto.js">
       <publishTime>04/18/2019 15:50:48</publishTime>
     </File>
     <File Include="Utelirias/Usuario.js">
-      <publishTime>04/18/2019 15:50:48</publishTime>
+      <publishTime>04/24/2019 16:13:16</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/20/2019 15:03:57</publishTime>
+      <publishTime>04/27/2019 19:45:26</publishTime>
     </File>
   </ItemGroup>
 </Project>

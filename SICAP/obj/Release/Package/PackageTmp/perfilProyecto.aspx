@@ -5,10 +5,11 @@
     <div class="contenido card-panel animated fadeIn">
         <h5 class="section">Datos del proyecto</h5>
         <div class="divider"></div>
-        
+        <div class="section"></div>
+        <asp:LinkButton ID="btnAvances" OnClick="btnAvances_Click" CssClass="btn right" Text="Avances" runat="server" />
         <div class="row">
             <div class="input-field col s12 m4 ">
-                <asp:Label Text="Estatus del Proyecto" runat="server" />
+                <asp:Label Text="Estatus del Proyecto" ID="lblEstatus" runat="server" />
                 <asp:DropDownList AutoPostBack="true" OnSelectedIndexChanged="dllEstatus_SelectedIndexChanged" ID="dllEstatus" runat="server" Enabled="False">
                     <asp:ListItem Text="text" Selected="True" disabled/>
                     <asp:ListItem Text="Activo" Value="1" />
@@ -19,8 +20,19 @@
             <div class="col s12 m4">                
                 <div class="section"></div>
                 <asp:LinkButton ID="btnEstatus" Text="Modificar estatus" CssClass="btn" runat="server" OnClick="btnEstatus_Click" />
-            </div>            
+            </div>  
+            
+            
         </div>
+
+        <div class="row">   
+            <div class="input-field col s12 m4">
+                <p><asp:Label Text="*Los proyectos expirados no se pueden Activar" Visible="false" ID="lblMensaje" runat="server" /></p>
+            </div>
+        </div>
+                
+                    
+                
         <div class="row">
             <div class="col s12">
                 <h5><asp:Label ID="lblNombreProyecto" runat="server" Text=""></asp:Label></h5>

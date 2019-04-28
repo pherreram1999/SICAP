@@ -22,6 +22,7 @@
                         <asp:BoundField DataField="fecha_final" HeaderText="Termino" />
                         <asp:BoundField DataField="estatus" HeaderText="Estatus" />
                         <asp:HyperLinkField DataNavigateUrlFields="id_proyecto"  DataNavigateUrlFormatString="perfilProyecto.aspx?id_proyecto={0}" Text="ver datos" />
+                        
                     </Columns>
                 </asp:GridView>
             </div>

@@ -29,7 +29,7 @@ namespace SICAP.Modelos
             try
             {
                 string query = "INSERT INTO usuarios(nombre,paterno,materno,telefono,email,especialidad,contrasena,area,rol,ruta)"
-                + "values(@nombre,@paterno,@materno,@telefono,@email,@especialidad,@contrasena,@area,@rol,@ruta)";
+                + "values(dbo.InitCap(@nombre),dbo.InitCap(@paterno),dbo.InitCap(@materno),@telefono,@email,dbo.InitCap(@especialidad),@contrasena,@area,@rol,@ruta)";
                 SqlCommand cmd = new SqlCommand(query);
                 cmd.Parameters.AddWithValue("@nombre", nombre);
                 cmd.Parameters.AddWithValue("@materno", materno);
@@ -129,7 +129,7 @@ namespace SICAP.Modelos
         {
             try
             {
-                string query = "SELECT U.id_usuario, U.nombre,U.paterno,U.materno,A.area, U.especialidad  FROM usuarios U INNER JOIN areas A ON U.area = A.id_area;";
+                string query = "SELECT U.id_usuario, U.nombre,U.paterno,U.materno,U.ruta,A.area, U.especialidad  FROM usuarios U INNER JOIN areas A ON U.area = A.id_area;";
                 SqlCommand cmd = new SqlCommand(query);
                 return consulta(cmd);
             }
@@ -159,8 +159,8 @@ namespace SICAP.Modelos
         {
             try
             {
-                string query = "UPDATE usuarios SET nombre = @nombre, paterno = @paterno, materno = @materno, rol = @rol,  area = @area, telefono = @telefono, " +
-                    "email = @email, especialidad = @especialidad, ruta = @ruta WHERE id_usuario = @id_usuario";
+                string query = "UPDATE usuarios SET nombre = dbo.InitCap(@nombre), paterno = dbo.InitCap(@paterno), materno = dbo.InitCap(@materno), rol = @rol,  area = @area, telefono = @telefono, " +
+                    "email = @email, especialidad = dbo.InitCap(@especialidad), ruta = @ruta WHERE id_usuario = @id_usuario";
                 SqlCommand cmd = new SqlCommand(query);
                 cmd.Parameters.AddWithValue("@nombre",nombre);
                 cmd.Parameters.AddWithValue("@paterno", paterno);
@@ -321,6 +321,20 @@ namespace SICAP.Modelos
                 throw new Exception(ex.Message);
             }
         }
+
+        //public bool isBusy()
+        //{
+        //    try
+        //    {
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        throw new Exception(ex.Message);
+        //    }
+        //}
 
     }
 }

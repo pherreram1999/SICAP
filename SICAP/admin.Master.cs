@@ -24,7 +24,7 @@ namespace SICAP
                 hlVerProyectos.Visible = false;
                 hlAreas.Visible = false;
                 string js = "var p = location.href;var r = p.split('/');" +
-                    "if(r[3] == 'misProyectos.aspx') {  } else {var r2 = r[3].split('?'); if(r2[0] == 'perfilProyecto.aspx') {} else " +
+                    "if(r[3] == 'misProyectos.aspx') {  } else " +
                     "{location.href = './misProyectos.aspx'} } ";
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
                        js, true);

@@ -67,6 +67,8 @@ namespace SICAP
         {
             string actividad = txtNombreActividad.Text.Trim() + "/"+txtObservacionesActividad.Text.Trim()+"/"+ txtfechaEntregaActividad.Text;
             lbxActividades.Items.Add(actividad);
+            txtNombreActividad.Text = null;
+            txtObservacionesActividad.Text = null;
         }
 
         protected void btnCrearProyecto_Click(object sender, EventArgs e)
@@ -114,6 +116,8 @@ namespace SICAP
                         proyect.asignarActividades();
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
                                     "alert('Proyecto Creado correctamente'); location.href='./proyectos.aspx'", true);
+
+                                                
                     }                    
                 }
                 else

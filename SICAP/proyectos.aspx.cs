@@ -12,9 +12,24 @@ namespace SICAP
         SICAP.Modelos.Proyecto proyect;
         protected void Page_Load(object sender, EventArgs e)
         {
-            proyect = new SICAP.Modelos.Proyecto();
-            gvProyectos.DataSource = proyect.traerProyectos();
-            gvProyectos.DataBind();
+            
+
+            if (!IsPostBack)
+            {
+                proyect = new SICAP.Modelos.Proyecto();
+                gvProyectos.DataSource = proyect.traerProyectos();
+
+                foreach (GridViewRow fila in gvProyectos.Rows)
+                {
+                    proyect.id_proyecto = int.Parse(fila.Cells[0].Text);
+                    if (proyect.expirado())
+                    {
+                        proyect.concluir();
+                    }
+                }
+                gvProyectos.DataSource = proyect.traerProyectos();
+                gvProyectos.DataBind();
+            }
         }
     }
 }
