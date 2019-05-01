@@ -22,6 +22,15 @@ namespace SICAP {
         protected global::System.Web.UI.WebControls.LinkButton btnAvances;
         
         /// <summary>
+        /// Control hlEliminarProyecto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlEliminarProyecto;
+        
+        /// <summary>
         /// Control lblEstatus.
         /// </summary>
         /// <remarks>
@@ -128,5 +137,14 @@ namespace SICAP {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvActividades;
+        
+        /// <summary>
+        /// Control eliminarBoton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton eliminarBoton;
     }
 }

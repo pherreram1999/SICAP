@@ -53,6 +53,16 @@ CREATE TABLE areas
 );
 GO
 
+CREATE TABLE activos
+(
+	id_activo		INT PRIMARY KEY IDENTITY(1,1),
+	activo			VARCHAR(100)
+);
+GO
+
+INSERT INTO activos(activo) VALUES('habilitado'),('inhabilitado');
+GO
+
 CREATE TABLE roles 
 (
 	id_rol		INT IDENTITY (1,1) PRIMARY KEY,
@@ -67,7 +77,7 @@ INSERT INTO areas (area)
 VALUES 
 ('Administracion'),
 ('Recursos Humanos'),
-('Ventas')
+('Ventas');
 GO
 
 
@@ -83,7 +93,8 @@ CREATE TABLE usuarios
 	telefono		VARCHAR (150) NOT NULL,
 	email			VARCHAR (300) UNIQUE NOT NULL,
 	especialidad	VARCHAR (900),
-	ruta			VARCHAR (MAX) NOT NULL
+	ruta			VARCHAR (MAX) NOT NULL,
+	id_activo		INT FOREIGN KEY REFERENCES activos(id_activo) DEFAULT 1
 );
 go
 
@@ -162,21 +173,3 @@ SELECT U.id_usuario, U.nombre,U.paterno,U.materno,A.area, U.especialidad  FROM u
 SELECT U.id_usuario, U.nombre,U.paterno,U.materno,U.email,U.telefono,U.ruta,A.area, U.especialidad, R.rol FROM usuarios U INNER JOIN areas A ON U.area = A.id_area INNER JOIN roles R ON U.rol = R.id_rol;
 SELECT * FROM usuarios U INNER JOIN areas A ON U.area = A.id_area INNER JOIN roles R ON U.rol = R.id_rol;
 
---go
-
--- retorna los usuarios pertenicientes al proyecto
---SELECT * FROM relaciones r INNER JOIN usuarios u ON r.id_usuarios = u.id_usuario; -- where id_proyecto = @id_proyecto ;
-
---SELECT * FROM relaciones;
-
---SELECT p.id_proyecto, p.proyecto, p.fecha_registro,CAST(p.fecha_inicio AS varchar) as fecha_inicio ,CAST(p.fecha_final AS varchar) as fecha_final ,p.observaciones, e.estatus FROM proyectos p INNER JOIN estatus e ON p.estatus = e.id_estatus;
-
-
---SELECT CAST(fecha_inicio AS VARCHAR) as fecha_inicio FROM proyectos;
-
-
---SELECT u.id_usuario, u.nombre, u.paterno, u.materno, u.especialidad FROM relaciones r INNER JOIN usuarios u ON r.id_usuarios = u.id_usuario WHERE r.id_proyecto = 1;
-
---SELECT actividad,observaciones, CAST(fecha_entrega AS varchar) AS fecha_entrega FROM actividades WHERE id_proyecto = 3;
-
---SELECT a.actividad,a.observaciones,a.fecha_entrega,e.estatus,a.id_proyecto FROM actividades a INNER JOIN estatus e ON a.estatus = e.id_estatus;

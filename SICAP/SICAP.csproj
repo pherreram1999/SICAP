@@ -72,8 +72,10 @@
     <Content Include="recover.aspx" />
     <Content Include="Recursos\animate.css" />
     <Content Include="Recursos\backgroundAdmin.jpg" />
+    <Content Include="Recursos\backgroundUsu.jpg" />
     <Content Include="Recursos\estilos.css" />
     <Content Include="Recursos\jquery.js" />
+    <Content Include="Recursos\logoSICAP.png" />
     <Content Include="Recursos\MaterialIcons-Regular.ttf" />
     <Content Include="Recursos\MaterialIcons-Regular.woff" />
     <Content Include="Recursos\MaterialIcons-Regular.woff2" />

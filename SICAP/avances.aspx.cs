@@ -17,6 +17,7 @@ namespace SICAP
                 Response.Redirect("proyectos.aspx");
             }
 
+            
 
             if (!IsPostBack)
             {
@@ -31,6 +32,12 @@ namespace SICAP
                 hlAgregarAvance.NavigateUrl = "avance.aspx?id_proyecto=" + pro.id_proyecto;
 
                 if (pro.estatus != "Activo")
+                {
+                    hlAgregarAvance.Enabled = false;
+                    hlAgregarAvance.CssClass = "btn-floating btn-large tooltipped disabled";
+                }
+                avan.id_usuario = (int)(Session["id_usuario"]);
+                if (!avan.pertenenAlproyecto())
                 {
                     hlAgregarAvance.Enabled = false;
                     hlAgregarAvance.CssClass = "btn-floating btn-large tooltipped disabled";

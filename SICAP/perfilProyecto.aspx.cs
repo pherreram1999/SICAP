@@ -23,6 +23,8 @@ namespace SICAP
                 dllEstatus.Visible = false;
                 btnEstatus.Visible = false;
                 lblEstatus.Visible = false;
+                eliminarBoton.Visible = false;
+                hlEliminarProyecto.Visible = false;
             }
             
 
@@ -106,6 +108,24 @@ namespace SICAP
         {
             string pagina = string.Format("avances.aspx?id_proyecto= {0}",Request.Params["id_proyecto"]);
             Response.Redirect(pagina);
+        }
+
+        protected void eliminarBoton_Click(object sender, EventArgs e)
+        {
+            SICAP.Modelos.Proyecto pro = new SICAP.Modelos.Proyecto();
+            pro.id_proyecto = int.Parse(Request.Params["id_proyecto"]);
+            if (!pro.eliminarProyecto())
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        "alert('Proyeco eliminado'); location.href='./proyectos.aspx'", true);
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        "alert('El proyecto se encuentra actualmente activo'); location.href='./proyectos.aspx'", true);
+            }
+            
+            
         }
     }
 }

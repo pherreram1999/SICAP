@@ -69,9 +69,18 @@ namespace SICAP
         {
             if (fuPerfil.HasFile)
             {
-                usu.ruta = "./Imagenes/" + fuPerfil.FileName;
-                fuPerfil.SaveAs(Server.MapPath(".") + usu.ruta);
-                imgPerfil.ImageUrl = usu.ruta;
+                if (SICAP.Modelos.Usuario.validarExtensionImg(fuPerfil.FileName))
+                {
+                    usu.ruta = "./Imagenes/" + fuPerfil.FileName;
+                    fuPerfil.SaveAs(Server.MapPath(".") + usu.ruta);
+                    imgPerfil.ImageUrl = usu.ruta;
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        "alert('La imagen no tiene un formato valido; PNG,JPG o GIF');", true);
+                }
+                
             }
             else
             {

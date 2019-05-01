@@ -43,7 +43,9 @@
         </div>
         <div class="row">
             <div class="col s12">   
+                <p class="red-text">* Nota: no se pueden subir archvivos mayores 4MB</p>
                 <p>*Si va a enviar varios archivos, favor de comprimirlos</p>
+                
             </div>
         </div>
 

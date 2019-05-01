@@ -131,7 +131,51 @@ namespace SICAP.Modelos
             }
         }
 
-        
+        public static bool validarDocumento(string nombreArchivo)
+        {
+            try
+            {
+                string extension = nombreArchivo.Split('.')[1];
+                bool validado = false;
+                if (extension == "docx")
+                {
+                    validado = true;
+                }
+                else if(extension == "pdf")
+                {
+                    validado = true;
+                }
+                else if (extension == "xlsx")
+                {
+                    validado = true;
+                }
+                else if (extension == "txt")
+                {
+                    validado = true;
+                }
+                return validado;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+       public bool pertenenAlproyecto()
+        {
+            try
+            {
+                string query = "SELECT * FROM relaciones WHERE id_usuarios = @id_usuario";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@id_usuario",id_usuario);
+                return (consulta(cmd).Rows.Count > 0) ? true : false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
 
 

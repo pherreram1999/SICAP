@@ -63,8 +63,7 @@
         </div>
         
         <div class="row">
-            <div class="input-field col s12 m4">
-                <i class="material-icons prefix">arrow_drop_down</i>
+            <div class="input-field col s12 m4">                
                 <asp:DropDownList ID="ddlRol" runat="server">
                     <asp:ListItem Text="Elija rol de usuario" disabled Selected />
                     <asp:ListItem Text="Administrador" />

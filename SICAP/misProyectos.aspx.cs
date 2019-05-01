@@ -16,10 +16,29 @@ namespace SICAP
             {
                 Response.Redirect("default.aspx");
             }
-            usu = new SICAP.Modelos.Usuario();
-            usu.id_usuario = (int)(Session["id_usuario"]);
-            gvMisProyectos.DataSource = usu.traerMisProyectos();
-            gvMisProyectos.DataBind();
+
+            if (!IsPostBack)
+            {
+                var pro = new SICAP.Modelos.Proyecto();
+                usu = new SICAP.Modelos.Usuario();
+                usu.id_usuario = (int)(Session["id_usuario"]);
+                gvMisProyectos.DataSource = usu.traerMisProyectos();
+                gvMisProyectos.DataBind();
+                foreach (GridViewRow fila in gvMisProyectos.Rows)
+                {
+                    pro.id_proyecto = int.Parse(fila.Cells[0].Text);
+                    pro.fecha_final = fila.Cells[4].Text;
+                    
+                    if (pro.expirado())
+                    {
+                        pro.concluir();
+                    }
+                }
+                gvMisProyectos.DataSource = usu.traerMisProyectos();
+                gvMisProyectos.DataBind();
+            }
+
+            
         }
     }
 }

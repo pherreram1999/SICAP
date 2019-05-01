@@ -13,6 +13,24 @@ namespace SICAP {
     public partial class usuario {
         
         /// <summary>
+        /// Control hlDesUsu.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlDesUsu;
+        
+        /// <summary>
+        /// Control hlHabUsu.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlHabUsu;
+        
+        /// <summary>
         /// Control btnHabilitar.
         /// </summary>
         /// <remarks>
@@ -20,15 +38,6 @@ namespace SICAP {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnHabilitar;
-        
-        /// <summary>
-        /// Control hlEliminar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlEliminar;
         
         /// <summary>
         /// Control imgPerfil.
@@ -130,6 +139,15 @@ namespace SICAP {
         protected global::System.Web.UI.WebControls.DropDownList ddlRol;
         
         /// <summary>
+        /// Control hlCambiarPass.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlCambiarPass;
+        
+        /// <summary>
         /// Control txtEspecialidad.
         /// </summary>
         /// <remarks>
@@ -202,12 +220,21 @@ namespace SICAP {
         protected global::System.Web.UI.WebControls.LinkButton btnCambiarContrasena;
         
         /// <summary>
-        /// Control btnEliminar.
+        /// Control btnDeshabilitarUusuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnEliminar;
+        protected global::System.Web.UI.WebControls.LinkButton btnDeshabilitarUusuario;
+        
+        /// <summary>
+        /// Control btnHabilitarUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnHabilitarUsuario;
     }
 }

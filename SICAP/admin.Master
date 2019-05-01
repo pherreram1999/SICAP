@@ -24,7 +24,7 @@
                     <ul class="right">
                         <li><a href="#" class="show-on-medium sidenav-trigger" data-target="dash"><i class="material-icons">menu</i></a></li>
                         <li>
-                            <asp:LinkButton CssClass="tooltipped" runat="server" ID="btnSalir" OnClick="btnSalir_Click" data-position="bottom" data-tooltip="Cerrar Sesión"  ><i class="material-icons">exit_to_app</i></asp:LinkButton>
+                            <asp:LinkButton CssClass="tooltipped" runat="server" ID="btnSalir" OnClick="btnSalir_Click" data-position="bottom" data-tooltip="Cerrar Sesión" ><i class="material-icons">exit_to_app</i></asp:LinkButton>
                         </li>
                     </ul>
                 </div>

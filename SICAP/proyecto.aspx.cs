@@ -65,10 +65,22 @@ namespace SICAP
 
         protected void btnAgregarActividad_Click(object sender, EventArgs e)
         {
-            string actividad = txtNombreActividad.Text.Trim() + "/"+txtObservacionesActividad.Text.Trim()+"/"+ txtfechaEntregaActividad.Text;
-            lbxActividades.Items.Add(actividad);
-            txtNombreActividad.Text = null;
-            txtObservacionesActividad.Text = null;
+            DateTime incial = DateTime.Parse(txtFechaInicialProyecto.Text);
+            DateTime final = DateTime.Parse(txtFechaFinalProyecto.Text);
+            DateTime fechaActividad = DateTime.Parse(txtfechaEntregaActividad.Text);
+            if (DateTime.Compare(fechaActividad, final) <= 0 && DateTime.Compare(fechaActividad, incial) >= 0)
+            {
+                string actividad = txtNombreActividad.Text.Trim() + "/" + txtObservacionesActividad.Text.Trim() + "/" + txtfechaEntregaActividad.Text;
+                lbxActividades.Items.Add(actividad);
+                txtNombreActividad.Text = null;
+                txtObservacionesActividad.Text = null;
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                                    "alert('La fecha de entrega de la actividad esta fuera del plazo del proyecto');", true);
+            }
+            
         }
 
         protected void btnCrearProyecto_Click(object sender, EventArgs e)
@@ -115,9 +127,7 @@ namespace SICAP
                         proyect.asignarUsuarios();
                         proyect.asignarActividades();
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
-                                    "alert('Proyecto Creado correctamente'); location.href='./proyectos.aspx'", true);
-
-                                                
+                                    "alert('Proyecto Creado correctamente'); location.href='./proyectos.aspx'", true);                        
                     }                    
                 }
                 else
@@ -136,6 +146,8 @@ namespace SICAP
         protected void txtFechaFinalProyecto_TextChanged(object sender, EventArgs e)
         {
             txtfechaEntregaActividad.Attributes.Add("max",txtFechaFinalProyecto.Text);
+            txtfechaEntregaActividad.Enabled = true;
+            lblActividadesSinFecha.Visible = false;
         }
 
         protected void txtFechaInicialProyecto_TextChanged(object sender, EventArgs e)
@@ -143,5 +155,15 @@ namespace SICAP
             txtFechaFinalProyecto.Attributes.Add("min",txtFechaInicialProyecto.Text);
             txtfechaEntregaActividad.Attributes.Add("min",txtFechaInicialProyecto.Text);
         }
+
+        protected void btnEliminarActividad_Click(object sender, EventArgs e)
+        {
+            while (lbxActividades.GetSelectedIndices().Length > 0)
+            {
+                lbxActividades.Items.Remove(lbxActividades.SelectedItem);
+            }
+        }
+
+        
     }
 }

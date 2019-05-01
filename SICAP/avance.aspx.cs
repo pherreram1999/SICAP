@@ -50,13 +50,24 @@ namespace SICAP
                 if (!Directory.Exists(ruta))
                 {
                     Directory.CreateDirectory(ruta);
-                }              
-                ruta += "./" + fuArchivos.FileName;
-                fuArchivos.SaveAs(ruta);
-                ruta = "~/Documentos/" + extension[1] + "/" + fuArchivos.FileName;
-                avan.guardar(ruta);
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
-                        string.Format("alert('avance registrado'); location.href='./avances.aspx?id_proyecto={0}'", avan.id_proyecto), true);
+                }
+                if (SICAP.Modelos.Avance.validarDocumento(fuArchivos.FileName))  // probar esta parte
+                {
+                    ruta += "./" + fuArchivos.FileName;
+                    fuArchivos.SaveAs(ruta);
+                    ruta = "~/Documentos/" + extension[1] + "/" + fuArchivos.FileName;
+                    avan.guardar(ruta);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                            string.Format("alert('avance registrado'); location.href='./avances.aspx?id_proyecto={0}'", avan.id_proyecto), true);
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                            string.Format("alert('El archivo no es formato admnitido'); ", avan.id_proyecto), true);
+                }
+                
+
+                
             }
             else
             {

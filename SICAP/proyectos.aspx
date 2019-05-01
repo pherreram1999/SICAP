@@ -12,6 +12,19 @@
         </div>
 
         <div class="row">
+            <div class="col s12 m1">
+                <p>Mostrar proyectos</p>
+            </div>
+            <div class="col s12 m4">
+                <asp:DropDownList ID="dllEstatus" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dllEstatus_SelectedIndexChanged">                    
+                    <asp:ListItem Text="Activo" Value="1" />
+                    <asp:ListItem Text="Concluido" Value="2" />
+                    <asp:ListItem Text="Cancelado" Value="3" />
+                </asp:DropDownList>      
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col s12">
                 <asp:GridView ID="gvProyectos" DataKeyNames="id_proyecto" AutoGenerateColumns="false" runat="server">
                     <Columns>
@@ -21,8 +34,7 @@
                         <asp:BoundField DataField="fecha_inicio" HeaderText ="Incio" />
                         <asp:BoundField DataField="fecha_final" HeaderText="Termino" />
                         <asp:BoundField DataField="estatus" HeaderText="Estatus" />
-                        <asp:HyperLinkField DataNavigateUrlFields="id_proyecto"  DataNavigateUrlFormatString="perfilProyecto.aspx?id_proyecto={0}" Text="ver datos" />
-                        
+                        <asp:HyperLinkField DataNavigateUrlFields="id_proyecto"  DataNavigateUrlFormatString="perfilProyecto.aspx?id_proyecto={0}" Text="ver datos" />                        
                     </Columns>
                 </asp:GridView>
             </div>

@@ -89,6 +89,8 @@
                     <li>
                       <div class="collapsible-header"><i class="material-icons">add</i>Agregar Actividad</div>
                       <div class="collapsible-body">
+                        <asp:Label Text="* No se ha selecionado fecha de termino" CssClass="red-text" ID="lblActividadesSinFecha" runat="server" />
+
                           <div class="row">
                               <div class="input-field col s12 m9">
                                   <asp:Label Text="Nombre de la actividad"  runat="server" />
@@ -97,15 +99,14 @@
 
                               <div class="input-field col s12 m3">
                                   <asp:Label Text="Fecha de entrega" runat="server" />
-                                  <asp:TextBox ID="txtfechaEntregaActividad" TextMode="Date" runat="server" />
+                                  <asp:TextBox ID="txtfechaEntregaActividad"  Enabled="false" TextMode="Date" runat="server" />
                               </div>
                           </div>
 
                           <div class="row">
-                              <div class="input-field col s12">
-                                  <asp:Label CssClass="section" Text="Observaciones" runat="server" />
-                                  <br />
-                                  <asp:TextBox ID="txtObservacionesActividad"  CssClass="materialize-textarea" runat="server" />
+                              <div class="col s12">             
+                                  <asp:Label Text="Observaciones" AssociatedControlID="txtObservacionesActividad" runat="server" />                    
+                                  <asp:TextBox ID="txtObservacionesActividad" TextMode="MultiLine" placeholder="observciones" CssClass="materialize-textarea" runat="server" />
                               </div>
                           </div>
 
@@ -120,7 +121,11 @@
 
         <div class="row">
             <div class="col s12">
-                <asp:ListBox ID="lbxActividades" CssClass="browser-default fixSelect z-depth-2" runat="server"></asp:ListBox>
+                <asp:ListBox ID="lbxActividades"  CssClass="browser-default fixSelect z-depth-2" runat="server"></asp:ListBox>
+            </div>
+            <div class ="col s12">
+                <br />
+                <asp:LinkButton Text="Eliminar Actividad" CssClass="btn-flat red white-text section" ID = "btnEliminarActividad" OnClick="btnEliminarActividad_Click" runat="server" />
             </div>
         </div>
 
@@ -128,7 +133,7 @@
         <div class="row">
             <div class="section"></div>
             
-            <asp:Button ID="btnCrearProyecto" CssClass="btn right" runat="server" Text="Crear Proyecto" OnClick="btnCrearProyecto_Click" />
+            <asp:Button ID="btnCrearProyecto" CssClass="btn right" runat="server" Text="Crear Proyecto"  OnClick="btnCrearProyecto_Click" />
         </div>
 
 

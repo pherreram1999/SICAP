@@ -85,6 +85,15 @@ namespace SICAP {
         protected global::System.Web.UI.WebControls.ListBox lbxUsuariosSeleccionados;
         
         /// <summary>
+        /// Control lblActividadesSinFecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblActividadesSinFecha;
+        
+        /// <summary>
         /// Control txtNombreActividad.
         /// </summary>
         /// <remarks>
@@ -128,6 +137,15 @@ namespace SICAP {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lbxActividades;
+        
+        /// <summary>
+        /// Control btnEliminarActividad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnEliminarActividad;
         
         /// <summary>
         /// Control btnCrearProyecto.

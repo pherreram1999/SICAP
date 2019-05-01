@@ -16,6 +16,7 @@ namespace SICAP.Modelos
         public string fecha_inicio { set; get; }
         public string fecha_final { set; get; }
         public string estatus { set; get; }
+        public int id_estatus { get; set; }
         public List<int> usuarios { set; get; }
         public List<string []> actividades { set; get; } 
 
@@ -109,8 +110,10 @@ namespace SICAP.Modelos
             {
                 string query = "SELECT p.id_proyecto, p.proyecto, p.fecha_registro, CAST(p.fecha_inicio AS VARCHAR) AS fecha_inicio" +
                     ",CAST(p.fecha_final AS VARCHAR) AS fecha_final, e.estatus FROM proyectos" +
-                    " p INNER JOIN estatus e ON p.estatus = e.id_estatus;";
-                return consulta(new SqlCommand(query));                
+                    " p INNER JOIN estatus e ON p.estatus = e.id_estatus WHERE p.estatus = @estatus";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@estatus", id_estatus);
+                return consulta(cmd);                
             }
             catch (Exception ex)
             {
@@ -218,6 +221,49 @@ namespace SICAP.Modelos
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public bool eliminarProyecto()
+        {
+            try
+            {                
+                string ocupado = "SELECT estatus FROM proyectos WHERE id_proyecto = @id_proyecto";
+                SqlCommand cmd = new SqlCommand(ocupado);
+                cmd.Parameters.AddWithValue("@id_proyecto",id_proyecto);
+                bool eliminado = (consulta(cmd).Rows[0]["estatus"].ToString() == "1") ? true : false;
+                if (!eliminado)
+                {
+                    string queryRelaciones = "DELETE FROM relaciones WHERE id_proyecto = @id_proyecto; ";
+                    string queryAvances = "DELETE FROM avances WHERE id_proyecto = @id_proyecto; ";
+                    string queryActividades = "DELETE FROM actividades WHERE id_proyecto = @id_proyecto; ";
+                    string queryProyectos = "DELETE FROM proyectos WHERE id_proyecto = @id_proyecto; ";
+
+                    SqlCommand cmd2 = new SqlCommand(queryRelaciones);
+                    cmd2.Parameters.AddWithValue("@id_proyecto", id_proyecto);
+                    ejectuarSQL(cmd);
+
+                    cmd2 = new SqlCommand(queryAvances);
+                    cmd2.Parameters.AddWithValue("@id_proyecto", id_proyecto);
+                    ejectuarSQL(cmd);
+
+                    cmd2 = new SqlCommand(queryActividades);
+                    cmd2.Parameters.AddWithValue("@id_proyecto", id_proyecto);
+                    ejectuarSQL(cmd);
+
+                    cmd2 = new SqlCommand(queryProyectos);
+                    cmd2.Parameters.AddWithValue("@id_proyecto", id_proyecto);
+                    ejectuarSQL(cmd);
+                }
+                return eliminado;
+                
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            
+
+
         }
 
      

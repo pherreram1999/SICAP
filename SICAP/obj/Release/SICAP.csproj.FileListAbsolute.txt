@@ -12,3 +12,8 @@ C:\Users\Pedro Herrera Luna\Desktop\SICAP\SICAP\obj\Release\SICAP.csprojAssembly
 C:\Users\Pedro Herrera Luna\Desktop\SICAP\SICAP\obj\Release\SICAP.csproj.CoreCompileInputs.cache
 C:\Users\Pedro Herrera Luna\Desktop\SICAP\SICAP\obj\Release\SICAP.dll
 C:\Users\Pedro Herrera Luna\Desktop\SICAP\SICAP\obj\Release\SICAP.pdb
+J:\SICAP\SICAP\bin\SICAP.dll.config
+J:\SICAP\SICAP\bin\SICAP.dll
+J:\SICAP\SICAP\bin\SICAP.pdb
+J:\SICAP\SICAP\obj\Release\SICAP.dll
+J:\SICAP\SICAP\obj\Release\SICAP.pdb

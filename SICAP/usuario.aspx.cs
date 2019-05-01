@@ -18,13 +18,28 @@ namespace SICAP
                 Response.Redirect("usuarios.aspx");
             }
 
+            if ((int)(Session["rol"]) != 1)
+            {
+                hlDesUsu.Visible = false;
 
-            
+            }
+            else if ((int)(Session["id_usuario"]) == int.Parse(Request.Params["id_usuario"]))
+            {
+                hlDesUsu.Visible = false;
+            }
+
             usu = new Modelos.Usuario();
+            usu.id_usuario = int.Parse(Request.Params["id_usuario"]);
+            if (!usu.IsHabiltado())
+            {
+                hlDesUsu.Visible = false;
+                hlHabUsu.Visible = true;
+                btnHabilitar.CssClass = "btn right disabled";
+                hlCambiarPass.CssClass = "btn disabled";
+            }
 
             if (!IsPostBack)
-            {
-                
+            {   
                 usu.id_usuario = int.Parse(Request.Params["id_usuario"]);
                 DataTable usuario = usu.traerUsuario();
                 imgPerfil.ImageUrl = (string) (usuario.Rows[0]["ruta"]);
@@ -37,16 +52,10 @@ namespace SICAP
                 ddlArea.SelectedItem.Text = (string)(usuario.Rows[0]["area"]);
                 ddlRol.SelectedItem.Text = (string)(usuario.Rows[0]["rol"]);
 
-                gvProyectosUsu.DataSource = usu.traerMisProyectos();
-                gvProyectosUsu.DataBind();
-
-                if((int)(Session["rol"]) == 1)
-                {
-                    hlEliminar.Visible = true;
-
-                }
-
                 
+
+                gvProyectosUsu.DataSource = usu.traerMisProyectos();
+                gvProyectosUsu.DataBind();                
             }
 
             if (ddlArea.Items.Count == 1)
@@ -95,9 +104,18 @@ namespace SICAP
         {
             if (fuPerfil.HasFile)
             {
-                usu.ruta = "./Imagenes/" + fuPerfil.FileName;
-                fuPerfil.SaveAs(Server.MapPath(".") + usu.ruta);
-                imgPerfil.ImageUrl = usu.ruta;
+                if (SICAP.Modelos.Usuario.validarExtensionImg(fuPerfil.FileName))
+                {
+                    usu.ruta = "./Imagenes/" + fuPerfil.FileName;
+                    fuPerfil.SaveAs(Server.MapPath(".") + usu.ruta);
+                    imgPerfil.ImageUrl = usu.ruta;
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        "alert('La imagen no tiene un formato valido; PNG,JPG o GIF');", true);
+                }
+                
             }
             else
             {
@@ -156,10 +174,23 @@ namespace SICAP
                         "alert('Contraseña actual incorrecta');", true);
             }
         }
+      
+        protected void btnDeshabilitarUusuario_Click1(object sender, EventArgs e)
+        {            
+            var usuario = new SICAP.Modelos.Usuario();
+            usuario.id_usuario = int.Parse(Request.Params["id_usuario"]);
+            usuario.deshabilitar();
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        string.Format("location.href='./usuario.aspx?id_usuario={0}'",Request.Params["id_usuario"]), true);
+        }
 
-        protected void btnEliminar_Click(object sender, EventArgs e)
+        protected void btnHabilitarUsuario_Click(object sender, EventArgs e)
         {
-
+            var usuario = new SICAP.Modelos.Usuario();
+            usuario.id_usuario = int.Parse(Request.Params["id_usuario"]);
+            usuario.habilitar();
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        string.Format("location.href='./usuario.aspx?id_usuario={0}'", Request.Params["id_usuario"]), true);
         }
     }
 }

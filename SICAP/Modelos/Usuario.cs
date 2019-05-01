@@ -54,7 +54,7 @@ namespace SICAP.Modelos
         {
             try
             {
-                string query = "SELECT id_usuario,rol, nombre,paterno,materno,ruta FROM usuarios WHERE email = @email AND contrasena = @contrasena";
+                string query = "SELECT id_usuario,rol, nombre,paterno,materno,ruta,id_activo FROM usuarios WHERE email = @email AND contrasena = @contrasena";
                 SqlCommand cmd = new SqlCommand(query);
                 cmd.Parameters.AddWithValue("@email", email);
                 cmd.Parameters.AddWithValue("@contrasena",Encriptar.GetSHA1(contrasena));
@@ -68,7 +68,7 @@ namespace SICAP.Modelos
                     materno = (string)(usuario.Rows[0]["materno"]);
                     ruta = (string)(usuario.Rows[0]["ruta"]);
                 }
-                return (usuario.Rows.Count > 0) ? true : false;
+                return (usuario.Rows.Count > 0 && (int)(usuario.Rows[0]["id_activo"]) == 1) ? true : false;
             }
             catch (Exception ex)
             {
@@ -322,19 +322,77 @@ namespace SICAP.Modelos
             }
         }
 
-        //public bool isBusy()
-        //{
-        //    try
-        //    {
+        public static bool validarExtensionImg(string nombreArchivo)
+        {
+            try
+            {
+                string extension = nombreArchivo.Split('.')[1];
+                bool extensionCorrecta = false;
+                if (extension == "jpg")
+                {
+                    extensionCorrecta = true;
+                }
+                else if (extension == "png")
+                {
+                    extensionCorrecta = true;
+                }
+                else if (extension == "gif")
+                {
+                    extensionCorrecta = true;
+                }
+                return extensionCorrecta;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
+        public int deshabilitar()
+        {
+            try
+            {
+                string query = "UPDATE usuarios SET id_activo = 2 WHERE id_usuario = @id_usuario";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@id_usuario",id_usuario);
+                return ejectuarSQL(cmd);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
-        //    }
-        //    catch (Exception ex)
-        //    {
+        public int habilitar()
+        {
+            try
+            {
+                string query = "UPDATE usuarios SET id_activo = 1 WHERE id_usuario = @id_usuario";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@id_usuario", id_usuario);
+                return ejectuarSQL(cmd);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
-        //        throw new Exception(ex.Message);
-        //    }
-        //}
+        public bool IsHabiltado()
+        {
+            try
+            {
+                string query = "SELECT id_activo FROM usuarios WHERE id_usuario = @id_usuario";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@id_usuario", id_usuario);
+                int activo = (int)(consulta(cmd).Rows[0]["id_activo"]);
+                return (activo == 1) ? true : false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
     }
 }

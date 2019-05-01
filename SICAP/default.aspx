@@ -41,6 +41,12 @@
         <div class="row">
             <div class="col s12 m4"></div>
             <div class="card-panel col s12 m4">
+
+                <div class="row fm">
+                    <div class="col s12 center-align">
+                        <img class="responsive-img" src="Recursos/logoSICAP.png" />
+                    </div>
+                </div>
                 
                 <div class="row fm">
 

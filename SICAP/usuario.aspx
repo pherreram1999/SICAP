@@ -2,8 +2,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="contenido card-panel animated fadeIn">
+
+    <div class="contenido">
         <div class="row">
+            <asp:HyperLink ID="hlDesUsu" NavigateUrl="#modalDeshabilitar" Text="Deshabilitar Usuario" CssClass="waves-effect waves-light btn-flat cyan white-text modal-trigger left" runat="server" />
+            <asp:HyperLink ID="hlHabUsu" Text="Habilitar Usuario" Visible = "false" NavigateUrl="#modalHabilitar" CssClass="waves-effect waves-light btn-flat green white-text modal-trigger right" runat="server" />
+        </div>
+    </div>
+
+    <div class="contenido card-panel animated fadeIn">
+        
+        <div class="row">
+
             <div class="col s12">
 
                 <asp:HyperLink Text="Volver Usuarios" NavigateUrl="~/usuarios.aspx" CssClass="left" runat="server" />                
@@ -12,13 +22,7 @@
                 <h4 class="section">Datos del usuario</h4>
                 <div class="divider"></div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col s12 m4">    
-                <asp:HyperLink runat="server" ID="hlEliminar"  Visible="false" CssClass="waves-effect waves-light btn modal-trigger" NavigateUrl="#eliminarUsu">Eliminar Usuario</asp:HyperLink>
-            </div>
-        </div>
+        </div>        
 
         <div class="row">
             <asp:Image ID="imgPerfil" ImageUrl="zImagenes/perflDefault.png" CssClass="imagen responsive-img circle col s4 m1" runat="server"/>
@@ -81,8 +85,7 @@
                 </asp:DropDownList>
             </div>
             <div class="input-field  col s12 m8">
-
-                <a class="waves-effect waves-light btn modal-trigger" href="#modal">Cambiar Contraseña</a>
+                <asp:HyperLink NavigateUrl="#modal" Text="Cambiar Contraseña" ID="hlCambiarPass" CssClass="waves-effect waves-light btn modal-trigger" runat="server" />                
             </div>
 
         </div>
@@ -168,23 +171,47 @@
         </div>
     </div>
 
-
-
-    <div id="eliminarUsu" class="modal">
+    
+    <div id="modalDeshabilitar" class="modal">
         <div class="modal-content">
             <%-- toda la estructura va aqui --%>
-            <h5 class="section"> <asp:Label Text= "¿Esta seguro de eliminar el usuario?" runat="server" /></h5>
+            <h5 class="section">¿ Seguro de deshabilitar el Usuario?</h5>
             <div class="divider"></div>
-            <p>
-                Nota: Tomar en cuenta que solo se puede eliminar el usuario si no esta relacionado con un proyecto Activo.
-            </p>
-
+            
+            <div class="row">
+                <h6>
+                    Recuerde que podra habilitar el usuario en cualquier momento
+                </h6>
+            </div>
         </div>
         <div class="modal-footer">
-            <asp:LinkButton Text="Eliminar" CssClass="modal-close white-text waves-effect waves-light btn-flat red" ID="btnEliminar" OnClick="btnEliminar_Click" runat="server" />
+            <asp:LinkButton Text="Deshabilitar Usuario" class="modal-close waves-effect waves-green btn-flat" OnClick="btnDeshabilitarUusuario_Click1" ID="btnDeshabilitarUusuario" runat="server" />
             <%--<a href="#!" >Agree</a>--%>
         </div>
     </div>
+
+    <div id="modalHabilitar" class="modal">
+        <div class="modal-content">
+            <%-- toda la estructura va aqui --%>
+            <h5 class="section">¿Desea habilitar el usuario?</h5>
+            <div class="divider"></div>
+            
+            <div class="row">
+                <h6>
+                    El usuario podra volver iniciar sesión.
+                </h6>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <asp:LinkButton Text="Habilitar Usuario" class="modal-close waves-effect waves-green btn-flat" OnClick="btnHabilitarUsuario_Click" ID="btnHabilitarUsuario" runat="server" />
+            <%--<a href="#!" >Agree</a>--%>
+        </div>
+    </div>
+
+
+
+
+ 
   
 
 </asp:Content>
