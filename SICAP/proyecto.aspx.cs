@@ -65,21 +65,24 @@ namespace SICAP
 
         protected void btnAgregarActividad_Click(object sender, EventArgs e)
         {
-            DateTime incial = DateTime.Parse(txtFechaInicialProyecto.Text);
-            DateTime final = DateTime.Parse(txtFechaFinalProyecto.Text);
-            DateTime fechaActividad = DateTime.Parse(txtfechaEntregaActividad.Text);
-            if (DateTime.Compare(fechaActividad, final) <= 0 && DateTime.Compare(fechaActividad, incial) >= 0)
+            if (!string.IsNullOrEmpty(txtNombreActividad.Text) && !string.IsNullOrEmpty(txtObservaciones.Text))
             {
-                string actividad = txtNombreActividad.Text.Trim() + "/" + txtObservacionesActividad.Text.Trim() + "/" + txtfechaEntregaActividad.Text;
-                lbxActividades.Items.Add(actividad);
-                txtNombreActividad.Text = null;
-                txtObservacionesActividad.Text = null;
-            }
-            else
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
-                                    "alert('La fecha de entrega de la actividad esta fuera del plazo del proyecto');", true);
-            }
+                DateTime incial = DateTime.Parse(txtFechaInicialProyecto.Text);
+                DateTime final = DateTime.Parse(txtFechaFinalProyecto.Text);
+                DateTime fechaActividad = DateTime.Parse(txtfechaEntregaActividad.Text);
+                if (DateTime.Compare(fechaActividad, final) <= 0 && DateTime.Compare(fechaActividad, incial) >= 0)
+                {
+                    string actividad = txtNombreActividad.Text.Trim() + "/" + txtObservacionesActividad.Text.Trim() + "/" + txtfechaEntregaActividad.Text;
+                    lbxActividades.Items.Add(actividad);
+                    txtNombreActividad.Text = null;
+                    txtObservacionesActividad.Text = null;
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                                        "alert('La fecha de entrega de la actividad esta fuera del plazo del proyecto');", true);
+                }
+            }                        
             
         }
 

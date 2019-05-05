@@ -23,12 +23,6 @@ J:\SICAP\SICAP\bin\SICAP.dll
 J:\SICAP\SICAP\bin\SICAP.pdb
 J:\SICAP\SICAP\obj\Debug\SICAP.dll
 J:\SICAP\SICAP\obj\Debug\SICAP.pdb
-E:\SICAP\SICAP\bin\SICAP.dll.config
-E:\SICAP\SICAP\bin\SICAP.dll
-E:\SICAP\SICAP\bin\SICAP.pdb
-E:\SICAP\SICAP\obj\Debug\SICAP.csprojResolveAssemblyReference.cache
-E:\SICAP\SICAP\obj\Debug\SICAP.dll
-E:\SICAP\SICAP\obj\Debug\SICAP.pdb
 C:\Users\Pedro Alonso\Documents\SICAP\SICAP\bin\SICAP.dll.config
 C:\Users\Pedro Alonso\Documents\SICAP\SICAP\bin\SICAP.dll
 C:\Users\Pedro Alonso\Documents\SICAP\SICAP\bin\SICAP.pdb
@@ -36,3 +30,9 @@ C:\Users\Pedro Alonso\Documents\SICAP\SICAP\obj\Debug\SICAP.csproj.CoreCompileIn
 C:\Users\Pedro Alonso\Documents\SICAP\SICAP\obj\Debug\SICAP.dll
 C:\Users\Pedro Alonso\Documents\SICAP\SICAP\obj\Debug\SICAP.pdb
 C:\Users\Pedro Alonso\Documents\SICAP\SICAP\obj\Debug\SICAP.csprojAssemblyReference.cache
+E:\SICAP\SICAP\bin\SICAP.dll.config
+E:\SICAP\SICAP\bin\SICAP.dll
+E:\SICAP\SICAP\bin\SICAP.pdb
+E:\SICAP\SICAP\obj\Debug\SICAP.dll
+E:\SICAP\SICAP\obj\Debug\SICAP.pdb
+E:\SICAP\SICAP\obj\Debug\SICAP.csprojResolveAssemblyReference.cache

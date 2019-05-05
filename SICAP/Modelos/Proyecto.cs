@@ -240,19 +240,19 @@ namespace SICAP.Modelos
 
                     SqlCommand cmd2 = new SqlCommand(queryRelaciones);
                     cmd2.Parameters.AddWithValue("@id_proyecto", id_proyecto);
-                    ejectuarSQL(cmd);
+                    int e  = ejectuarSQL(cmd2);
 
-                    cmd2 = new SqlCommand(queryAvances);
-                    cmd2.Parameters.AddWithValue("@id_proyecto", id_proyecto);
-                    ejectuarSQL(cmd);
+                    SqlCommand cmd3 = new SqlCommand(queryAvances);
+                    cmd3.Parameters.AddWithValue("@id_proyecto", id_proyecto);
+                    e = ejectuarSQL(cmd3);
 
-                    cmd2 = new SqlCommand(queryActividades);
-                    cmd2.Parameters.AddWithValue("@id_proyecto", id_proyecto);
-                    ejectuarSQL(cmd);
+                    SqlCommand cmd4 = new SqlCommand(queryActividades);
+                    cmd4.Parameters.AddWithValue("@id_proyecto", id_proyecto);
+                    e = ejectuarSQL(cmd4);
 
-                    cmd2 = new SqlCommand(queryProyectos);
-                    cmd2.Parameters.AddWithValue("@id_proyecto", id_proyecto);
-                    ejectuarSQL(cmd);
+                    SqlCommand cmd5 = new SqlCommand(queryProyectos);
+                    cmd5.Parameters.AddWithValue("@id_proyecto", id_proyecto);
+                    e = ejectuarSQL(cmd5);
                 }
                 return eliminado;
                 

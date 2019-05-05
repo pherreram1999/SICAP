@@ -18,17 +18,25 @@ namespace SICAP
                 Response.Redirect("usuarios.aspx");
             }
 
+            usu = new Modelos.Usuario();
+            usu.id_usuario = int.Parse(Request.Params["id_usuario"]);
             if ((int)(Session["rol"]) != 1)
             {
                 hlDesUsu.Visible = false;
 
             }
-            else if ((int)(Session["id_usuario"]) == int.Parse(Request.Params["id_usuario"]))
+            else if ((int)(Session["id_usuario"]) == int.Parse(Request.Params["id_usuario"]) || usu.isAdmin())
             {
-                hlDesUsu.Visible = false;
+                if ((int)(Session["id_usuario"]) != 1)
+                {
+                    hlDesUsu.Visible = false;                
+                }
+                else if ((int)(Session["id_usuario"]) == int.Parse(Request.Params["id_usuario"]))
+                {
+                    hlDesUsu.Visible = false;                
+                }
             }
 
-            usu = new Modelos.Usuario();
             usu.id_usuario = int.Parse(Request.Params["id_usuario"]);
             if (!usu.IsHabiltado())
             {
@@ -134,8 +142,7 @@ namespace SICAP
                 txtNombre.Enabled = true;
                 txtPaterno.Enabled = true;
                 txtTelefono.Enabled = true;
-                ddlArea.Enabled = true;
-                ddlRol.Enabled = true;
+                ddlArea.Enabled = true;                
                 btnRegisrar.Enabled = true;
                 fuPerfil.Enabled = true;
                 btnHabilitar.Text = "Cancelar Modificacion";

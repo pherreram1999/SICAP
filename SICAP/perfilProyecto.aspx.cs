@@ -122,7 +122,7 @@ namespace SICAP
             else
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
-                        "alert('El proyecto se encuentra actualmente activo'); location.href='./proyectos.aspx'", true);
+                        "alert('El proyecto se encuentra actualmente activo'); ", true);
             }
             
             

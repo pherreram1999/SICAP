@@ -394,5 +394,21 @@ namespace SICAP.Modelos
             }
         }
 
+        public bool isAdmin()
+        {
+            try
+            {
+                string query = "SELECT rol FROM usuarios WHERE id_usuario = @id_usuario";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@id_usuario",id_usuario);
+                bool r = (consulta(cmd).Rows[0]["rol"].ToString() == "1") ? true : false;
+                return r;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
     }
 }

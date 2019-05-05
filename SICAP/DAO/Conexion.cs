@@ -15,9 +15,8 @@ namespace SICAP.DAO
 
         public Conexion()
         {
-            cdnConexion = @"Data Source = DESKTOP-PB21R03\SQLEXPRESS;Initial Catalog= SICAP ;Trusted_Connection=True;";
+            cdnConexion = @"Data Source = .;Initial Catalog= SICAP ;Trusted_Connection=True;";
             //cdnConexion = @"Data Source = DESKTOP-PB21R03\SQLEXPRESS;Initial Catalog= SICAP ;user id = pedro; password = 14567524;";
-
             cnn = new SqlConnection(cdnConexion);
         }
 

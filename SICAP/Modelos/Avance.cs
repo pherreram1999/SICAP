@@ -153,6 +153,23 @@ namespace SICAP.Modelos
                 {
                     validado = true;
                 }
+                else if (extension == "pptx")
+                {
+                    validado = true;
+                }
+                else if (extension == "jpg")
+                {
+                    validado = true;
+                }
+                else if (extension == "xml")
+                {
+                    validado = true;
+                }
+                else if (extension == "png")
+                {
+                    validado = true;
+                }
+
                 return validado;
             }
             catch (Exception ex)
