@@ -108,12 +108,24 @@ namespace SICAP.Modelos
         {
             try
             {
-                string query = "SELECT p.id_proyecto, p.proyecto, p.fecha_registro, CAST(p.fecha_inicio AS VARCHAR) AS fecha_inicio" +
+                if (id_estatus == 4)
+                {
+                    string query = "SELECT p.id_proyecto, p.proyecto, p.fecha_registro, CAST(p.fecha_inicio AS VARCHAR) AS fecha_inicio" +
+                    ",CAST(p.fecha_final AS VARCHAR) AS fecha_final, e.estatus FROM proyectos" +
+                    " p INNER JOIN estatus e ON p.estatus = e.id_estatus";
+                    SqlCommand cmd = new SqlCommand(query);
+                    return consulta(cmd);
+                }
+                else
+                {
+                    string query = "SELECT p.id_proyecto, p.proyecto, p.fecha_registro, CAST(p.fecha_inicio AS VARCHAR) AS fecha_inicio" +
                     ",CAST(p.fecha_final AS VARCHAR) AS fecha_final, e.estatus FROM proyectos" +
                     " p INNER JOIN estatus e ON p.estatus = e.id_estatus WHERE p.estatus = @estatus";
-                SqlCommand cmd = new SqlCommand(query);
-                cmd.Parameters.AddWithValue("@estatus", id_estatus);
-                return consulta(cmd);                
+                    SqlCommand cmd = new SqlCommand(query);
+                    cmd.Parameters.AddWithValue("@estatus", id_estatus);
+                    return consulta(cmd);
+                }
+                
             }
             catch (Exception ex)
             {
@@ -206,6 +218,7 @@ namespace SICAP.Modelos
                 throw new Exception(ex.Message);
             }
         }
+        
 
         public int concluir()
         {
@@ -262,8 +275,29 @@ namespace SICAP.Modelos
                 throw new Exception(ex.Message);
             }
             
+        }
 
+        public DataTable buscar(string pro)
+        {
+            string query = "SELECT p.id_proyecto, p.proyecto, p.fecha_registro, CAST(p.fecha_inicio AS VARCHAR) AS fecha_inicio" +
+                    ",CAST(p.fecha_final AS VARCHAR) AS fecha_final, e.estatus FROM proyectos" +
+                    string.Format(" p INNER JOIN estatus e ON p.estatus = e.id_estatus WHERE p.proyecto LIKE '%{0}%'",pro);
+            return consulta(new SqlCommand(query));
+        }
 
+        public bool isActivo()
+        {
+            try
+            {
+                string query = "SELECT estatus FROM proyectos WHERE id_proyecto = @id_proyecto";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@id_proyecto",id_proyecto);
+                return (consulta(cmd).Rows[0]["estatus"].ToString() == "1") ? true : false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
      

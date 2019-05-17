@@ -42,5 +42,25 @@ namespace SICAP
             gvProyectos.DataSource = proyect.traerProyectos();
             gvProyectos.DataBind();          
         }
+
+        protected void btnCancelarBusqueda_Click(object sender, EventArgs e)
+        {
+            btnCancelarBusqueda.Visible = false;            
+            SICAP.Modelos.Proyecto proyect = new SICAP.Modelos.Proyecto();
+            proyect.id_estatus = int.Parse(dllEstatus.SelectedValue);
+            gvProyectos.DataSource = proyect.traerProyectos();
+            gvProyectos.DataBind();
+            txtBusqueda.Text = string.Empty;
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            var p = new SICAP.Modelos.Proyecto();
+            btnCancelarBusqueda.Visible = Visible;
+            gvProyectos.DataSource = p.buscar(txtBusqueda.Text);
+            gvProyectos.DataBind();
+
+        }
+
     }
 }

@@ -16,28 +16,26 @@ namespace SICAP
             if(Request.Params["id_usuario"] == null)
             {
                 Response.Redirect("usuarios.aspx");
-            }
-
-            usu = new Modelos.Usuario();
-            usu.id_usuario = int.Parse(Request.Params["id_usuario"]);
-            if ((int)(Session["rol"]) != 1)
+            } 
+            else if(new SICAP.Modelos.Proyecto().comprobarExistencia("usuarios","id_usuario",int.Parse(Request.Params["id_usuario"])))
             {
-                hlDesUsu.Visible = false;
-
-            }
-            else if ((int)(Session["id_usuario"]) == int.Parse(Request.Params["id_usuario"]) || usu.isAdmin())
-            {
-                if ((int)(Session["id_usuario"]) != 1)
+                usu = new SICAP.Modelos.Usuario();
+                usu.id_usuario = int.Parse(Request.Params["id_usuario"]);
+                if (usu.isAdmin() && (int)(Session["id_usuario"]) != 1)
                 {
-                    hlDesUsu.Visible = false;                
-                }
-                else if ((int)(Session["id_usuario"]) == int.Parse(Request.Params["id_usuario"]))
-                {
-                    hlDesUsu.Visible = false;                
+                    btnHabilitar.CssClass = "btn disabled right";
+                    hlDesUsu.Visible = false;
+                    hlHabUsu.Visible = false;
+                    hlCambiarPass.CssClass = "btn disabled left";
                 }
             }
+            else
+            {
+                Response.Redirect("usuarios.aspx");
+            }
+            usu = new Modelos.Usuario();                    
+            usu.id_usuario = int.Parse(Request.Params["id_usuario"]);            
 
-            usu.id_usuario = int.Parse(Request.Params["id_usuario"]);
             if (!usu.IsHabiltado())
             {
                 hlDesUsu.Visible = false;

@@ -25,7 +25,6 @@
         padding:24px;
     }
 
-
     </style>
 </head>
 <body>

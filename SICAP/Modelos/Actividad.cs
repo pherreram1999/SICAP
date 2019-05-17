@@ -60,5 +60,21 @@ namespace SICAP.Modelos
                 throw new Exception(ex.Message);
             }
         }
+
+        public int cambiarEstatus(int e)
+        {
+            try
+            {
+                string query = "UPDATE actividades SET estatus = @estatus WHERE id_actividad = @id_actividad";
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@estatus", e);
+                cmd.Parameters.AddWithValue("@id_actividad", id_actividad);
+                return ejectuarSQL(cmd);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

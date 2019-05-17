@@ -16,5 +16,22 @@ namespace SICAP
             gvUsurios.DataSource = usu.traerUsuarios();
             gvUsurios.DataBind();
         }
+
+        protected void btnCancelarBusqueda_Click(object sender, EventArgs e)
+        {
+            usu = new SICAP.Modelos.Usuario();
+            gvUsurios.DataSource = usu.traerUsuarios();
+            txtBusqueda.Text = string.Empty;
+            gvUsurios.DataBind();
+            btnCancelarBusqueda.Visible = false;
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            btnCancelarBusqueda.Visible = true;
+            var u = new SICAP.Modelos.Usuario();
+            gvUsurios.DataSource = u.buscar(txtBusqueda.Text.Trim());
+            gvUsurios.DataBind();
+        }
     }
 }

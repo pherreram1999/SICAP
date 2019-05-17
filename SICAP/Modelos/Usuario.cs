@@ -410,5 +410,18 @@ namespace SICAP.Modelos
             }
         }
 
+        public DataTable buscar(string usu)
+        {
+            try
+            {
+                string query = string.Format("SELECT * FROM usuarios WHERE CONCAT(nombre,' ',paterno,' ',materno) LIKE '%{0}%'", usu);
+                return consulta(new SqlCommand(query));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }            
+        }
+
     }
 }

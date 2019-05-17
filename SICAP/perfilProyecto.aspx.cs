@@ -16,17 +16,24 @@ namespace SICAP
             if (Request.Params["id_proyecto"] == null)
             {
                 Response.Redirect("proyectos.aspx");
-
+            }
+            else
+            {
+                var pro = new SICAP.Modelos.Proyecto();
+                if (!pro.comprobarExistencia("proyectos","id_proyecto",int.Parse(Request.Params["id_proyecto"])))
+                {
+                    Response.Redirect("misProyectos.aspx");
+                }
             }
             if ((int)(Session["rol"]) == 2)
-            {
+            {                
                 dllEstatus.Visible = false;
                 btnEstatus.Visible = false;
                 lblEstatus.Visible = false;
                 eliminarBoton.Visible = false;
                 hlEliminarProyecto.Visible = false;
             }
-            
+                       
 
             if (!IsPostBack)
             {
@@ -102,6 +109,15 @@ namespace SICAP
             dllEstatus.Enabled = false;
             btnEstatus.CssClass = "btn";
             btnEstatus.Text = "Modificar estatus";
+            var actividad = new SICAP.Modelos.Actividad();
+            foreach (GridViewRow row in gvActividades.Rows)
+            {
+                actividad.id_actividad = int.Parse(row.Cells[0].Text);
+                actividad.cambiarEstatus(int.Parse(dllEstatus.SelectedValue));
+            }
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        string.Format("location.href= './perfilProyecto.aspx?id_proyecto={0}';",Request.Params["id_proyecto"]), true);
+            
         }
 
         protected void btnAvances_Click(object sender, EventArgs e)

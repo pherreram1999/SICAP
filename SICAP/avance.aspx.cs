@@ -17,6 +17,30 @@ namespace SICAP
             {
                 Response.Redirect("misProyectos.aspx");
             }
+            else
+            {
+                var av = new SICAP.Modelos.Avance();
+                av.id_usuario = (int)(Session["id_usuario"]);
+                if (!av.pertenenAlproyecto())
+                {
+                    Response.Redirect("misProyectos.aspx");
+                }
+                else if(av.comprobarExistencia("proyectos","id_proyecto",int.Parse(Request.Params["id_proyecto"])))
+                {
+                    var p = new SICAP.Modelos.Proyecto();
+                    p.id_proyecto = int.Parse(Request.Params["id_proyecto"]);
+                    if (!p.isActivo())
+                    {
+                        Response.Redirect("misProyectos.aspx");
+                    }
+                } 
+                else 
+                {
+                    Response.Redirect("misProyectos.aspx");
+                }
+                
+               
+            }
                                
             
             if (!IsPostBack)

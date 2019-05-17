@@ -36,3 +36,9 @@ E:\SICAP\SICAP\bin\SICAP.pdb
 E:\SICAP\SICAP\obj\Debug\SICAP.dll
 E:\SICAP\SICAP\obj\Debug\SICAP.pdb
 E:\SICAP\SICAP\obj\Debug\SICAP.csprojResolveAssemblyReference.cache
+E:\SICAP-master\SICAP\bin\SICAP.dll.config
+E:\SICAP-master\SICAP\bin\SICAP.dll
+E:\SICAP-master\SICAP\bin\SICAP.pdb
+E:\SICAP-master\SICAP\obj\Debug\SICAP.dll
+E:\SICAP-master\SICAP\obj\Debug\SICAP.pdb
+E:\SICAP-master\SICAP\obj\Debug\SICAP.csprojResolveAssemblyReference.cache

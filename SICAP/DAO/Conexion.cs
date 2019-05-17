@@ -63,5 +63,27 @@ namespace SICAP.DAO
             }
             
         }
+
+        public bool comprobarExistencia(string tabla, string parametro, int id, string valor = null)
+        {
+            try
+            {
+                string query;
+                if (valor == null)
+                {
+                    query = string.Format("SELECT * FROM {0} WHERE {1} = {2}", tabla, parametro, id);
+                }
+                else
+                {
+                    query = string.Format("SELECT * FROM {0} WHERE {1} = '{2}", tabla, parametro, valor);
+                }
+                SqlCommand cmd = new SqlCommand(query);
+                return (consulta(cmd).Rows.Count > 0) ? true : false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

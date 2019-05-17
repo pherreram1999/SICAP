@@ -60,6 +60,8 @@ namespace SICAP
             else
             {
                 usu.guardar();
+                SICAP.Utelirias.Correo.EnviarCorreo(txtEmail.Text,"Registro SICAP",string.Format("Buen dia,<strong>{0}</strong>,<br /> tu correo es: {1} <br /> tu contraseña es: {2} <br /> con estas credenciales podras acceder al sistema",
+                    txtNombre.Text.Trim() + " " + txtPaterno.Text.Trim() + " " + txtMaterno.Text.Trim(),txtEmail.Text.Trim(),txtContrasena.Text));
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
                         "alert('usuario guardado correctamente'); location.href='./usuarios.aspx'", true);
             }
