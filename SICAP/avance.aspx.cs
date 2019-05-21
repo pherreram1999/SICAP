@@ -64,7 +64,7 @@ namespace SICAP
             avan.observaciones = txtObservaciones.Text;
             avan.id_proyecto = int.Parse(Request.Params["id_proyecto"]);
             avan.id_usuario = (int)(Session["id_usuario"]);
-            avan.id_actividad = int.Parse(char.ToString(dllActividades.SelectedItem.Text[0]));
+            avan.id_actividad = int.Parse(dllActividades.SelectedItem.Text.Split('-')[0].Trim());
             
 
             if (fuArchivos.HasFile)

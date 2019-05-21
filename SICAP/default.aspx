@@ -9,6 +9,7 @@
     <title>Inicio</title>
     <link href="Recursos/materialize.css" rel="stylesheet" />
     <link href="Recursos/material-icons.css" rel="stylesheet" />
+    <link href="Recursos/animate.css" rel="stylesheet" />
 
     <style>
 
@@ -35,11 +36,11 @@
 
     </style>
 </head>
-<body class="grey lighten-2">
-    <form id="form1" runat="server">
+<body  id="fondo">
+    <form id="form1" runat="server"  autocomplete="off">
     <div class="container">
         <div class="row">
-            <div class="col s12 m4"></div>
+            <div class="col s12 m4 animated fadeInUp"></div>
             <div class="card-panel col s12 m4">
 
                 <div class="row fm">
@@ -79,6 +80,11 @@
         document.addEventListener('DOMContentLoaded', function () {
             M.AutoInit();
         });
+    </script>
+    <script>
+        var fondo = document.getElementById("fondo");
+        var imagen = Math.floor((Math.random() * 10) + 1) + ".jpg";
+        fondo.setAttribute("style", "background: url(Fondos/" + imagen + "); background-size: cover;")
     </script>
 </body>
 </html>

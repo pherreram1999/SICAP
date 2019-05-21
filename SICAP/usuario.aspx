@@ -70,7 +70,7 @@
             </div>
             <div class="input-field col s12 m4">
                 <i class="material-icons prefix">phone</i>
-                <asp:TextBox ID="txtTelefono" Enabled="false" TextMode="Phone" runat="server"  required ="required" CssClass="validate"></asp:TextBox>
+                <asp:TextBox ID="txtTelefono" Enabled="false" TextMode="Phone" runat="server" MaxLength = "12"  required ="required" CssClass="validate"></asp:TextBox>
                 <asp:Label Text="Numero telefonico" AssociatedControlID="txtTelefono" runat="server" />
             </div>
 
@@ -84,9 +84,7 @@
                     <asp:ListItem Text="Usuario" />
                 </asp:DropDownList>
             </div>
-            <div class="input-field  col s12 m8">
-                <asp:HyperLink NavigateUrl="#modal" Text="Cambiar Contraseña" ID="hlCambiarPass" CssClass="waves-effect waves-light btn modal-trigger" runat="server" />                
-            </div>
+         
 
         </div>
 
@@ -142,34 +140,6 @@
     </div>
 
 
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <%-- toda la estructura va aqui --%>
-            <h5 class="section">Cambiar Contraseña</h5>
-            <div class="divider"></div>
-            <p class="section">
-                Favor de ingresar tu actual contraseña y confirmar la nueva contraseña
-            </p>
-            <div class="row">
-                <div class="input-field col s12 m4">
-                    <asp:Label Text="Contraseña Actual" AssociatedControlID="txtOldContrasena" runat="server" />
-                    <asp:TextBox runat="server" TextMode="Password" ID="txtOldContrasena" />
-                </div>
-                <div class="input-field col s12 m4">
-                    <asp:Label Text="Nueva Contraseña" AssociatedControlID="txtNewContrasena" runat="server" />
-                    <asp:TextBox runat="server" TextMode="Password" ID="txtNewContrasena" />
-                </div>
-                <div class="input-field col s12 m4">
-                    <asp:Label Text="Confirmar Contraseña" AssociatedControlID="txtConfirmarContrasena"  runat="server" />
-                    <asp:TextBox runat="server" ID="txtConfirmarContrasena" TextMode="Password" />
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <asp:LinkButton Text="Cambiar Contraseña" class="modal-close waves-effect waves-green btn-flat" OnClick="btnCambiarContrasena_Click" ID="btnCambiarContrasena" runat="server" />
-            <%--<a href="#!" >Agree</a>--%>
-        </div>
-    </div>
 
     
     <div id="modalDeshabilitar" class="modal">

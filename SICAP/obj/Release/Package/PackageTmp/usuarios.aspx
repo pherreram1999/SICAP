@@ -7,6 +7,24 @@
         <h5 class="section">Usuarios</h5>
         <div class="divider"></div>
 
+        <div class="row">            
+            <div class="col s12 m1">
+                <br />
+                <p>Buscar usuario</p>
+            </div>
+            <div class="col s12 m6 input-field">
+                <asp:Label Text="Nombre del proyecto" AssociatedControlID="txtBusqueda" runat="server" />
+                <asp:TextBox ID="txtBusqueda" runat="server" />                
+            </div>
+            
+            <div class="col s12 m3">
+                <br />            
+                <asp:LinkButton CssClass="btn-flat cyan left white-text" ID="btnBuscar" OnClick="btnBuscar_Click" runat="server" ><i class="material-icons center">search</i></asp:LinkButton>
+                <asp:LinkButton Text="Cancelar busqueda" Visible ="false" ID="btnCancelarBusqueda" OnClick="btnCancelarBusqueda_Click" runat="server" />
+            </div>
+
+        </div>
+
         <asp:GridView ID="gvUsurios" CssClass="responsive-table" runat="server"
          DataKeyNames="id_usuario"  AutoGenerateColumns="false" >
         <Columns>

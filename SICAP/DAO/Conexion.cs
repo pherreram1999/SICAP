@@ -15,8 +15,9 @@ namespace SICAP.DAO
 
         public Conexion()
         {
-            cdnConexion = @"Data Source = .;Initial Catalog= SICAP ;Trusted_Connection=True;";
-            //cdnConexion = @"Data Source = DESKTOP-PB21R03\SQLEXPRESS;Initial Catalog= SICAP ;user id = pedro; password = 14567524;";
+            //cdnConexion = @"Data Source = DESKTOP-OBT5H6B\SQLEXPRESS;Initial Catalog= SICAP ;Trusted_Connection=True;";
+            cdnConexion = @"Data Source = DESKTOP-OBT5H6B\SQLEXPRESS;Initial Catalog= SICAP ;user id = sa; password = 14567524;";
+            //cdnConexion = "workstation id=SICAP-BD.mssql.somee.com;packet size=4096;user id=pherrera_SQLLogin_1;pwd=zc2xu45qfr;data source=SICAP-BD.mssql.somee.com;persist security info=False;initial catalog=SICAP-BD";
             cnn = new SqlConnection(cdnConexion);
         }
 

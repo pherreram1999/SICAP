@@ -26,7 +26,14 @@ namespace SICAP
                     btnHabilitar.CssClass = "btn disabled right";
                     hlDesUsu.Visible = false;
                     hlHabUsu.Visible = false;
-                    hlCambiarPass.CssClass = "btn disabled left";
+                    
+                }
+                else if(int.Parse(Request.Params["id_usuario"]) == (int)(Session["id_usuario"]))
+                {
+                    btnHabilitar.CssClass = "btn disabled right";
+                    hlDesUsu.Visible = false;
+                    hlHabUsu.Visible = false;
+                    
                 }
             }
             else
@@ -41,7 +48,7 @@ namespace SICAP
                 hlDesUsu.Visible = false;
                 hlHabUsu.Visible = true;
                 btnHabilitar.CssClass = "btn right disabled";
-                hlCambiarPass.CssClass = "btn disabled";
+                
             }
 
             if (!IsPostBack)
@@ -86,17 +93,24 @@ namespace SICAP
             usu.telefono = txtTelefono.Text.Trim();
             usu.ruta = imgPerfil.ImageUrl;
             usu.area = usu.asignarArea(ddlArea.Text);
-            usu.rol = (ddlRol.Text == "Administrador") ? 1 : 2; 
+            usu.rol = (ddlRol.Text == "Administrador") ? 1 : 2;
+            SICAP.Utelirias.Validacion val = new SICAP.Utelirias.Validacion();
 
-            if (!usu.correoExistente())
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
-                        "alert('correo electronico ya registrado')", true);
-            }
-            else if (ddlRol.Text == "Elija rol de usuario" || ddlArea.Text == "Elija area")
+
+            if (ddlRol.Text == "Elija rol de usuario" || ddlArea.Text == "Elija area")
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
                         "alert('Favor de completar todos los campos')", true);
+            }
+            else if (val.hasAnumber(txtNombre.Text) || val.hasAnumber(txtPaterno.Text) || val.hasAnumber(txtMaterno.Text))
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        "alert('El campo de nombre solo puede contener letras, no numeros')", true);
+            }
+            else if (!val.hasAnumber(txtTelefono.Text))
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        "alert('El campo de telefono solo puede tener numeros')", true);
             }
             else
             {
@@ -140,9 +154,13 @@ namespace SICAP
                 txtNombre.Enabled = true;
                 txtPaterno.Enabled = true;
                 txtTelefono.Enabled = true;
-                ddlArea.Enabled = true;                
                 btnRegisrar.Enabled = true;
                 fuPerfil.Enabled = true;
+                if((int)(Session["id_usuario"]) == 1)
+                {
+                    ddlRol.Enabled = true;
+                }
+                ddlArea.Enabled = true;
                 btnHabilitar.Text = "Cancelar Modificacion";
                 btnHabilitar.CssClass = " btn red white-text right";
             }
@@ -152,33 +170,6 @@ namespace SICAP
             }
         }
 
-        protected void btnCambiarContrasena_Click(object sender, EventArgs e)
-        {
-            usu.contrasena = txtOldContrasena.Text;
-            usu.id_usuario = int.Parse(Request.Params["id_usuario"]);
-            if (usu.validarPass())
-            {
-                if(txtNewContrasena.Text == txtConfirmarContrasena.Text)
-                {
-                    
-                    usu.CambiarPass(txtNewContrasena.Text);
-                    Session["id_usuario"] = null;
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
-                        "alert('Contraseña cambiada correctamente, favor de iniciar sesión con tu nueva contrasena'); location.href= './default.aspx'", true);
-                    
-                }
-                else
-                {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
-                        "alert('Las contraseñas no coinciden');", true);
-                }
-            }
-            else
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
-                        "alert('Contraseña actual incorrecta');", true);
-            }
-        }
       
         protected void btnDeshabilitarUusuario_Click1(object sender, EventArgs e)
         {            

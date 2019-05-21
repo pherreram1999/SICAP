@@ -63,6 +63,16 @@
     <Content Include="avance.aspx" />
     <Content Include="avances.aspx" />
     <Content Include="default.aspx" />
+    <Content Include="Fondos\1.jpg" />
+    <Content Include="Fondos\10.jpg" />
+    <Content Include="Fondos\2.jpg" />
+    <Content Include="Fondos\3.jpg" />
+    <Content Include="Fondos\4.jpg" />
+    <Content Include="Fondos\5.jpg" />
+    <Content Include="Fondos\6.jpg" />
+    <Content Include="Fondos\7.jpg" />
+    <Content Include="Fondos\8.jpg" />
+    <Content Include="Fondos\9.jpg" />
     <Content Include="Imagenes\default.png" />
     <Content Include="misProyectos.aspx" />
     <Content Include="perfilAvance.aspx" />
@@ -211,6 +221,7 @@
     <Compile Include="Utelirias\Correo.cs" />
     <Compile Include="Utelirias\Encriptar.cs" />
     <Compile Include="Utelirias\GenerarPass.cs" />
+    <Compile Include="Utelirias\Validacion.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Documentos\" />

@@ -6,7 +6,13 @@
         <h5 class="section">Datos del proyecto</h5>
         <div class="divider"></div>
         <div class="section"></div>
-        <asp:LinkButton ID="btnAvances" OnClick="btnAvances_Click" CssClass="btn right" Text="Avances" runat="server" />
+        <div class="row">
+            <div class="col s12">
+                <asp:LinkButton ID="btnAvances" OnClick="btnAvances_Click" CssClass="btn right" Text="Avances" runat="server" />                
+                <asp:HyperLink NavigateUrl="#modal" ID="hlEliminarProyecto" Text="Eliminar Proyecto" CssClass="btn-flat red left modal-trigger" runat="server" />
+            </div>
+        </div>
+
         <div class="row">
             <div class="input-field col s12 m4 ">
                 <asp:Label Text="Estatus del Proyecto" ID="lblEstatus" runat="server" />
@@ -74,6 +80,17 @@
         </div>
 
     </div>
+
+    <div id="modal" class="modal">
+    <div class="modal-content">
+      <h4 class="section">¿Seguro que desea eliminar el proyecto?</h4>
+        <div class="divider"></div>
+      <p class="section">Todos los avances y actvidades del proyecto se perderan por completo</p>
+    </div>
+    <div class="modal-footer">        
+        <asp:LinkButton CssClass="modal-close waves-effect waves-red btn-flat" OnClick="eliminarBoton_Click"  Text="Eliminar" ID="eliminarBoton"  runat="server" />
+    </div>
+  </div>
 
     <script src="Utelirias/PerfilProyecto.js"></script>
 </asp:Content>

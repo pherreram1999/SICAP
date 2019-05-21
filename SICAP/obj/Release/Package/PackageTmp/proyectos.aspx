@@ -12,6 +12,39 @@
         </div>
 
         <div class="row">
+            <div class="col s12 m1">
+                <p>Mostrar proyectos</p>
+            </div>
+            <div class="col s12 m4">
+                <asp:DropDownList ID="dllEstatus" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dllEstatus_SelectedIndexChanged">                    
+                    <asp:ListItem Text="Todos" Value="4" />
+                    <asp:ListItem Text="Activo" Value="1" />
+                    <asp:ListItem Text="Concluido" Value="2" />
+                    <asp:ListItem Text="Cancelado" Value="3" />
+                </asp:DropDownList>      
+            </div>
+        </div>
+        
+        <div class="row">            
+            <div class="col s12 m1">
+                <br />
+                <p>Buscar proyecto</p>
+            </div>
+            <div class="col s12 m6 input-field">
+                <asp:Label Text="Nombre del proyecto" AssociatedControlID="txtBusqueda" runat="server" />
+                <asp:TextBox ID="txtBusqueda" runat="server" />                
+            </div>
+            
+            <div class="col s12 m3">
+                <br />            
+                <asp:LinkButton CssClass="btn-flat cyan left white-text" ID="btnBuscar" OnClick="btnBuscar_Click" runat="server" ><i class="material-icons center">search</i></asp:LinkButton>
+                <asp:LinkButton Text="Cancelar busqueda" Visible ="false" ID="btnCancelarBusqueda" OnClick="btnCancelarBusqueda_Click" runat="server" />
+            </div>
+
+        </div>
+                
+
+        <div class="row">
             <div class="col s12">
                 <asp:GridView ID="gvProyectos" DataKeyNames="id_proyecto" AutoGenerateColumns="false" runat="server">
                     <Columns>
@@ -21,8 +54,7 @@
                         <asp:BoundField DataField="fecha_inicio" HeaderText ="Incio" />
                         <asp:BoundField DataField="fecha_final" HeaderText="Termino" />
                         <asp:BoundField DataField="estatus" HeaderText="Estatus" />
-                        <asp:HyperLinkField DataNavigateUrlFields="id_proyecto"  DataNavigateUrlFormatString="perfilProyecto.aspx?id_proyecto={0}" Text="ver datos" />
-                        
+                        <asp:HyperLinkField DataNavigateUrlFields="id_proyecto"  DataNavigateUrlFormatString="perfilProyecto.aspx?id_proyecto={0}" Text="ver datos" />                        
                     </Columns>
                 </asp:GridView>
             </div>

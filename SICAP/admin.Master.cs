@@ -30,10 +30,6 @@ namespace SICAP
                        js, true);
             }
 
-            if (!IsPostBack)
-            {
-                hlMiPerfil.NavigateUrl = "usuario.aspx?id_usuario=" + (int)(Session["id_usuario"]); 
-            }
 
             string nombreUsuario = (string)(Session["nombre"]) + " " + (string)(Session["paterno"]) + " " + (string)(Session["materno"]);
             lblNombreUsuario.Text = nombreUsuario;

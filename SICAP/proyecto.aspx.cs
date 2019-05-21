@@ -96,7 +96,7 @@ namespace SICAP
 
             foreach(ListItem item in lbxUsuariosSeleccionados.Items) // con esto asignamos los usuarios al proyecto
             {
-                int usuario = int.Parse(char.ToString(item.Text[0]));                
+                int usuario = int.Parse(item.Text.Split('-')[0].Trim());                
                 proyect.usuarios.Add(usuario);
             }
 

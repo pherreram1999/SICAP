@@ -56,7 +56,7 @@
             </div>
             <div class="input-field col s12 m4">
                 <i class="material-icons prefix">phone</i>
-                <asp:TextBox ID="txtTelefono" TextMode="Phone" runat="server"  required ="required" CssClass="validate"></asp:TextBox>
+                <asp:TextBox ID="txtTelefono" TextMode="Phone" runat="server" MaxLength="12" required ="required" CssClass="validate"></asp:TextBox>
                 <asp:Label Text="Numero telefonico" AssociatedControlID="txtTelefono" runat="server" />
             </div>
 
@@ -70,16 +70,7 @@
                     <asp:ListItem Text="Usuario" />
                 </asp:DropDownList>
             </div>
-            <div class="input-field col s12 m4">
-                <i class="material-icons prefix">vpn_key</i>
-                <asp:TextBox ID="txtContrasena" CssClass="validate" TextMode="Password" required="required" runat="server"></asp:TextBox>
-                <asp:Label ID="lblContrasena" AssociatedControlID="txtContrasena" runat="server" Text="Contrasena"></asp:Label>
-            </div>
-            <div class="input-field col s12 m4">
-                <i class="material-icons prefix">vpn_key</i>
-                <asp:TextBox ID="txtConfirmarContrasena" TextMode="Password" CssClass="validate" required="required" runat="server"></asp:TextBox>
-                <asp:Label Text="Confirmar contraseña" AssociatedControlID="txtConfirmarContrasena" runat="server" />
-            </div>
+     
         </div>
 
         <div class="row">

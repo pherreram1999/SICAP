@@ -17,8 +17,8 @@
             <div class="col s12 m6">
                 <div class="row">
                     <div class="input-field col s12">
-                        <asp:Label Text="Nombre del area" AssociatedControlID="txtArea" runat="server" />
-                        <asp:TextBox runat="server" ID="txtArea"/>
+                        <asp:Label Text="Nombre del area"  AssociatedControlID="txtArea" runat="server" />
+                        <asp:TextBox runat="server" required ="required" ID="txtArea"/>
                     </div>                   
                 </div>
                 <div class="row">

@@ -36,34 +36,40 @@ namespace SICAP
             usu.materno = txtMaterno.Text.Trim();
             usu.email = txtEmail.Text.Trim();
             usu.especialidad = txtEspecialidad.Text.Trim();
-            usu.contrasena = txtContrasena.Text.Trim();
+            usu.contrasena = SICAP.Utelirias.GenerarPass.get();
             usu.telefono = txtTelefono.Text.Trim();
             usu.ruta = imgPerfil.ImageUrl;
             usu.area = usu.asignarArea(ddlArea.Text);
             usu.rol = (ddlRol.Text == "Administrador") ? 1 : 2;
+            SICAP.Utelirias.Validacion val = new SICAP.Utelirias.Validacion();
 
             if (usu.correoExistente())
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
                         "alert('correo electronico ya registrado')", true);
             }
-            else if (txtContrasena.Text.Trim() != txtConfirmarContrasena.Text.Trim())
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
-                        "alert('las contraseñas no coinciden')", true);
-            }
             else if (ddlRol.Text == "Elija rol de usuario" || ddlArea.Text == "Elija area")
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
                         "alert('Favor de completar todos los campos')", true);
             }
+            else if(val.hasAnumber(txtNombre.Text) || val.hasAnumber(txtPaterno.Text) || val.hasAnumber(txtMaterno.Text))
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        "alert('El campo de nombre solo puede contener letras, no numeros')", true);
+            }
+            else if (!val.hasAnumber(txtTelefono.Text))
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
+                        "alert('El campo de telefono solo puede tener numeros')", true);
+            }
             else
             {
                 usu.guardar();
                 SICAP.Utelirias.Correo.EnviarCorreo(txtEmail.Text,"Registro SICAP",string.Format("Buen dia,<strong>{0}</strong>,<br /> tu correo es: {1} <br /> tu contraseña es: {2} <br /> con estas credenciales podras acceder al sistema",
-                    txtNombre.Text.Trim() + " " + txtPaterno.Text.Trim() + " " + txtMaterno.Text.Trim(),txtEmail.Text.Trim(),txtContrasena.Text));
+                    txtNombre.Text.Trim() + " " + txtPaterno.Text.Trim() + " " + txtMaterno.Text.Trim(),txtEmail.Text.Trim(), usu.contrasena));
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "mensaje",
-                        "alert('usuario guardado correctamente'); location.href='./usuarios.aspx'", true);
+                        "alert('usuario guardado correctamente,se han enviado las credenciales a su correo electronico'); location.href='./usuarios.aspx'", true);
             }
         }
 

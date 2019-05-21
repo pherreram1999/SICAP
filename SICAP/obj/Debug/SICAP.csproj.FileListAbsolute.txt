@@ -42,3 +42,16 @@ E:\SICAP-master\SICAP\bin\SICAP.pdb
 E:\SICAP-master\SICAP\obj\Debug\SICAP.dll
 E:\SICAP-master\SICAP\obj\Debug\SICAP.pdb
 E:\SICAP-master\SICAP\obj\Debug\SICAP.csprojResolveAssemblyReference.cache
+C:\Users\pherreram1600\Documents\SICAP\SICAP\bin\SICAP.dll.config
+C:\Users\pherreram1600\Documents\SICAP\SICAP\bin\SICAP.dll
+C:\Users\pherreram1600\Documents\SICAP\SICAP\bin\SICAP.pdb
+C:\Users\pherreram1600\Documents\SICAP\SICAP\obj\Debug\SICAP.csproj.CoreCompileInputs.cache
+C:\Users\pherreram1600\Documents\SICAP\SICAP\obj\Debug\SICAP.dll
+C:\Users\pherreram1600\Documents\SICAP\SICAP\obj\Debug\SICAP.pdb
+D:\SICAP\SICAP\bin\SICAP.dll.config
+D:\SICAP\SICAP\bin\SICAP.dll
+D:\SICAP\SICAP\bin\SICAP.pdb
+D:\SICAP\SICAP\obj\Debug\SICAP.csprojAssemblyReference.cache
+D:\SICAP\SICAP\obj\Debug\SICAP.csproj.CoreCompileInputs.cache
+D:\SICAP\SICAP\obj\Debug\SICAP.dll
+D:\SICAP\SICAP\obj\Debug\SICAP.pdb

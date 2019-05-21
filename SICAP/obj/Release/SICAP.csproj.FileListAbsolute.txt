@@ -17,3 +17,10 @@ J:\SICAP\SICAP\bin\SICAP.dll
 J:\SICAP\SICAP\bin\SICAP.pdb
 J:\SICAP\SICAP\obj\Release\SICAP.dll
 J:\SICAP\SICAP\obj\Release\SICAP.pdb
+C:\Users\pherreram1600\Documents\SICAP\SICAP\bin\SICAP.dll.config
+C:\Users\pherreram1600\Documents\SICAP\SICAP\bin\SICAP.dll
+C:\Users\pherreram1600\Documents\SICAP\SICAP\bin\SICAP.pdb
+C:\Users\pherreram1600\Documents\SICAP\SICAP\obj\Release\SICAP.csprojAssemblyReference.cache
+C:\Users\pherreram1600\Documents\SICAP\SICAP\obj\Release\SICAP.csproj.CoreCompileInputs.cache
+C:\Users\pherreram1600\Documents\SICAP\SICAP\obj\Release\SICAP.dll
+C:\Users\pherreram1600\Documents\SICAP\SICAP\obj\Release\SICAP.pdb
